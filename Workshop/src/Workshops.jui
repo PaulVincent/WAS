@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0" language="jambi">
+ <class>Workshops</class>
+ <widget class="QDialog" name="Workshops">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>502</width>
+    <height>239</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Existing Workshops</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>logo_gik.png</normaloff>logo_gik.png</iconset>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <widget class="QTreeWidget" name="treeWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>481</width>
+     <height>192</height>
+    </rect>
+   </property>
+   <property name="editTriggers">
+    <set>com.trolltech.qt.gui.QAbstractItemView.EditTrigger.DoubleClicked</set>
+   </property>
+   <property name="indentation">
+    <number>5</number>
+   </property>
+   <column>
+    <property name="text">
+     <string>ID</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Title</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Lecturer</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Date</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Participants</string>
+    </property>
+   </column>
+   <item>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="text">
+     <string>GIS</string>
+    </property>
+    <property name="text">
+     <string>Thomas Mayer</string>
+    </property>
+    <property name="text">
+     <string>23.10.2011</string>
+    </property>
+    <property name="text">
+     <string>10</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1</string>
+    </property>
+    <property name="text">
+     <string>OO_Modellierung</string>
+    </property>
+    <property name="text">
+     <string>Heinrich Vern</string>
+    </property>
+    <property name="text">
+     <string>12.11.2011</string>
+    </property>
+    <property name="text">
+     <string>17</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2</string>
+    </property>
+    <property name="text">
+     <string>Cloud-Computing</string>
+    </property>
+    <property name="text">
+     <string>Sven Wertig</string>
+    </property>
+    <property name="text">
+     <string>01.12.2011</string>
+    </property>
+    <property name="text">
+     <string>8</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="cancelButton">
+   <property name="geometry">
+    <rect>
+     <x>234</x>
+     <y>211</y>
+     <width>77</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="okButton">
+   <property name="geometry">
+    <rect>
+     <x>151</x>
+     <y>211</y>
+     <width>77</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OK</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>cancelButton</sender>
+   <signal>clicked&lt;java.lang.Boolean&gt;</signal>
+   <receiver>Workshops</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>308</x>
+     <y>224</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>456</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

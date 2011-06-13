@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0" language="jambi">
+ <class>TimeIntervalDialog</class>
+ <widget class="QDialog" name="TimeIntervalDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>225</width>
+    <height>76</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Time Interval</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>logo_gik.png</normaloff>logo_gik.png</iconset>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <widget class="QDialogButtonBox" name="buttonBox_OK_Cancel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>126</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>com.trolltech.qt.core.Qt.FocusPolicy.TabFocus</enum>
+   </property>
+   <property name="standardButtons">
+    <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel|com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="dateEdit_Start">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>20</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="buttonSymbols">
+    <enum>com.trolltech.qt.gui.QAbstractSpinBox.ButtonSymbols.NoButtons</enum>
+   </property>
+   <property name="calendarPopup">
+    <bool>true</bool>
+   </property>
+   <property name="date">
+    <date>
+     <year>2011</year>
+     <month>5</month>
+     <day>25</day>
+    </date>
+   </property>
+  </widget>
+  <widget class="QTimeEdit" name="timeEdit">
+   <property name="geometry">
+    <rect>
+     <x>95</x>
+     <y>20</y>
+     <width>55</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="buttonSymbols">
+    <enum>com.trolltech.qt.gui.QAbstractSpinBox.ButtonSymbols.UpDownArrows</enum>
+   </property>
+   <property name="displayFormat">
+    <string>HH:mm</string>
+   </property>
+   <property name="calendarPopup">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QTimeEdit" name="timeEdit_2">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>20</y>
+     <width>55</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="buttonSymbols">
+    <enum>com.trolltech.qt.gui.QAbstractSpinBox.ButtonSymbols.UpDownArrows</enum>
+   </property>
+   <property name="displayFormat">
+    <string>HH:mm</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="saveTimeIntervalButton">
+   <property name="geometry">
+    <rect>
+     <x>141</x>
+     <y>50</y>
+     <width>72</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>save</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Date">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>0</y>
+     <width>46</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Date</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_StartTime">
+   <property name="geometry">
+    <rect>
+     <x>95</x>
+     <y>0</y>
+     <width>31</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Start</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_EndTime">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>0</y>
+     <width>21</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>End</string>
+   </property>
+  </widget>
+  <zorder>dateEdit_Start</zorder>
+  <zorder>buttonBox_OK_Cancel</zorder>
+  <zorder>timeEdit</zorder>
+  <zorder>timeEdit_2</zorder>
+  <zorder>saveTimeIntervalButton</zorder>
+  <zorder>label_Date</zorder>
+  <zorder>label_StartTime</zorder>
+  <zorder>label_EndTime</zorder>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox_OK_Cancel</sender>
+   <signal>clicked&lt;com.trolltech.qt.gui.QAbstractButton&gt;</signal>
+   <receiver>TimeIntervalDialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>99</x>
+     <y>11</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

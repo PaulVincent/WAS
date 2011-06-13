@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0" language="jambi">
+ <class>PriceCategories</class>
+ <widget class="QDialog" name="PriceCategories">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>277</width>
+    <height>136</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Price Categories</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>logo_gik.png</normaloff>logo_gik.png</iconset>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <widget class="QTreeWidget" name="treeWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>171</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <column>
+    <property name="text">
+     <string>Category</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Price</string>
+    </property>
+   </column>
+   <item>
+    <property name="text">
+     <string>normal</string>
+    </property>
+    <property name="text">
+     <string>50</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>reduced</string>
+    </property>
+    <property name="text">
+     <string>40</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="addCategoryButton">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>70</y>
+     <width>77</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>add</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="deleteButton">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>100</y>
+     <width>77</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>delete</string>
+   </property>
+  </widget>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>10</y>
+     <width>77</width>
+     <height>48</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>com.trolltech.qt.core.Qt.Orientation.Vertical</enum>
+   </property>
+   <property name="standardButtons">
+    <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel|com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
+   </property>
+   <property name="centerButtons">
+    <bool>false</bool>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>clicked&lt;com.trolltech.qt.gui.QAbstractButton&gt;</signal>
+   <receiver>PriceCategories</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>208</x>
+     <y>46</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>187</x>
+     <y>57</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

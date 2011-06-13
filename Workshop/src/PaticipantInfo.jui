@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0" language="jambi">
+ <class>PaticipantInfo</class>
+ <widget class="QDialog" name="PaticipantInfo">
+  <property name="windowModality">
+   <enum>com.trolltech.qt.core.Qt.WindowModality.NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>459</width>
+    <height>251</height>
+   </rect>
+  </property>
+  <property name="focusPolicy">
+   <enum>com.trolltech.qt.core.Qt.FocusPolicy.NoFocus</enum>
+  </property>
+  <property name="acceptDrops">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Participant-Info</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>logo_gik.png</normaloff>logo_gik.png</iconset>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>67</x>
+     <y>220</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>com.trolltech.qt.core.Qt.FocusPolicy.TabFocus</enum>
+   </property>
+   <property name="orientation">
+    <enum>com.trolltech.qt.core.Qt.Orientation.Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel|com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_FirstName">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>61</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>First name</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Street">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>41</y>
+     <width>51</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Street</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Place">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>31</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Place</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_HouseNr">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>45</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>House nr.</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_ZIPCode">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>80</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ZIP Code</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Pricecategory">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>150</y>
+     <width>68</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Category</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Price">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>150</y>
+     <width>23</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Price</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Registration">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>185</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Registration</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_SurName">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>10</y>
+     <width>50</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Last name</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_FirstName">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>10</y>
+     <width>115</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_Street">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>45</y>
+     <width>115</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_Place">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>80</y>
+     <width>115</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_ZIPCode">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>80</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_HouseNr">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>45</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_SurName">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>10</y>
+     <width>141</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_Price">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>150</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_PriceCategory">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>150</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>normal</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>reduced</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_Paid">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>185</y>
+     <width>46</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Paid</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_Paid">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>185</y>
+     <width>72</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="dateEdit">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>185</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="buttonSymbols">
+    <enum>com.trolltech.qt.gui.QAbstractSpinBox.ButtonSymbols.NoButtons</enum>
+   </property>
+   <property name="dateTime">
+    <datetime>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>0</second>
+     <year>2011</year>
+     <month>5</month>
+     <day>20</day>
+    </datetime>
+   </property>
+   <property name="maximumDateTime">
+    <datetime>
+     <hour>23</hour>
+     <minute>59</minute>
+     <second>59</second>
+     <year>2050</year>
+     <month>12</month>
+     <day>31</day>
+    </datetime>
+   </property>
+   <property name="minimumDateTime">
+    <datetime>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>0</second>
+     <year>1983</year>
+     <month>5</month>
+     <day>20</day>
+    </datetime>
+   </property>
+   <property name="calendarPopup">
+    <bool>true</bool>
+   </property>
+   <property name="date">
+    <date>
+     <year>2011</year>
+     <month>5</month>
+     <day>20</day>
+    </date>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="savePartButton">
+   <property name="geometry">
+    <rect>
+     <x>237</x>
+     <y>220</y>
+     <width>77</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>save</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="clearPartButton">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>220</y>
+     <width>77</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>clear</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_TelNumber">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>115</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Phone number</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_PhoneNumber">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>115</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_E_Mail">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>115</y>
+     <width>31</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>E-mail</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_eMail">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>115</y>
+     <width>141</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>clicked&lt;com.trolltech.qt.gui.QAbstractButton&gt;</signal>
+   <receiver>PaticipantInfo</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>227</x>
+     <y>236</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>372</x>
+     <y>188</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>savePartButton</sender>
+   <signal>clicked&lt;java.lang.Boolean&gt;</signal>
+   <receiver>PaticipantInfo</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>273</x>
+     <y>231</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>159</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,316 @@
+/********************************************************************************
+** Form generated from reading ui file 'WorkshopDialog.jui'
+**
+** Created: So 5. Jun 21:33:19 2011
+**      by: Qt User Interface Compiler version 4.5.2
+**
+** WARNING! All changes made in this file will be lost when recompiling ui file!
+********************************************************************************/
+
+import com.trolltech.qt.core.*;
+import com.trolltech.qt.gui.*;
+
+public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
+{
+    public QPushButton deleteCourseButton;
+    public QPushButton loadCourseButton;
+    public QPushButton generateHTMLButton;
+    public QPushButton clearCourseButton;
+    public QPushButton saveCourseButton;
+    public QLabel label_Title;
+    public QLabel label_Prof;
+    public QLabel label_From;
+    public QLabel label_Duration;
+    public QLabel label_Place;
+    public QLabel label_Price;
+    public QLabel label_Description;
+    public QLabel label_Literature;
+    public QLineEdit lineEdit_Titel;
+    public QLineEdit lineEdit_Prof;
+    public QLineEdit lineEdit_Price;
+    public QComboBox comboBox_Price;
+    public QTextEdit textEdit_Description;
+    public QListWidget listWidget_Literature;
+    public QComboBox comboBox_Ort;
+    public QLabel label_Currency;
+    public QLabel label_Participants;
+    public QFrame lineHorizontal1;
+    public QFrame lineHorizontal2;
+    public QFrame line_Horizontal3;
+    public QDialogButtonBox buttonBox_OK_Cancel;
+    public QFrame line_Vertical;
+    public QPushButton editshowPartButton;
+    public QPushButton addPlaceButton;
+    public QLineEdit lineEdit_Part;
+    public QLabel label_To;
+    public QLineEdit lineEdit_Duration;
+    public QLabel label_Hours;
+    public QLabel label_Price_2;
+    public QPushButton detailsButton;
+    public QPushButton editshowPriceButton;
+    public QLineEdit lineEdit_dateStart;
+    public QLineEdit lineEdit_dateEnd;
+    public QPushButton addLiteratureButton;
+    public QPushButton deleteLiteratureButton;
+
+    public MainDialog() { super(); }
+
+    public void setupUi(QDialog MainDialog)
+    {
+        MainDialog.setObjectName("MainDialog");
+        MainDialog.setEnabled(true);
+        MainDialog.resize(new QSize(512, 392).expandedTo(MainDialog.minimumSizeHint()));
+        MainDialog.setWindowIcon(new QIcon(new QPixmap("logo_gik.png")));
+        deleteCourseButton = new QPushButton(MainDialog);
+        deleteCourseButton.setObjectName("deleteCourseButton");
+        deleteCourseButton.setEnabled(false);
+        deleteCourseButton.setGeometry(new QRect(420, 120, 83, 22));
+        loadCourseButton = new QPushButton(MainDialog);
+        loadCourseButton.setObjectName("loadCourseButton");
+        loadCourseButton.setGeometry(new QRect(420, 160, 83, 22));
+        generateHTMLButton = new QPushButton(MainDialog);
+        generateHTMLButton.setObjectName("generateHTMLButton");
+        generateHTMLButton.setEnabled(false);
+        generateHTMLButton.setGeometry(new QRect(420, 350, 83, 22));
+        clearCourseButton = new QPushButton(MainDialog);
+        clearCourseButton.setObjectName("clearCourseButton");
+        clearCourseButton.setEnabled(true);
+        clearCourseButton.setGeometry(new QRect(420, 280, 83, 22));
+        saveCourseButton = new QPushButton(MainDialog);
+        saveCourseButton.setObjectName("saveCourseButton");
+        saveCourseButton.setEnabled(true);
+        saveCourseButton.setGeometry(new QRect(420, 240, 83, 22));
+        label_Title = new QLabel(MainDialog);
+        label_Title.setObjectName("label_Title");
+        label_Title.setGeometry(new QRect(10, 10, 41, 16));
+        QFont font = new QFont();
+        font.setPointSize(10);
+        label_Title.setFont(font);
+        label_Prof = new QLabel(MainDialog);
+        label_Prof.setObjectName("label_Prof");
+        label_Prof.setGeometry(new QRect(10, 40, 51, 16));
+        QFont font1 = new QFont();
+        font1.setPointSize(10);
+        label_Prof.setFont(font1);
+        label_From = new QLabel(MainDialog);
+        label_From.setObjectName("label_From");
+        label_From.setGeometry(new QRect(10, 100, 41, 16));
+        QFont font2 = new QFont();
+        font2.setPointSize(10);
+        label_From.setFont(font2);
+        label_Duration = new QLabel(MainDialog);
+        label_Duration.setObjectName("label_Duration");
+        label_Duration.setGeometry(new QRect(10, 130, 51, 20));
+        QFont font3 = new QFont();
+        font3.setPointSize(10);
+        label_Duration.setFont(font3);
+        label_Place = new QLabel(MainDialog);
+        label_Place.setObjectName("label_Place");
+        label_Place.setGeometry(new QRect(10, 160, 41, 16));
+        QFont font4 = new QFont();
+        font4.setPointSize(10);
+        label_Place.setFont(font4);
+        label_Price = new QLabel(MainDialog);
+        label_Price.setObjectName("label_Price");
+        label_Price.setGeometry(new QRect(10, 190, 61, 16));
+        QFont font5 = new QFont();
+        font5.setPointSize(10);
+        label_Price.setFont(font5);
+        label_Description = new QLabel(MainDialog);
+        label_Description.setObjectName("label_Description");
+        label_Description.setGeometry(new QRect(10, 220, 81, 16));
+        QFont font6 = new QFont();
+        font6.setPointSize(10);
+        label_Description.setFont(font6);
+        label_Literature = new QLabel(MainDialog);
+        label_Literature.setObjectName("label_Literature");
+        label_Literature.setGeometry(new QRect(10, 311, 61, 16));
+        QFont font7 = new QFont();
+        font7.setPointSize(10);
+        label_Literature.setFont(font7);
+        lineEdit_Titel = new QLineEdit(MainDialog);
+        lineEdit_Titel.setObjectName("lineEdit_Titel");
+        lineEdit_Titel.setGeometry(new QRect(90, 10, 301, 20));
+        lineEdit_Prof = new QLineEdit(MainDialog);
+        lineEdit_Prof.setObjectName("lineEdit_Prof");
+        lineEdit_Prof.setGeometry(new QRect(90, 40, 301, 20));
+        lineEdit_Price = new QLineEdit(MainDialog);
+        lineEdit_Price.setObjectName("lineEdit_Price");
+        lineEdit_Price.setGeometry(new QRect(250, 190, 35, 20));
+        lineEdit_Price.setFrame(false);
+        lineEdit_Price.setReadOnly(true);
+        comboBox_Price = new QComboBox(MainDialog);
+        comboBox_Price.setObjectName("comboBox_Price");
+        comboBox_Price.setEnabled(true);
+        comboBox_Price.setGeometry(new QRect(90, 190, 111, 20));
+        QFont font8 = new QFont();
+        font8.setPointSize(8);
+        comboBox_Price.setFont(font8);
+        comboBox_Price.setEditable(false);
+        comboBox_Price.setFrame(true);
+        textEdit_Description = new QTextEdit(MainDialog);
+        textEdit_Description.setObjectName("textEdit_Description");
+        textEdit_Description.setGeometry(new QRect(90, 220, 301, 81));
+        listWidget_Literature = new QListWidget(MainDialog);
+        listWidget_Literature.setObjectName("listWidget_Literature");
+        listWidget_Literature.setGeometry(new QRect(90, 311, 221, 71));
+        QFont font9 = new QFont();
+        font9.setPointSize(8);
+        listWidget_Literature.setFont(font9);
+        listWidget_Literature.setSelectionMode(com.trolltech.qt.gui.QAbstractItemView.SelectionMode.NoSelection);
+        comboBox_Ort = new QComboBox(MainDialog);
+        comboBox_Ort.setObjectName("comboBox_Ort");
+        comboBox_Ort.setGeometry(new QRect(90, 160, 111, 20));
+        QFont font10 = new QFont();
+        font10.setPointSize(8);
+        comboBox_Ort.setFont(font10);
+        comboBox_Ort.setEditable(false);
+        label_Currency = new QLabel(MainDialog);
+        label_Currency.setObjectName("label_Currency");
+        label_Currency.setGeometry(new QRect(290, 190, 20, 20));
+        QFont font11 = new QFont();
+        font11.setPointSize(10);
+        label_Currency.setFont(font11);
+        label_Participants = new QLabel(MainDialog);
+        label_Participants.setObjectName("label_Participants");
+        label_Participants.setGeometry(new QRect(10, 70, 71, 16));
+        QFont font12 = new QFont();
+        font12.setPointSize(10);
+        label_Participants.setFont(font12);
+        lineHorizontal1 = new QFrame(MainDialog);
+        lineHorizontal1.setObjectName("lineHorizontal1");
+        lineHorizontal1.setGeometry(new QRect(420, 90, 83, 2));
+        lineHorizontal1.setFrameShape(QFrame.Shape.HLine);
+        lineHorizontal1.setFrameShadow(QFrame.Shadow.Sunken);
+        lineHorizontal2 = new QFrame(MainDialog);
+        lineHorizontal2.setObjectName("lineHorizontal2");
+        lineHorizontal2.setGeometry(new QRect(420, 210, 80, 2));
+        lineHorizontal2.setFrameShape(QFrame.Shape.HLine);
+        lineHorizontal2.setFrameShadow(QFrame.Shadow.Sunken);
+        line_Horizontal3 = new QFrame(MainDialog);
+        line_Horizontal3.setObjectName("line_Horizontal3");
+        line_Horizontal3.setGeometry(new QRect(420, 330, 83, 2));
+        line_Horizontal3.setFrameShape(QFrame.Shape.HLine);
+        line_Horizontal3.setFrameShadow(QFrame.Shadow.Sunken);
+        buttonBox_OK_Cancel = new QDialogButtonBox(MainDialog);
+        buttonBox_OK_Cancel.setObjectName("buttonBox_OK_Cancel");
+        buttonBox_OK_Cancel.setGeometry(new QRect(420, 20, 83, 50));
+        buttonBox_OK_Cancel.setOrientation(com.trolltech.qt.core.Qt.Orientation.Vertical);
+        buttonBox_OK_Cancel.setStandardButtons(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.createQFlags(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel,com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok));
+        line_Vertical = new QFrame(MainDialog);
+        line_Vertical.setObjectName("line_Vertical");
+        line_Vertical.setGeometry(new QRect(400, 10, 20, 371));
+        line_Vertical.setFrameShadow(com.trolltech.qt.gui.QFrame.Shadow.Sunken);
+        line_Vertical.setFrameShape(QFrame.Shape.HLine);
+        line_Vertical.setFrameShadow(QFrame.Shadow.Sunken);
+        editshowPartButton = new QPushButton(MainDialog);
+        editshowPartButton.setObjectName("editshowPartButton");
+        editshowPartButton.setGeometry(new QRect(130, 70, 61, 20));
+        addPlaceButton = new QPushButton(MainDialog);
+        addPlaceButton.setObjectName("addPlaceButton");
+        addPlaceButton.setGeometry(new QRect(210, 160, 31, 20));
+        lineEdit_Part = new QLineEdit(MainDialog);
+        lineEdit_Part.setObjectName("lineEdit_Part");
+        lineEdit_Part.setEnabled(true);
+        lineEdit_Part.setGeometry(new QRect(90, 70, 31, 20));
+        lineEdit_Part.setFrame(false);
+        lineEdit_Part.setReadOnly(true);
+        label_To = new QLabel(MainDialog);
+        label_To.setObjectName("label_To");
+        label_To.setGeometry(new QRect(170, 100, 21, 20));
+        QFont font13 = new QFont();
+        font13.setPointSize(10);
+        label_To.setFont(font13);
+        lineEdit_Duration = new QLineEdit(MainDialog);
+        lineEdit_Duration.setObjectName("lineEdit_Duration");
+        lineEdit_Duration.setGeometry(new QRect(90, 130, 41, 20));
+        lineEdit_Duration.setFrame(false);
+        lineEdit_Duration.setReadOnly(true);
+        label_Hours = new QLabel(MainDialog);
+        label_Hours.setObjectName("label_Hours");
+        label_Hours.setGeometry(new QRect(140, 130, 41, 20));
+        QFont font14 = new QFont();
+        font14.setPointSize(10);
+        label_Hours.setFont(font14);
+        label_Price_2 = new QLabel(MainDialog);
+        label_Price_2.setObjectName("label_Price_2");
+        label_Price_2.setGeometry(new QRect(210, 190, 31, 20));
+        QFont font15 = new QFont();
+        font15.setPointSize(10);
+        label_Price_2.setFont(font15);
+        detailsButton = new QPushButton(MainDialog);
+        detailsButton.setObjectName("detailsButton");
+        detailsButton.setGeometry(new QRect(270, 100, 61, 20));
+        editshowPriceButton = new QPushButton(MainDialog);
+        editshowPriceButton.setObjectName("editshowPriceButton");
+        editshowPriceButton.setGeometry(new QRect(310, 190, 61, 20));
+        lineEdit_dateStart = new QLineEdit(MainDialog);
+        lineEdit_dateStart.setObjectName("lineEdit_dateStart");
+        lineEdit_dateStart.setGeometry(new QRect(90, 100, 65, 20));
+        lineEdit_dateStart.setFrame(false);
+        lineEdit_dateStart.setReadOnly(true);
+        lineEdit_dateEnd = new QLineEdit(MainDialog);
+        lineEdit_dateEnd.setObjectName("lineEdit_dateEnd");
+        lineEdit_dateEnd.setGeometry(new QRect(190, 100, 65, 20));
+        lineEdit_dateEnd.setFrame(false);
+        lineEdit_dateEnd.setReadOnly(true);
+        addLiteratureButton = new QPushButton(MainDialog);
+        addLiteratureButton.setObjectName("addLiteratureButton");
+        addLiteratureButton.setGeometry(new QRect(320, 320, 71, 21));
+        deleteLiteratureButton = new QPushButton(MainDialog);
+        deleteLiteratureButton.setObjectName("deleteLiteratureButton");
+        deleteLiteratureButton.setGeometry(new QRect(320, 350, 71, 20));
+        label_Title.setBuddy(lineEdit_Titel);
+        label_Prof.setBuddy(lineEdit_Prof);
+        label_Place.setBuddy(comboBox_Ort);
+        label_Price.setBuddy(comboBox_Price);
+        label_Literature.setBuddy(listWidget_Literature);
+        retranslateUi(MainDialog);
+        buttonBox_OK_Cancel.clicked.connect(MainDialog, "close()");
+
+        MainDialog.connectSlotsByName();
+    } // setupUi
+
+    void retranslateUi(QDialog MainDialog)
+    {
+        MainDialog.setWindowTitle(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Workshop Administration", null));
+        deleteCourseButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Delete Course", null));
+        loadCourseButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Load...", null));
+        generateHTMLButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "To HTML", null));
+        clearCourseButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Clear", null));
+        saveCourseButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Save", null));
+        label_Title.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Title", null));
+        label_Prof.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Lecturer", null));
+        label_From.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "From", null));
+        label_Duration.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Duration", null));
+        label_Place.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Place", null));
+        label_Price.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Category", null));
+        label_Description.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Description", null));
+        label_Literature.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Literature", null));
+        lineEdit_Titel.setText("");
+        lineEdit_Prof.setText("");
+        lineEdit_Price.setText("");
+        textEdit_Description.setHtml(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"+
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"+
+"p, li { white-space: pre-wrap; }\n"+
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"+
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"></p></body></html>", null));
+        comboBox_Ort.clear();
+        comboBox_Ort.addItem(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Jordan-H\u00f6rsaal", null));
+        comboBox_Ort.addItem(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Sky-H\u00f6rsaal", null));
+        comboBox_Ort.addItem(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Haid-H\u00f6rsaal", null));
+        label_Currency.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "\u20ac", null));
+        label_Participants.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Participants", null));
+        editshowPartButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "edit/show", null));
+        addPlaceButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "add", null));
+        label_To.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "to", null));
+        label_Hours.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "hours", null));
+        label_Price_2.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Price", null));
+        detailsButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "details...", null));
+        editshowPriceButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "edit/show", null));
+        addLiteratureButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "add", null));
+        deleteLiteratureButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "delete", null));
+    } // retranslateUi
+
+}
+

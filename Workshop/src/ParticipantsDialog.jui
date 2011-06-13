@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0" language="jambi">
+ <class>ParticipantsDialog</class>
+ <widget class="QDialog" name="ParticipantsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>452</width>
+    <height>258</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Participants</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>logo_gik.png</normaloff>logo_gik.png</iconset>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <widget class="QDialogButtonBox" name="buttonBox_OK_Cancel">
+   <property name="geometry">
+    <rect>
+     <x>61</x>
+     <y>220</y>
+     <width>160</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>com.trolltech.qt.core.Qt.FocusPolicy.TabFocus</enum>
+   </property>
+   <property name="orientation">
+    <enum>com.trolltech.qt.core.Qt.Orientation.Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel|com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
+   </property>
+  </widget>
+  <widget class="QTreeWidget" name="treeWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>431</width>
+     <height>192</height>
+    </rect>
+   </property>
+   <property name="editTriggers">
+    <set>com.trolltech.qt.gui.QAbstractItemView.EditTrigger.DoubleClicked|com.trolltech.qt.gui.QAbstractItemView.EditTrigger.EditKeyPressed|com.trolltech.qt.gui.QAbstractItemView.EditTrigger.SelectedClicked</set>
+   </property>
+   <property name="indentation">
+    <number>0</number>
+   </property>
+   <property name="rootIsDecorated">
+    <bool>true</bool>
+   </property>
+   <property name="uniformRowHeights">
+    <bool>true</bool>
+   </property>
+   <property name="itemsExpandable">
+    <bool>false</bool>
+   </property>
+   <property name="sortingEnabled">
+    <bool>true</bool>
+   </property>
+   <property name="animated">
+    <bool>true</bool>
+   </property>
+   <attribute name="headerVisible">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="headerCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="headerHighlightSections">
+    <bool>false</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>ID</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Name</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Nachname</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Anmeldedatum</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Preis</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignJustify|AlignVCenter</set>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Bezahlt</string>
+    </property>
+   </column>
+   <item>
+    <property name="text">
+     <string>2</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+    </property>
+    <property name="text">
+     <string>Stefanie</string>
+    </property>
+    <property name="text">
+     <string>Schmidt</string>
+    </property>
+    <property name="text">
+     <string>19.05.2011</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignRight|AlignVCenter</set>
+    </property>
+    <property name="text">
+     <string>40</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignRight|AlignVCenter</set>
+    </property>
+    <property name="text">
+     <string>Ja</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+    </property>
+    <property name="text">
+     <string>Peter</string>
+    </property>
+    <property name="text">
+     <string>Müller</string>
+    </property>
+    <property name="text">
+     <string>29.05.2011</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignRight|AlignVCenter</set>
+    </property>
+    <property name="text">
+     <string>50</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignRight|AlignVCenter</set>
+    </property>
+    <property name="text">
+     <string>Nein</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+    </property>
+    <property name="text">
+     <string>André</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignLeft|AlignVCenter</set>
+    </property>
+    <property name="text">
+     <string>Dittrich</string>
+    </property>
+    <property name="text">
+     <string>27.05.2011</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignRight|AlignVCenter</set>
+    </property>
+    <property name="text">
+     <string>40</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignRight|AlignVCenter</set>
+    </property>
+    <property name="text">
+     <string>Ja</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignLeft|AlignVCenter</set>
+    </property>
+    <property name="flags">
+     <set>ItemIsSelectable|ItemIsEnabled|ItemIsTristate</set>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="addRealPartButton">
+   <property name="geometry">
+    <rect>
+     <x>227</x>
+     <y>220</y>
+     <width>77</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>add</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="deleteRealPartButton">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>220</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>delete</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox_OK_Cancel</sender>
+   <signal>clicked&lt;com.trolltech.qt.gui.QAbstractButton&gt;</signal>
+   <receiver>ParticipantsDialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>100</x>
+     <y>226</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>61</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
