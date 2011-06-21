@@ -1,3 +1,6 @@
+package GUI;
+import TimeIntervalDialog;
+
 import com.trolltech.qt.gui.*;
 
 public class TimeIntervalDialogImpl extends QDialog {

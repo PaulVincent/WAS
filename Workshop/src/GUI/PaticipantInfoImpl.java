@@ -1,3 +1,6 @@
+package GUI;
+import PaticipantInfo;
+
 import com.trolltech.qt.core.QDate;
 import com.trolltech.qt.gui.*;
 

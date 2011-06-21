@@ -1,3 +1,6 @@
+package GUI;
+import Schedule;
+
 import java.util.List;
 
 import com.trolltech.qt.gui.*;

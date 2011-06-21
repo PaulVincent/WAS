@@ -1,3 +1,6 @@
+package GUI;
+import MainDialog;
+
 import javax.swing.JFrame;
 import com.trolltech.qt.gui.*;
 

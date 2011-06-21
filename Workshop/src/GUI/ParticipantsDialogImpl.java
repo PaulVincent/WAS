@@ -1,3 +1,6 @@
+package GUI;
+import ParticipantsDialog;
+
 import com.trolltech.qt.core.QDate;
 import com.trolltech.qt.gui.QApplication;
 import com.trolltech.qt.gui.QDialog;

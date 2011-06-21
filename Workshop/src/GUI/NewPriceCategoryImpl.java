@@ -1,4 +1,7 @@
+package GUI;
 
+
+import NewPriceCategory;
 
 import com.trolltech.qt.gui.*;
 

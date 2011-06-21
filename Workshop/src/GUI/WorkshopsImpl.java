@@ -1,4 +1,7 @@
+package GUI;
 
+
+import Workshops;
 
 import com.trolltech.qt.core.QModelIndex;
 import com.trolltech.qt.gui.*;

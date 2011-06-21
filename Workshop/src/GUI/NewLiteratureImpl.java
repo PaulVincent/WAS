@@ -1,3 +1,6 @@
+package GUI;
+
+import NewLiterature;
 
 import com.trolltech.qt.gui.*;
 
