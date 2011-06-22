@@ -3,9 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="src" path="Generated JUIC files"/>
-	<classpathentry kind="lib" path="C:/qtjambi-win32-lgpl-4.5.2_01/qtjambi-win32-lgpl-4.5.2_01/qtjambi-4.5.2_01.jar"/>
-	<classpathentry kind="lib" path="C:/qtjambi-win32-lgpl-4.5.2_01/qtjambi-win32-lgpl-4.5.2_01/qtjambi-designer-4.5.2_01.jar"/>
-	<classpathentry kind="lib" path="C:/qtjambi-win32-lgpl-4.5.2_01/qtjambi-win32-lgpl-4.5.2_01/qtjambi-examples-4.5.2_01.jar"/>
-	<classpathentry kind="lib" path="C:/qtjambi-win32-lgpl-4.5.2_01/qtjambi-win32-lgpl-4.5.2_01/qtjambi-win32-msvc2005-4.5.2_01.jar"/>
+	<classpathentry kind="lib" path="lib/qtjambi-4.7.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
