@@ -1,69 +1,72 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import Controller.DBConnection;
+
 import com.trolltech.qt.gui.QApplication;
 import com.trolltech.qt.gui.QDialog;
+import com.trolltech.qt.gui.QTreeWidgetItem;
 import com.trolltech.qt.gui.QWidget;
 
 public class WorkshopsImpl extends QDialog {
 
-    Workshops ui = new Workshops();
-    MainDialogImpl mDImpl = null;
-    
-    public static void main(String[] args) {
-        QApplication.initialize(args);
+	Workshops ui = new Workshops();
+	MainDialogImpl mDImpl = null;
+	
+	public static void main(String[] args) {
+		QApplication.initialize(args);
 
-        WorkshopsImpl testWorkshopsImpl = new WorkshopsImpl();
-        testWorkshopsImpl.show();
+		WorkshopsImpl testWorkshopsImpl = new WorkshopsImpl();
+		testWorkshopsImpl.show();
 
-        QApplication.exec();
-    }
+		QApplication.exec();
+	}
 
-    public WorkshopsImpl() {
-        ui.setupUi(this);
-    }
+	public WorkshopsImpl() {
+		ui.setupUi(this);
+	}
 
-    public WorkshopsImpl(QWidget parent) {
-        super(parent);
-        ui.setupUi(this);
-    }
-    
-    public WorkshopsImpl(MainDialogImpl mDImpl) {
-        ui.setupUi(this);
-       
-        this.mDImpl = mDImpl;
-        
-        int widthID = 25;
-        int widthTitle = 180;
+	public WorkshopsImpl(QWidget parent) {
+		super(parent);
+		ui.setupUi(this);
+	}
+
+	public WorkshopsImpl(MainDialogImpl mDImpl) {
+		ui.setupUi(this);
+
+		this.mDImpl = mDImpl;
+
+		int widthID = 35;
+		int widthTitle = 180;
 		ui.treeWidget.setColumnWidth(0, widthID);
 		ui.treeWidget.setColumnWidth(1, widthTitle);
-		ui.treeWidget.setColumnWidth(4, widthID*2);
+		ui.treeWidget.setColumnWidth(4, widthID * 2);
+
+		init();
+	}
+
+	public void on_okButton_clicked() {
+		if (ui.treeWidget.currentIndex() != null) {
+			mDImpl.resetUI();
+			QTreeWidgetItem item = ui.treeWidget.currentItem();
+			int id = (Integer) item.data(0, 0);
+			WorkshopControler.ws2MainDialog(id, mDImpl);
+		}
+		this.close();
+	}
+
+	public void on_treeWidget_itemDoubleClicked() {
+		mDImpl.resetUI();
+		QTreeWidgetItem item = ui.treeWidget.currentItem();
+		int id = Integer.parseInt((String) item.data(0, 0));
+		WorkshopControler.ws2MainDialog(id, mDImpl);
+		this.close();
+	}
+
+	public void init() {
 		ui.treeWidget.setCurrentItem(null);
-    }
-    
-    public void on_okButton_clicked()
-    {
-    	
-    	if (ui.treeWidget.currentIndex() == null)
-    	{
-    		this.close();
-    	}
-    	else
-    	{
-//    		get ID of current workshop and write info from database to MainDialog
-//    		and set mDImpl = ID of workshop
-    		setToEditingWorkShop();
-        	this.close();
-    	}	
-    }
-    
-    public void on_treeWidget_itemDoubleClicked()
-    {
-//    	get ID of current workshop and write info from database to MainDialog
-//    	and set mDImpl.workshopID = ID of workshop
-		setToEditingWorkShop();
-    	this.close();
-    }
-    
-    public void setToEditingWorkShop()
-    {
-    	mDImpl.setToEditingWorkShop();
-    }
+		ui.treeWidget.addTopLevelItems(WorkshopControler.initWorkShops());
+
+	}
+
 }

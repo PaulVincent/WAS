@@ -1,10 +1,6 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import javax.swing.JFrame;
+
+import Controller.DBConnection;
 
 import com.trolltech.qt.gui.QApplication;
 import com.trolltech.qt.gui.QDialog;
@@ -15,10 +11,6 @@ public class MainDialogImpl extends QDialog {
 
 	MainDialog ui = new MainDialog();
 	int workShopID = -1;
-	
-	private Connection connection;
-	private Statement statement;
-	private ResultSet resultSet;
 
     public static void main(String[] args) {
         QApplication.initialize(args);
@@ -75,6 +67,7 @@ public class MainDialogImpl extends QDialog {
     
     public void on_deleteCourseButton_clicked()
     {
+    	WorkshopControler.deleteWorkShop(workShopID);
     	NotImplYet();
     	System.out.println("Not implemented yet!");
 //    	delete current course from database
@@ -86,50 +79,37 @@ public class MainDialogImpl extends QDialog {
     {
     	WorkshopsImpl testWorkshopsImpl = new WorkshopsImpl(this);
     	testWorkshopsImpl.show();
-    	ui.comboBox_Price.addItem("test");
     	
     }
     
     public void on_saveCourseButton_clicked()
     {
-
-    	NotImplYet();
-    	System.out.println("Not implemented yet!");
+    	int id = 0;
+    	
     	if (workShopID == -1)
-    	{
-//    		it is a new course => save it to
-//        	database and reload it into main dialog
+    	{    		
+			id = WorkshopControler.newWorkShop(this);
+		
     	}
     	else{
 //        	get current WS ID that was set by loading an existing course
 //        	overwrite course in database and reload data into main dialog
+    		NotImplYet();
+        	System.out.println("Not implemented yet!");
+    		id = workShopID;
     	}
-    	setToEditingWorkShop();
+    	WorkshopControler.ws2MainDialog(id, this);
+    	setToEditingWorkShop(id);
     }
     
     public void on_clearCourseButton_clicked()
     {
     	resetUI();
-    	NotImplYet();
-    	System.out.println("Not implemented yet!");
-    	try {
-			resultSet = statement.executeQuery("SELECT * FROM workshop_table WHERE W_ID = 1000");
-			while (resultSet.next()) {
-				ui.lineEdit_Titel.setText(resultSet.getString("W_TITLE"));
-		      }
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-//		clear all inputs
-    	
-//    	clearCourseButton clicked
     }
     
     public void on_comboBox_Price_currentStringChanged()
     {
-    	String str = ui.comboBox_Price.currentText();
+//    	String str = ui.comboBox_Price.currentText();
     	
 //    	get price texts from database and related prices
     	
@@ -146,7 +126,6 @@ public class MainDialogImpl extends QDialog {
     
     public void on_generateHTMLButton_clicked()
     {
-
     	NotImplYet();
     	System.out.println("Not implemented yet!");
 //    	GenerateHTMLButton clicked
@@ -175,20 +154,23 @@ public class MainDialogImpl extends QDialog {
     public void resetUI()
     {
     	workShopID = -1;
-//    	ui.editCourseButton.setEnabled(false);
     	ui.deleteCourseButton.setEnabled(false);
     	ui.generateHTMLButton.setEnabled(false);
     	ui.listWidget_Literature.clear();
     	ui.comboBox_Price.clear();
-//    	ui.comboBox_Price.setEnabled(false);
     	ui.lineEdit_dateStart.clear();
         ui.lineEdit_dateEnd.clear();
-//    	weitere reset einstellungen
+        ui.lineEdit_Duration.clear();
+        ui.lineEdit_Part.clear();
+        ui.lineEdit_Prof.clear();
+        ui.lineEdit_Titel.clear();
+        ui.textEdit_Description.clear();
+        ui.lineEdit_Price.clear();
     }
     
-    public void setToEditingWorkShop()
+    public void setToEditingWorkShop(int id)
     {
-//    	ui.editCourseButton.setEnabled(true);
+    	workShopID = id;
     	ui.deleteCourseButton.setEnabled(true);
     	ui.generateHTMLButton.setEnabled(true);
     	ui.comboBox_Price.setEnabled(true);
@@ -205,23 +187,8 @@ public class MainDialogImpl extends QDialog {
     	javax.swing.JOptionPane.showMessageDialog(frame,"Not implemented yet!");
     	
     }
-
-    public void connectToDB() {
-	    try {
-	      connection = DriverManager
-	          .getConnection("jdbc:mysql://localhost/workshop_software_db?user=root&password=otreby");
-	      statement = connection.createStatement();
-
-	    } catch (SQLException connectException) {
-	      System.out.println(connectException.getMessage());
-	      System.out.println(connectException.getSQLState());
-	      System.out.println(connectException.getErrorCode());
-	      System.exit(1);
-	    }
-	  }
     
-    private void init() {
-        connectToDB();
+    public void init() {
+    	DBConnection.connectToDB();
       }
-//    public void 
 }

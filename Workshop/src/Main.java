@@ -1,11 +1,8 @@
-
-
 import com.trolltech.qt.gui.QApplication;
 
 
 public class Main 
 {
-
 	/**
 	 * @param args
 	 */
@@ -15,6 +12,7 @@ public class Main
 		QApplication.initialize(args);
 		
 		MainDialogImpl mainDialog = new MainDialogImpl();
+		mainDialog.init();
 		mainDialog.show();
 		
 		QApplication.exec();

@@ -1,7 +1,7 @@
+
+
 import com.trolltech.qt.core.QDate;
-import com.trolltech.qt.gui.QApplication;
-import com.trolltech.qt.gui.QDialog;
-import com.trolltech.qt.gui.QWidget;
+import com.trolltech.qt.gui.*;
 
 
 public class PaticipantInfoImpl extends QDialog {

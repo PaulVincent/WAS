@@ -1,7 +1,5 @@
 package MODEL;
 
-
-
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -54,7 +52,7 @@ public class Workshop extends JFrame {
   public void connectToDB() {
 	    try {
 	      connection = DriverManager
-	          .getConnection("jdbc:mysql://localhost/workshop_software_db?user=root&password=riaydh");
+	          .getConnection("jdbc:mysql://localhost/workshop_software_db?user=root&password=test");
 	      statement = connection.createStatement();
 
 	    } catch (SQLException connectException) {
@@ -75,7 +73,7 @@ public class Workshop extends JFrame {
       }
     } 
     catch (SQLException e) {
-      displaySQLErrors(e);
+//      displaySQLErrors(e);
     }
     listWorkshop.setListData(v);
   }

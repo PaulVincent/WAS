@@ -1,7 +1,6 @@
-import com.trolltech.qt.gui.QApplication;
-import com.trolltech.qt.gui.QDialog;
-import com.trolltech.qt.gui.QTreeWidgetItem;
-import com.trolltech.qt.gui.QWidget;
+
+
+import com.trolltech.qt.gui.*;
 
 public class TimeIntervalDialogImpl extends QDialog {
 

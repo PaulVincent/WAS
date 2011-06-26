@@ -1,12 +1,8 @@
 package MODEL;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -62,7 +59,7 @@ public class Workshop_2 extends JFrame {
   public void connectToDB() {
 	    try {
 	      connection = DriverManager
-	          .getConnection("jdbc:mysql://localhost/workshop_software_db?user=root&password=riaydh");
+	          .getConnection("jdbc:mysql://localhost/workshop_software_db?user=root&password=otreby");
 	      statement = connection.createStatement();
 
 	    } catch (SQLException connectException) {

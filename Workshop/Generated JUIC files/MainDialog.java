@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'WorkshopDialog.jui'
 **
-** Created: So 5. Jun 21:33:19 2011
+** Created: So 26. Jun 00:01:44 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!

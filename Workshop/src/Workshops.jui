@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>502</width>
+    <width>515</width>
     <height>239</height>
    </rect>
   </property>
@@ -25,7 +25,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>481</width>
+     <width>491</width>
      <height>192</height>
     </rect>
    </property>
@@ -34,6 +34,12 @@
    </property>
    <property name="indentation">
     <number>5</number>
+   </property>
+   <property name="itemsExpandable">
+    <bool>false</bool>
+   </property>
+   <property name="expandsOnDoubleClick">
+    <bool>false</bool>
    </property>
    <column>
     <property name="text">
@@ -60,57 +66,6 @@
      <string>Participants</string>
     </property>
    </column>
-   <item>
-    <property name="text">
-     <string>0</string>
-    </property>
-    <property name="text">
-     <string>GIS</string>
-    </property>
-    <property name="text">
-     <string>Thomas Mayer</string>
-    </property>
-    <property name="text">
-     <string>23.10.2011</string>
-    </property>
-    <property name="text">
-     <string>10</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>1</string>
-    </property>
-    <property name="text">
-     <string>OO_Modellierung</string>
-    </property>
-    <property name="text">
-     <string>Heinrich Vern</string>
-    </property>
-    <property name="text">
-     <string>12.11.2011</string>
-    </property>
-    <property name="text">
-     <string>17</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>2</string>
-    </property>
-    <property name="text">
-     <string>Cloud-Computing</string>
-    </property>
-    <property name="text">
-     <string>Sven Wertig</string>
-    </property>
-    <property name="text">
-     <string>01.12.2011</string>
-    </property>
-    <property name="text">
-     <string>8</string>
-    </property>
-   </item>
   </widget>
   <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
