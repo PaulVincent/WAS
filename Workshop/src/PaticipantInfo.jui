@@ -32,25 +32,6 @@
   <property name="modal">
    <bool>true</bool>
   </property>
-  <widget class="QDialogButtonBox" name="buttonBox">
-   <property name="geometry">
-    <rect>
-     <x>67</x>
-     <y>220</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="focusPolicy">
-    <enum>com.trolltech.qt.core.Qt.FocusPolicy.TabFocus</enum>
-   </property>
-   <property name="orientation">
-    <enum>com.trolltech.qt.core.Qt.Orientation.Horizontal</enum>
-   </property>
-   <property name="standardButtons">
-    <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel|com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_FirstName">
    <property name="geometry">
     <rect>
@@ -340,7 +321,7 @@
   <widget class="QPushButton" name="savePartButton">
    <property name="geometry">
     <rect>
-     <x>237</x>
+     <x>240</x>
      <y>220</y>
      <width>77</width>
      <height>20</height>
@@ -353,7 +334,7 @@
   <widget class="QPushButton" name="clearPartButton">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>325</x>
      <y>220</y>
      <width>77</width>
      <height>20</height>
@@ -412,25 +393,35 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="OKButton">
+   <property name="geometry">
+    <rect>
+     <x>65</x>
+     <y>220</y>
+     <width>77</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="CancelButton">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>220</y>
+     <width>77</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>clicked&lt;com.trolltech.qt.gui.QAbstractButton&gt;</signal>
-   <receiver>PaticipantInfo</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>227</x>
-     <y>236</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>372</x>
-     <y>188</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>savePartButton</sender>
    <signal>clicked&lt;java.lang.Boolean&gt;</signal>

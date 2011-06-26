@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'PaticipantInfo.jui'
 **
-** Created: Sa 25. Jun 18:01:23 2011
+** Created: So 26. Jun 23:48:01 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -12,7 +12,6 @@ import com.trolltech.qt.gui.*;
 
 public class PaticipantInfo implements com.trolltech.qt.QUiForm<QDialog>
 {
-    public QDialogButtonBox buttonBox;
     public QLabel label_FirstName;
     public QLabel label_Street;
     public QLabel label_Place;
@@ -39,6 +38,8 @@ public class PaticipantInfo implements com.trolltech.qt.QUiForm<QDialog>
     public QLineEdit lineEdit_PhoneNumber;
     public QLabel label_E_Mail;
     public QLineEdit lineEdit_eMail;
+    public QPushButton OKButton;
+    public QPushButton CancelButton;
 
     public PaticipantInfo() { super(); }
 
@@ -52,12 +53,6 @@ public class PaticipantInfo implements com.trolltech.qt.QUiForm<QDialog>
         PaticipantInfo.setWindowIcon(new QIcon(new QPixmap("logo_gik.png")));
         PaticipantInfo.setSizeGripEnabled(false);
         PaticipantInfo.setModal(true);
-        buttonBox = new QDialogButtonBox(PaticipantInfo);
-        buttonBox.setObjectName("buttonBox");
-        buttonBox.setGeometry(new QRect(67, 220, 161, 20));
-        buttonBox.setFocusPolicy(com.trolltech.qt.core.Qt.FocusPolicy.TabFocus);
-        buttonBox.setOrientation(com.trolltech.qt.core.Qt.Orientation.Horizontal);
-        buttonBox.setStandardButtons(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.createQFlags(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel,com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok));
         label_FirstName = new QLabel(PaticipantInfo);
         label_FirstName.setObjectName("label_FirstName");
         label_FirstName.setGeometry(new QRect(20, 10, 61, 16));
@@ -126,10 +121,10 @@ public class PaticipantInfo implements com.trolltech.qt.QUiForm<QDialog>
         dateEdit.setDate(new QDate(2011, 5, 20));
         savePartButton = new QPushButton(PaticipantInfo);
         savePartButton.setObjectName("savePartButton");
-        savePartButton.setGeometry(new QRect(237, 220, 77, 20));
+        savePartButton.setGeometry(new QRect(240, 220, 77, 20));
         clearPartButton = new QPushButton(PaticipantInfo);
         clearPartButton.setObjectName("clearPartButton");
-        clearPartButton.setGeometry(new QRect(320, 220, 77, 20));
+        clearPartButton.setGeometry(new QRect(325, 220, 77, 20));
         label_TelNumber = new QLabel(PaticipantInfo);
         label_TelNumber.setObjectName("label_TelNumber");
         label_TelNumber.setGeometry(new QRect(20, 115, 71, 16));
@@ -142,8 +137,13 @@ public class PaticipantInfo implements com.trolltech.qt.QUiForm<QDialog>
         lineEdit_eMail = new QLineEdit(PaticipantInfo);
         lineEdit_eMail.setObjectName("lineEdit_eMail");
         lineEdit_eMail.setGeometry(new QRect(300, 115, 141, 20));
+        OKButton = new QPushButton(PaticipantInfo);
+        OKButton.setObjectName("OKButton");
+        OKButton.setGeometry(new QRect(65, 220, 77, 20));
+        CancelButton = new QPushButton(PaticipantInfo);
+        CancelButton.setObjectName("CancelButton");
+        CancelButton.setGeometry(new QRect(150, 220, 77, 20));
         retranslateUi(PaticipantInfo);
-        buttonBox.clicked.connect(PaticipantInfo, "close()");
         savePartButton.clicked.connect(PaticipantInfo, "close()");
 
         PaticipantInfo.connectSlotsByName();
@@ -171,6 +171,8 @@ public class PaticipantInfo implements com.trolltech.qt.QUiForm<QDialog>
         label_TelNumber.setText(com.trolltech.qt.core.QCoreApplication.translate("PaticipantInfo", "Phone number", null));
         label_E_Mail.setText(com.trolltech.qt.core.QCoreApplication.translate("PaticipantInfo", "E-mail", null));
         lineEdit_eMail.setText("");
+        OKButton.setText(com.trolltech.qt.core.QCoreApplication.translate("PaticipantInfo", "OK", null));
+        CancelButton.setText(com.trolltech.qt.core.QCoreApplication.translate("PaticipantInfo", "Cancel", null));
     } // retranslateUi
 
 }

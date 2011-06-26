@@ -1,6 +1,10 @@
 
 
-import com.trolltech.qt.core.QDate;
+import java.util.ArrayList;
+
+import CONTROLLER.WorkshopController;
+
+import com.trolltech.qt.core.Qt.SortOrder;
 import com.trolltech.qt.gui.QApplication;
 import com.trolltech.qt.gui.QDialog;
 import com.trolltech.qt.gui.QTreeWidgetItem;
@@ -36,73 +40,40 @@ public class ParticipantsDialogImpl extends QDialog {
 		
 		ui.treeWidget.setCurrentItem(null);
 		setAdditionalLayoutOptions();
+		
+		init();
 	}
 
 	public void on_addRealPartButton_clicked() {
 		
-		System.out.println(ui.treeWidget.currentIndex());
 		ui.treeWidget.setCurrentItem(null);
+		partID = -1;
 		PaticipantInfoImpl testParticipantsInfoImpl = new PaticipantInfoImpl(this);
 		testParticipantsInfoImpl.show();
 	}
 
 	public void on_deleteRealPartButton_clicked() {
 		
-		if (ui.treeWidget.selectedItems().isEmpty())
-		{
-			// Code to remove participant from database
-//			clear treewidget and reload from database
-		}
+		
+		QTreeWidgetItem item = ui.treeWidget.currentItem();
+		String strID = (String) item.data(0, 0);
+		WorkshopController.deleteParticipant(Integer.parseInt(strID));
+		
+		init();
+		
 	}
 
 	public void on_treeWidget_itemDoubleClicked()
 	{
 		QTreeWidgetItem item = ui.treeWidget.currentItem();
-		String  strID = item.data(0, 0).toString();
-		int ID = Integer.parseInt(strID);
-		partID = ID;
-//		get all infos of currently selected participant from database and write 
-//		info in participant Info dialog !!!
+		String ID = (String) item.data(0, 0);
+		partID = Integer.parseInt(ID);
+		
+		ArrayList<String> participantData = WorkshopController.loadParticipant(partID);
+		
 		PaticipantInfoImpl testParticipantsInfoImpl = new PaticipantInfoImpl(this);
+		testParticipantsInfoImpl.part2PID(participantData);
 		testParticipantsInfoImpl.show();
-
-		String vorname = item.data(1, 0).toString();
-		testParticipantsInfoImpl.ui.lineEdit_FirstName.setText(vorname);
-		
-		String nachname = item.data(2, 0).toString();
-		testParticipantsInfoImpl.ui.lineEdit_SurName.setText(nachname);
-
-		String preis = item.data(4, 0).toString();
-		testParticipantsInfoImpl.ui.lineEdit_Price.setText(preis);
-
-		String bezahlt = item.data(5, 0).toString();
-		Boolean bez;
-		if (bezahlt.startsWith("J"))
-		{
-			bez = true;
-			testParticipantsInfoImpl.ui.checkBox_Paid.setChecked(bez);
-		}
-		else if (bezahlt.startsWith("N"))
-		{
-			bez = false;
-			testParticipantsInfoImpl.ui.checkBox_Paid.setChecked(bez);
-		}
-
-		String Str_datum = item.data(3, 0).toString();
-		String[] datum = Str_datum.split("\\.");
-						
-		String Str_year = datum[2];
-		String Str_month = datum[1];
-		String Str_day = datum[0];
-		
-		int year = Integer.parseInt(Str_year);
-		int month = Integer.parseInt(Str_month);
-		int day = Integer.parseInt(Str_day);
-		
-		QDate date = new QDate();
-		date.setDate(year, month, day);
-		
-		testParticipantsInfoImpl.ui.dateEdit.setDate(date);
 
 	}
 
@@ -113,5 +84,46 @@ public class ParticipantsDialogImpl extends QDialog {
 		ui.treeWidget.setColumnWidth(0, widthID);
 		ui.treeWidget.setColumnWidth(4, width);
 		ui.treeWidget.setColumnWidth(5, width);
+	}
+
+	public void init() {
+		partID = -1;
+		ui.treeWidget.clear();
+		SortOrder order = SortOrder.AscendingOrder;
+		ui.treeWidget.sortByColumn(0, order);
+		ui.treeWidget.setCurrentItem(null);
+		ui.treeWidget.addTopLevelItems(WorkshopController.initWSParticipants(mDImpl.workShopID));
+	}
+	
+	public ArrayList<String> getParticipantFromPD()
+	{
+		ArrayList<String> data = new ArrayList<String>();
+		QTreeWidgetItem item = ui.treeWidget.currentItem();
+    	if (item == null || item.data(0,0).toString().equals(""))
+    	{
+    		return null;    		
+    	}
+    	else
+    	{
+    		for (int i = 0; i < 6; i++)
+    		{
+    			data.add((String) item.data(i,0));
+    		}    		
+        	return data;
+    	}		
+	}
+
+	public void on_OKButton_clicked()
+	{
+		if (ui.treeWidget.currentIndex() != null) {
+			QTreeWidgetItem item = ui.treeWidget.currentItem();
+			partID = Integer.parseInt((String) item.data(0, 0));
+			
+			ArrayList<String> participantData = WorkshopController.loadParticipant(partID);
+			
+			PaticipantInfoImpl testParticipantsInfoImpl = new PaticipantInfoImpl(this);
+			testParticipantsInfoImpl.part2PID(participantData);
+			testParticipantsInfoImpl.show();
+		}
 	}
 }

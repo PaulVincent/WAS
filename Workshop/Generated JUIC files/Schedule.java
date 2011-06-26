@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'Schedule.jui'
 **
-** Created: Sa 25. Jun 18:01:23 2011
+** Created: So 26. Jun 11:37:17 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!

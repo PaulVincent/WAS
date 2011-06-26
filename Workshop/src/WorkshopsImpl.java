@@ -1,8 +1,8 @@
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
 
-import Controller.DBConnection;
+import CONTROLLER.WorkshopController;
 
+import com.trolltech.qt.core.Qt.SortOrder;
 import com.trolltech.qt.gui.QApplication;
 import com.trolltech.qt.gui.QDialog;
 import com.trolltech.qt.gui.QTreeWidgetItem;
@@ -37,9 +37,10 @@ public class WorkshopsImpl extends QDialog {
 		this.mDImpl = mDImpl;
 
 		int widthID = 35;
-		int widthTitle = 180;
+		int widthTitle = 230;
 		ui.treeWidget.setColumnWidth(0, widthID);
 		ui.treeWidget.setColumnWidth(1, widthTitle);
+		ui.treeWidget.setColumnWidth(3, 75);
 		ui.treeWidget.setColumnWidth(4, widthID * 2);
 
 		init();
@@ -49,8 +50,11 @@ public class WorkshopsImpl extends QDialog {
 		if (ui.treeWidget.currentIndex() != null) {
 			mDImpl.resetUI();
 			QTreeWidgetItem item = ui.treeWidget.currentItem();
-			int id = (Integer) item.data(0, 0);
-			WorkshopControler.ws2MainDialog(id, mDImpl);
+			int id = Integer.parseInt((String) item.data(0, 0));
+			
+			ArrayList<String> workshopData = WorkshopController.loadWorkshop(id);
+			mDImpl.workShop2MainDialog(workshopData);
+			mDImpl.setToEditingWorkShop(id);
 		}
 		this.close();
 	}
@@ -59,14 +63,17 @@ public class WorkshopsImpl extends QDialog {
 		mDImpl.resetUI();
 		QTreeWidgetItem item = ui.treeWidget.currentItem();
 		int id = Integer.parseInt((String) item.data(0, 0));
-		WorkshopControler.ws2MainDialog(id, mDImpl);
+		ArrayList<String> workshopData = WorkshopController.loadWorkshop(id);
+		mDImpl.workShop2MainDialog(workshopData);
+		mDImpl.setToEditingWorkShop(id);
 		this.close();
 	}
 
 	public void init() {
+		SortOrder order = SortOrder.DescendingOrder;
+		ui.treeWidget.sortByColumn(0, order);
 		ui.treeWidget.setCurrentItem(null);
-		ui.treeWidget.addTopLevelItems(WorkshopControler.initWorkShops());
-
+		ui.treeWidget.addTopLevelItems(WorkshopController.initWorkShops());
 	}
 
 }

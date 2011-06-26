@@ -1,4 +1,4 @@
-package Controller;
+package CONTROLLER;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -33,7 +33,7 @@ public class DBConnection {
 		BufferedInputStream stream;
 		try {
 			stream = new BufferedInputStream(new FileInputStream(
-					"MySQL.properties"));
+					"lib/MySQL.properties"));
 			properties.load(stream);
 			stream.close();
 		} catch (FileNotFoundException e1) {

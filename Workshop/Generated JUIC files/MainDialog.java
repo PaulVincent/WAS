@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'WorkshopDialog.jui'
 **
-** Created: So 26. Jun 00:01:44 2011
+** Created: So 26. Jun 23:51:09 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -157,7 +157,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         QFont font9 = new QFont();
         font9.setPointSize(8);
         listWidget_Literature.setFont(font9);
-        listWidget_Literature.setSelectionMode(com.trolltech.qt.gui.QAbstractItemView.SelectionMode.NoSelection);
+        listWidget_Literature.setSelectionMode(com.trolltech.qt.gui.QAbstractItemView.SelectionMode.SingleSelection);
         comboBox_Ort = new QComboBox(MainDialog);
         comboBox_Ort.setObjectName("comboBox_Ort");
         comboBox_Ort.setGeometry(new QRect(90, 160, 111, 20));
@@ -205,9 +205,11 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         line_Vertical.setFrameShadow(QFrame.Shadow.Sunken);
         editshowPartButton = new QPushButton(MainDialog);
         editshowPartButton.setObjectName("editshowPartButton");
+        editshowPartButton.setEnabled(false);
         editshowPartButton.setGeometry(new QRect(130, 70, 61, 20));
         addPlaceButton = new QPushButton(MainDialog);
         addPlaceButton.setObjectName("addPlaceButton");
+        addPlaceButton.setEnabled(false);
         addPlaceButton.setGeometry(new QRect(210, 160, 31, 20));
         lineEdit_Part = new QLineEdit(MainDialog);
         lineEdit_Part.setObjectName("lineEdit_Part");
@@ -240,9 +242,11 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         label_Price_2.setFont(font15);
         detailsButton = new QPushButton(MainDialog);
         detailsButton.setObjectName("detailsButton");
+        detailsButton.setEnabled(false);
         detailsButton.setGeometry(new QRect(270, 100, 61, 20));
         editshowPriceButton = new QPushButton(MainDialog);
         editshowPriceButton.setObjectName("editshowPriceButton");
+        editshowPriceButton.setEnabled(false);
         editshowPriceButton.setGeometry(new QRect(310, 190, 61, 20));
         lineEdit_dateStart = new QLineEdit(MainDialog);
         lineEdit_dateStart.setObjectName("lineEdit_dateStart");
@@ -256,9 +260,11 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         lineEdit_dateEnd.setReadOnly(true);
         addLiteratureButton = new QPushButton(MainDialog);
         addLiteratureButton.setObjectName("addLiteratureButton");
+        addLiteratureButton.setEnabled(false);
         addLiteratureButton.setGeometry(new QRect(320, 320, 71, 21));
         deleteLiteratureButton = new QPushButton(MainDialog);
         deleteLiteratureButton.setObjectName("deleteLiteratureButton");
+        deleteLiteratureButton.setEnabled(false);
         deleteLiteratureButton.setGeometry(new QRect(320, 350, 71, 20));
         label_Title.setBuddy(lineEdit_Titel);
         label_Prof.setBuddy(lineEdit_Prof);

@@ -357,7 +357,7 @@ p, li { white-space: pre-wrap; }
     </font>
    </property>
    <property name="selectionMode">
-    <enum>com.trolltech.qt.gui.QAbstractItemView.SelectionMode.NoSelection</enum>
+    <enum>com.trolltech.qt.gui.QAbstractItemView.SelectionMode.SingleSelection</enum>
    </property>
   </widget>
   <widget class="QComboBox" name="comboBox_Ort">
@@ -501,6 +501,9 @@ p, li { white-space: pre-wrap; }
    </property>
   </widget>
   <widget class="QPushButton" name="editshowPartButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -514,6 +517,9 @@ p, li { white-space: pre-wrap; }
    </property>
   </widget>
   <widget class="QPushButton" name="addPlaceButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -616,6 +622,9 @@ p, li { white-space: pre-wrap; }
    </property>
   </widget>
   <widget class="QPushButton" name="detailsButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -629,6 +638,9 @@ p, li { white-space: pre-wrap; }
    </property>
   </widget>
   <widget class="QPushButton" name="editshowPriceButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>310</x>
@@ -674,6 +686,9 @@ p, li { white-space: pre-wrap; }
    </property>
   </widget>
   <widget class="QPushButton" name="addLiteratureButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>320</x>
@@ -687,6 +702,9 @@ p, li { white-space: pre-wrap; }
    </property>
   </widget>
   <widget class="QPushButton" name="deleteLiteratureButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>320</x>

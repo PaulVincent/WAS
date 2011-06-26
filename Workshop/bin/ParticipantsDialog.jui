@@ -20,25 +20,6 @@
   <property name="modal">
    <bool>true</bool>
   </property>
-  <widget class="QDialogButtonBox" name="buttonBox_OK_Cancel">
-   <property name="geometry">
-    <rect>
-     <x>61</x>
-     <y>220</y>
-     <width>160</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="focusPolicy">
-    <enum>com.trolltech.qt.core.Qt.FocusPolicy.TabFocus</enum>
-   </property>
-   <property name="orientation">
-    <enum>com.trolltech.qt.core.Qt.Orientation.Horizontal</enum>
-   </property>
-   <property name="standardButtons">
-    <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel|com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
-   </property>
-  </widget>
   <widget class="QTreeWidget" name="treeWidget">
    <property name="geometry">
     <rect>
@@ -111,107 +92,11 @@
      <string>Bezahlt</string>
     </property>
    </column>
-   <item>
-    <property name="text">
-     <string>2</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-    </property>
-    <property name="text">
-     <string>Stefanie</string>
-    </property>
-    <property name="text">
-     <string>Schmidt</string>
-    </property>
-    <property name="text">
-     <string>19.05.2011</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignRight|AlignVCenter</set>
-    </property>
-    <property name="text">
-     <string>40</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignRight|AlignVCenter</set>
-    </property>
-    <property name="text">
-     <string>Ja</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>1</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-    </property>
-    <property name="text">
-     <string>Peter</string>
-    </property>
-    <property name="text">
-     <string>Müller</string>
-    </property>
-    <property name="text">
-     <string>29.05.2011</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignRight|AlignVCenter</set>
-    </property>
-    <property name="text">
-     <string>50</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignRight|AlignVCenter</set>
-    </property>
-    <property name="text">
-     <string>Nein</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>0</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-    </property>
-    <property name="text">
-     <string>André</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignLeft|AlignVCenter</set>
-    </property>
-    <property name="text">
-     <string>Dittrich</string>
-    </property>
-    <property name="text">
-     <string>27.05.2011</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignRight|AlignVCenter</set>
-    </property>
-    <property name="text">
-     <string>40</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignRight|AlignVCenter</set>
-    </property>
-    <property name="text">
-     <string>Ja</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignLeft|AlignVCenter</set>
-    </property>
-    <property name="flags">
-     <set>ItemIsSelectable|ItemIsEnabled|ItemIsTristate</set>
-    </property>
-   </item>
   </widget>
   <widget class="QPushButton" name="addRealPartButton">
    <property name="geometry">
     <rect>
-     <x>227</x>
+     <x>230</x>
      <y>220</y>
      <width>77</width>
      <height>20</height>
@@ -226,7 +111,7 @@
     <rect>
      <x>310</x>
      <y>220</y>
-     <width>81</width>
+     <width>77</width>
      <height>20</height>
     </rect>
    </property>
@@ -234,22 +119,48 @@
     <string>delete</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="OKButton">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>220</y>
+     <width>77</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="CancelButton">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>220</y>
+     <width>77</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>
   <connection>
-   <sender>buttonBox_OK_Cancel</sender>
-   <signal>clicked&lt;com.trolltech.qt.gui.QAbstractButton&gt;</signal>
+   <sender>CancelButton</sender>
+   <signal>clicked&lt;java.lang.Boolean&gt;</signal>
    <receiver>ParticipantsDialog</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>100</x>
-     <y>226</y>
+     <x>170</x>
+     <y>228</y>
     </hint>
     <hint type="destinationlabel">
-     <x>237</x>
-     <y>61</y>
+     <x>219</x>
+     <y>221</y>
     </hint>
    </hints>
   </connection>

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'Workshops.jui'
 **
-** Created: Fr 24. Jun 13:06:28 2011
+** Created: So 26. Jun 23:36:32 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -21,22 +21,23 @@ public class Workshops implements com.trolltech.qt.QUiForm<QDialog>
     public void setupUi(QDialog Workshops)
     {
         Workshops.setObjectName("Workshops");
-        Workshops.resize(new QSize(515, 239).expandedTo(Workshops.minimumSizeHint()));
+        Workshops.resize(new QSize(547, 239).expandedTo(Workshops.minimumSizeHint()));
         Workshops.setWindowIcon(new QIcon(new QPixmap("logo_gik.png")));
         Workshops.setModal(true);
         treeWidget = new QTreeWidget(Workshops);
         treeWidget.setObjectName("treeWidget");
-        treeWidget.setGeometry(new QRect(10, 10, 491, 192));
+        treeWidget.setGeometry(new QRect(10, 10, 521, 192));
         treeWidget.setEditTriggers(com.trolltech.qt.gui.QAbstractItemView.EditTrigger.createQFlags(com.trolltech.qt.gui.QAbstractItemView.EditTrigger.DoubleClicked));
         treeWidget.setIndentation(5);
         treeWidget.setItemsExpandable(false);
+        treeWidget.setSortingEnabled(true);
         treeWidget.setExpandsOnDoubleClick(false);
         cancelButton = new QPushButton(Workshops);
         cancelButton.setObjectName("cancelButton");
-        cancelButton.setGeometry(new QRect(234, 211, 77, 20));
+        cancelButton.setGeometry(new QRect(263, 210, 77, 20));
         okButton = new QPushButton(Workshops);
         okButton.setObjectName("okButton");
-        okButton.setGeometry(new QRect(151, 211, 77, 20));
+        okButton.setGeometry(new QRect(180, 210, 77, 20));
         retranslateUi(Workshops);
         cancelButton.clicked.connect(Workshops, "close()");
 
