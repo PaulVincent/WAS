@@ -1,4 +1,4 @@
-package CONTROLLER;
+package Controller;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -33,7 +33,7 @@ public class DBConnection {
 		BufferedInputStream stream;
 		try {
 			stream = new BufferedInputStream(new FileInputStream(
-					"lib/MySQL.properties"));
+					"conf/MySQL.properties"));
 			properties.load(stream);
 			stream.close();
 		} catch (FileNotFoundException e1) {
@@ -52,12 +52,10 @@ public class DBConnection {
 		String pass = properties.getProperty("password");// mysql database
 															// password
 		String driver = "com.mysql.jdbc.Driver"; // mysql jdbc driver
-//<<<<<<< HEAD
+		
 //		String user = "root"; // mysql database user name
 //		String pass = "test"; // mysql database password
-//=======
-//
-//>>>>>>> 3cacf254d4a457f89799996e855c454c5127ce80
+
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url + db, user, pass);

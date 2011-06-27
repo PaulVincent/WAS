@@ -1,5 +1,5 @@
 
-import CONTROLLER.WorkshopController;
+import Controller.WorkshopController;
 
 import com.trolltech.qt.gui.QApplication;
 import com.trolltech.qt.gui.QDialog;

@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
-import CONTROLLER.WorkshopController;
+import Controller.WorkshopController;
 
 import com.trolltech.qt.core.QDate;
-import com.trolltech.qt.gui.*;
+import com.trolltech.qt.gui.QApplication;
+import com.trolltech.qt.gui.QDialog;
+import com.trolltech.qt.gui.QWidget;
 
 public class PaticipantInfoImpl extends QDialog {
 

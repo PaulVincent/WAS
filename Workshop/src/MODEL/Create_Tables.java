@@ -75,12 +75,10 @@ public class Create_Tables {
 		String pass = properties.getProperty("password");// mysql database
 															// password
 		String driver = "com.mysql.jdbc.Driver"; // mysql jdbc driver
-//<<<<<<< HEAD
-//		String user = "root"; // mysql database user name
-//		String pass = "test"; // mysql database password
-//=======
-//
-//>>>>>>> 3cacf254d4a457f89799996e855c454c5127ce80
+
+		//		String user = "root"; // mysql database user name
+		//		String pass = "test"; // mysql database password
+
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url + db, user, pass);
