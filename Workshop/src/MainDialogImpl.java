@@ -6,13 +6,15 @@ import java.util.Locale;
 
 import javax.swing.JFrame;
 
-import Controller.DBConnection;
-import Controller.WorkshopController;
+import CONTROLLER.DBConnection;
+import CONTROLLER.WorkshopController;
 
 import com.trolltech.qt.gui.QApplication;
 import com.trolltech.qt.gui.QDialog;
 import com.trolltech.qt.gui.QFrame;
 import com.trolltech.qt.gui.QListWidgetItem;
+import com.trolltech.qt.gui.QPlastiqueStyle;
+import com.trolltech.qt.gui.QTreeWidgetItem;
 import com.trolltech.qt.gui.QWidget;
 
 public class MainDialogImpl extends QDialog {
@@ -22,7 +24,7 @@ public class MainDialogImpl extends QDialog {
 
     public static void main(String[] args) {
         QApplication.initialize(args);
-
+        QApplication.setStyle(new QPlastiqueStyle());
         MainDialogImpl testMainDialogImpl = new MainDialogImpl();
         testMainDialogImpl.init();
         testMainDialogImpl.show();
@@ -147,6 +149,7 @@ public class MainDialogImpl extends QDialog {
     public void on_addLiteratureButton_clicked()
     {
 //    	NotImplYet();
+    	ui.listWidget_Literature.setCurrentItem(null);
     	NewLiteratureImpl nLImpl = new NewLiteratureImpl(this);
     	nLImpl.show();
     	
@@ -162,6 +165,12 @@ public class MainDialogImpl extends QDialog {
     		literature2MainDialog(literature);
     	}
     }
+    
+    public void on_listWidget_itemDoubleClicked() {
+    	NewLiteratureImpl nLImpl = new NewLiteratureImpl(this);
+    	nLImpl.show();
+	}
+
     
     public void resetUI()
     {

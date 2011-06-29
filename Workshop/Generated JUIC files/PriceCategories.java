@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'PriceCategories.jui'
 **
-** Created: So 26. Jun 11:37:17 2011
+** Created: Di 28. Jun 22:42:22 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -22,21 +22,24 @@ public class PriceCategories implements com.trolltech.qt.QUiForm<QDialog>
     public void setupUi(QDialog PriceCategories)
     {
         PriceCategories.setObjectName("PriceCategories");
-        PriceCategories.resize(new QSize(277, 136).expandedTo(PriceCategories.minimumSizeHint()));
+        PriceCategories.resize(new QSize(313, 159).expandedTo(PriceCategories.minimumSizeHint()));
+        PriceCategories.setMinimumSize(new QSize(313, 159));
+        PriceCategories.setMaximumSize(new QSize(313, 159));
         PriceCategories.setWindowIcon(new QIcon(new QPixmap("logo_gik.png")));
         PriceCategories.setModal(true);
         treeWidget = new QTreeWidget(PriceCategories);
         treeWidget.setObjectName("treeWidget");
-        treeWidget.setGeometry(new QRect(10, 10, 171, 111));
+        treeWidget.setGeometry(new QRect(10, 10, 191, 135));
+        treeWidget.setSortingEnabled(true);
         addCategoryButton = new QPushButton(PriceCategories);
         addCategoryButton.setObjectName("addCategoryButton");
-        addCategoryButton.setGeometry(new QRect(190, 70, 77, 20));
+        addCategoryButton.setGeometry(new QRect(220, 90, 77, 25));
         deleteButton = new QPushButton(PriceCategories);
         deleteButton.setObjectName("deleteButton");
-        deleteButton.setGeometry(new QRect(190, 100, 77, 20));
+        deleteButton.setGeometry(new QRect(220, 120, 77, 25));
         buttonBox = new QDialogButtonBox(PriceCategories);
         buttonBox.setObjectName("buttonBox");
-        buttonBox.setGeometry(new QRect(190, 10, 77, 48));
+        buttonBox.setGeometry(new QRect(220, 10, 77, 60));
         buttonBox.setOrientation(com.trolltech.qt.core.Qt.Orientation.Vertical);
         buttonBox.setStandardButtons(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.createQFlags(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel,com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok));
         buttonBox.setCenterButtons(false);
@@ -54,12 +57,32 @@ public class PriceCategories implements com.trolltech.qt.QUiForm<QDialog>
         treeWidget.clear();
 
         QTreeWidgetItem __item = new QTreeWidgetItem(treeWidget);
-        __item.setText(0, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "normal", null));
-        __item.setText(1, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "50", null));
+        __item.setText(0, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "zrarz", null));
+        __item.setText(1, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "arszsraz", null));
 
         QTreeWidgetItem __item1 = new QTreeWidgetItem(treeWidget);
-        __item1.setText(0, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "reduced", null));
-        __item1.setText(1, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "40", null));
+        __item1.setText(0, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "wartarwt", null));
+        __item1.setText(1, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "wartzwar", null));
+
+        QTreeWidgetItem __item2 = new QTreeWidgetItem(treeWidget);
+        __item2.setText(0, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "srazsraz", null));
+        __item2.setText(1, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "rzszasr", null));
+
+        QTreeWidgetItem __item3 = new QTreeWidgetItem(treeWidget);
+        __item3.setText(0, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "rtwat", null));
+        __item3.setText(1, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "wrtawt", null));
+
+        QTreeWidgetItem __item4 = new QTreeWidgetItem(treeWidget);
+        __item4.setText(0, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "rtat", null));
+        __item4.setText(1, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "wratw", null));
+
+        QTreeWidgetItem __item5 = new QTreeWidgetItem(treeWidget);
+        __item5.setText(0, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "reduced", null));
+        __item5.setText(1, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "40", null));
+
+        QTreeWidgetItem __item6 = new QTreeWidgetItem(treeWidget);
+        __item6.setText(0, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "normal", null));
+        __item6.setText(1, com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "50", null));
         addCategoryButton.setText(com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "add", null));
         deleteButton.setText(com.trolltech.qt.core.QCoreApplication.translate("PriceCategories", "delete", null));
     } // retranslateUi

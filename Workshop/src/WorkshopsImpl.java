@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-import Controller.WorkshopController;
+import CONTROLLER.WorkshopController;
 
 import com.trolltech.qt.core.Qt.SortOrder;
 import com.trolltech.qt.gui.QApplication;
@@ -36,12 +36,13 @@ public class WorkshopsImpl extends QDialog {
 
 		this.mDImpl = mDImpl;
 
-		int widthID = 35;
-		int widthTitle = 230;
+		int widthID = 45;
+		int widthTitle = 260;
 		ui.treeWidget.setColumnWidth(0, widthID);
 		ui.treeWidget.setColumnWidth(1, widthTitle);
-		ui.treeWidget.setColumnWidth(3, 75);
-		ui.treeWidget.setColumnWidth(4, widthID * 2);
+		ui.treeWidget.setColumnWidth(2, 160);
+		ui.treeWidget.setColumnWidth(3, 130);
+//		ui.treeWidget.setColumnWidth(4, 50);
 
 		init();
 	}

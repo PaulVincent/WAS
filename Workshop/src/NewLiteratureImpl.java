@@ -1,5 +1,4 @@
-
-import Controller.WorkshopController;
+import CONTROLLER.WorkshopController;
 
 import com.trolltech.qt.gui.QApplication;
 import com.trolltech.qt.gui.QDialog;
@@ -35,6 +34,7 @@ public class NewLiteratureImpl extends QDialog {
 	}
 
 	public void on_saveLiteratureButton_clicked() {
+		
 		if (!ui.lineEdit_Author.text().isEmpty()
 				&& !ui.lineEdit_Title.text().isEmpty()
 				&& !ui.lineEdit_Year.text().isEmpty()) {
@@ -43,12 +43,11 @@ public class NewLiteratureImpl extends QDialog {
 			String year = ui.lineEdit_Year.text();
 			String literature = title + ", " + author + ", " + year + ";";
 			this.close();
-			literature = WorkshopController.newLiterature(literature, mDImpl.workShopID);
+			literature = WorkshopController.newLiterature(literature,
+					mDImpl.workShopID);
 			mDImpl.literature2MainDialog(literature);
-			
 		}
+
 	}
-	
-	
 
 }

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'NewLiterature.jui'
 **
-** Created: So 26. Jun 11:37:17 2011
+** Created: Di 28. Jun 22:09:06 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -12,13 +12,14 @@ import com.trolltech.qt.gui.*;
 
 public class NewLiterature implements com.trolltech.qt.QUiForm<QDialog>
 {
-    public QDialogButtonBox buttonBox;
-    public QLineEdit lineEdit_Title;
-    public QLineEdit lineEdit_Author;
-    public QLineEdit lineEdit_Year;
+    public QGridLayout gridLayout;
     public QLabel label_Title;
+    public QLineEdit lineEdit_Title;
     public QLabel label_Author;
+    public QLineEdit lineEdit_Author;
     public QLabel label_Year;
+    public QLineEdit lineEdit_Year;
+    public QDialogButtonBox buttonBox;
     public QPushButton saveLiteratureButton;
 
     public NewLiterature() { super(); }
@@ -26,34 +27,67 @@ public class NewLiterature implements com.trolltech.qt.QUiForm<QDialog>
     public void setupUi(QDialog NewLiterature)
     {
         NewLiterature.setObjectName("NewLiterature");
-        NewLiterature.resize(new QSize(221, 121).expandedTo(NewLiterature.minimumSizeHint()));
+        NewLiterature.resize(new QSize(266, 154).expandedTo(NewLiterature.minimumSizeHint()));
+        NewLiterature.setMinimumSize(new QSize(266, 154));
         NewLiterature.setModal(true);
-        buttonBox = new QDialogButtonBox(NewLiterature);
-        buttonBox.setObjectName("buttonBox");
-        buttonBox.setGeometry(new QRect(10, 90, 131, 20));
-        buttonBox.setFocusPolicy(com.trolltech.qt.core.Qt.FocusPolicy.TabFocus);
-        buttonBox.setStandardButtons(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.createQFlags(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel,com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok));
-        lineEdit_Title = new QLineEdit(NewLiterature);
-        lineEdit_Title.setObjectName("lineEdit_Title");
-        lineEdit_Title.setGeometry(new QRect(50, 10, 161, 20));
-        lineEdit_Author = new QLineEdit(NewLiterature);
-        lineEdit_Author.setObjectName("lineEdit_Author");
-        lineEdit_Author.setGeometry(new QRect(50, 35, 161, 20));
-        lineEdit_Year = new QLineEdit(NewLiterature);
-        lineEdit_Year.setObjectName("lineEdit_Year");
-        lineEdit_Year.setGeometry(new QRect(50, 60, 61, 20));
+        gridLayout = new QGridLayout(NewLiterature);
+        gridLayout.setObjectName("gridLayout");
         label_Title = new QLabel(NewLiterature);
         label_Title.setObjectName("label_Title");
-        label_Title.setGeometry(new QRect(10, 10, 20, 20));
+        label_Title.setMinimumSize(new QSize(20, 25));
+        label_Title.setMaximumSize(new QSize(20, 25));
+
+        gridLayout.addWidget(label_Title, 0, 0, 1, 1);
+
+        lineEdit_Title = new QLineEdit(NewLiterature);
+        lineEdit_Title.setObjectName("lineEdit_Title");
+        lineEdit_Title.setMinimumSize(new QSize(0, 25));
+
+        gridLayout.addWidget(lineEdit_Title, 0, 1, 1, 2);
+
         label_Author = new QLabel(NewLiterature);
         label_Author.setObjectName("label_Author");
-        label_Author.setGeometry(new QRect(10, 35, 33, 20));
+        label_Author.setMinimumSize(new QSize(33, 25));
+        label_Author.setMaximumSize(new QSize(33, 25));
+
+        gridLayout.addWidget(label_Author, 1, 0, 1, 1);
+
+        lineEdit_Author = new QLineEdit(NewLiterature);
+        lineEdit_Author.setObjectName("lineEdit_Author");
+        lineEdit_Author.setMinimumSize(new QSize(0, 25));
+
+        gridLayout.addWidget(lineEdit_Author, 1, 1, 1, 1);
+
         label_Year = new QLabel(NewLiterature);
         label_Year.setObjectName("label_Year");
-        label_Year.setGeometry(new QRect(10, 60, 21, 20));
+        label_Year.setMinimumSize(new QSize(21, 25));
+        label_Year.setMaximumSize(new QSize(21, 25));
+
+        gridLayout.addWidget(label_Year, 2, 0, 1, 1);
+
+        lineEdit_Year = new QLineEdit(NewLiterature);
+        lineEdit_Year.setObjectName("lineEdit_Year");
+        lineEdit_Year.setMinimumSize(new QSize(61, 25));
+        lineEdit_Year.setMaximumSize(new QSize(61, 25));
+
+        gridLayout.addWidget(lineEdit_Year, 2, 1, 1, 1);
+
+        buttonBox = new QDialogButtonBox(NewLiterature);
+        buttonBox.setObjectName("buttonBox");
+        buttonBox.setMinimumSize(new QSize(155, 25));
+        buttonBox.setMaximumSize(new QSize(155, 25));
+        buttonBox.setFocusPolicy(com.trolltech.qt.core.Qt.FocusPolicy.TabFocus);
+        buttonBox.setStandardButtons(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.createQFlags(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel,com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok));
+
+        gridLayout.addWidget(buttonBox, 3, 0, 1, 2);
+
         saveLiteratureButton = new QPushButton(NewLiterature);
         saveLiteratureButton.setObjectName("saveLiteratureButton");
-        saveLiteratureButton.setGeometry(new QRect(150, 90, 61, 20));
+        saveLiteratureButton.setMinimumSize(new QSize(81, 25));
+        saveLiteratureButton.setMaximumSize(new QSize(81, 25));
+
+        gridLayout.addWidget(saveLiteratureButton, 3, 2, 1, 1);
+
         retranslateUi(NewLiterature);
         buttonBox.clicked.connect(NewLiterature, "close()");
 

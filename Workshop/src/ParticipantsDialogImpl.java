@@ -2,7 +2,7 @@
 
 import java.util.ArrayList;
 
-import Controller.WorkshopController;
+import CONTROLLER.WorkshopController;
 
 import com.trolltech.qt.core.Qt.SortOrder;
 import com.trolltech.qt.gui.QApplication;
@@ -79,11 +79,11 @@ public class ParticipantsDialogImpl extends QDialog {
 
 	public void setAdditionalLayoutOptions()
 	{
-		int width = 40;
-		int widthID = 25;
+		int width = 70;
+		int widthID = 45;
 		ui.treeWidget.setColumnWidth(0, widthID);
 		ui.treeWidget.setColumnWidth(4, width);
-		ui.treeWidget.setColumnWidth(5, width);
+		ui.treeWidget.setColumnWidth(3, 110);
 	}
 
 	public void init() {
