@@ -30,9 +30,12 @@ public class Create_Tables {
 	public static int getChoice() {
 		String choice;
 		int ch;
-		choice = JOptionPane.showInputDialog(null, "1.Create Workshop Table\n"
-				+ "2.Create Participant Table\n" + "0.Exit\n\n"
-				+ "Enter your table creation choice");
+		choice = JOptionPane.showInputDialog(null,
+				"1.Create Workshop Administrator Table\n" + 
+				"2.Create Participant Information Table\n" +
+				"3.Create Time Schedule for Workshop Table\n" +
+				"0.Exit\n\n\n" + "Enter your table creation choice");
+
 		ch = Integer.parseInt(choice);
 		return ch;
 	}
@@ -44,6 +47,9 @@ public class Create_Tables {
 		}
 		if (choice == 2) {
 			createParticipantTable();
+		}
+		if (choice == 3) {
+			createScheduleTable();
 		}
 	}
 
@@ -90,6 +96,7 @@ public class Create_Tables {
 		return con;
 	}
 
+
 	/*
 	 * sql syntex for workshop_table creation: CREATE TABLE workshop_table( W_ID
 	 * int(11) NOT NULL DEFAULT '0', W_TITLE varchar(30) DEFAULT NULL,
@@ -105,18 +112,18 @@ public class Create_Tables {
 	public static void createWorkshopTable() {
 		Connection con = getConnection();
 		String createString;
-//<<<<<<< HEAD
+
 		createString = "create table workshop_table (" + "" +
 				"W_ID int(11)PRIMARY KEY, " +
 		        "W_TITLE varchar(30)," +
 		        "W_LECTURER varchar(30)," +
 		        "W_PARTICIPANT int(4)," +
-		        "W_PLACE varchar(30)," +
+		        "W_PLACE varchar(60)," +
 		        "W_CATEGORY varchar(60)," +
 		        "W_DURATION double," +
 		        "W_PRICE double," +
-		        "W_DESCRIPTION text," +
-		        "W_LITERATURE text," + 
+		        "W_DESCRIPTION LONGTEXT," +
+		        "W_LITERATURE LONGTEXT," + 
 		        "W_DATE timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
 //=======
 //		createString = "create table workshop_table_1 ("
@@ -141,8 +148,31 @@ public class Create_Tables {
 		} catch (SQLException ex) {
 			System.err.println("SQLException: " + ex.getMessage());
 		}
-		JOptionPane.showMessageDialog(null, "Workshop Table Created");
+		JOptionPane.showMessageDialog(null, "Workshop Administrator Table Created");
 	}
+
+/* sql syntex for creating the participants_table:
+   CREATE TABLE participants_table(
+   W_ID int(9),
+   W_DATE DATE,
+   W_DATE_TimeSchedule TEXT
+   P_ID int(11)  NOT NULL AUTO_INCREMENT,
+   P_FIRSTNAME varchar(30) DEFAULT NULL,
+   P_LASTNAME varchar(30) DEFAULT NULL,
+   P_STREETNAME varchar(50) DEFAULT NULL,
+   P_HOUSE int(11) DEFAULT NULL,
+   P_PLACE varchar(60) DEFAULT NULL,
+   P_ZIPCODE int(11) DEFAULT NULL,
+   P_PHONE varchar(15) DEFAULT NULL,
+   P_EMAIL varchar(60) DEFAULT NULL,
+   P_CATEGORY varchar(60) DEFAULT NULL,
+   P_PRICE double DEFAULT NULL,
+   P_REGISTRATION varchar(30) DEFAULT NULL,
+   P_PAID varchar(10) DEFAULT NULL,
+   P_DATE timestamp,
+   PRIMARY KEY (P_ID));
+  
+*/
 
 	/*
 	 * sql syntex for creating the participants_table: CREATE TABLE
@@ -159,8 +189,10 @@ public class Create_Tables {
 	public static void createParticipantTable() {
 		Connection con = getConnection();
 		String createString;
-//<<<<<<< HEAD
 		createString = "create table participants_table (" + "" +
+                "W_ID int(11), " +
+    	        "W_DATE DATE," +
+    	        "W_DATE_TimeSchedule TEXT," +
 		        "P_ID int(11)PRIMARY KEY, " +
 				"P_FIRSTNAME varchar(30), " +
 				"P_LASTNAME varchar(30), " +
@@ -201,7 +233,35 @@ public class Create_Tables {
 		} catch (SQLException ex) {
 			System.err.println("SQLException:" + ex.getMessage());
 		}
-		JOptionPane.showMessageDialog(null, "Participant Table Created");
+		JOptionPane.showMessageDialog(null,"Participant Information Table Created");
+
 	}
+	/* sql syntex for creating the Time_Schedule_table:
+	   CREATE TABLE Time_Schedule_table(
+	    W_ID int(9),
+	    P_ID int(9),
+	    W_DATE DATE,
+	    W_DATE_TimeSchedule TEXT);
+	*/
+	// Time_Schedule_table table creation method	
+	public static void createScheduleTable(){
+		Connection con = getConnection();
+		String createString;
+		createString = "create table Time_Schedule_table (" + "" +
+		        "W_ID int(9)," +
+				"P_ID int(9) PRIMARY KEY, " +
+				"W_DATE DATE," +
+				"W_DATE_TimeSchedule TEXT)";
+		try {
+			stmt = con.createStatement();
+			stmt.executeUpdate(createString);
+			stmt.close();
+			con.close();
+		} catch (SQLException ex) {
+			System.err.println("SQLException:" + ex.getMessage());
+		}
+		JOptionPane.showMessageDialog(null,"Time Schedule for Workshop Table Created");
+	}
+
 
 }// End of class
