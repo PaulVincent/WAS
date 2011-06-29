@@ -33,7 +33,7 @@ public class Participant extends JFrame {
 	  firstButton, gotoButton, freeQueryButton;
 
 private JList listParticipant;
-
+// good luck TEST
 private JTextField P_ID_text,P_FIRSTNAME_text, P_LASTNAME_text,P_STREETNAME_text,P_HOUSE_text,P_PLACE_text, 
 P_ZIPCODE_text,P_PHONE_text,P_EMAIL_text, P_CATEGORY_text,P_PRICE_text,P_REGISTRATION_text,
 P_PAID_text,P_DATE_text, gotoText,freeQueryText;
