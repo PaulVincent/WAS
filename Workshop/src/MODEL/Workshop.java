@@ -1,8 +1,12 @@
 package MODEL;
 
+
+import java.awt.BorderLayout;
+
 import java.awt.Container;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -15,6 +19,7 @@ import java.sql.Statement;
 import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -26,20 +31,24 @@ public class Workshop extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JButton getWorkshopButton, insertWorkshopButton, deleteWorkshopButton,
       			  updateWorkshopButton, nextButton, previousButton, lastButton,
-      			  firstButton, gotoButton, freeQueryButton;
+      			  firstButton, gotoButton, freeQueryButton,getParticipantNumber,getParticipantNumber1;
   
-  private JList listWorkshop;
+  private JList listWorkshop,listParticipant;
+
   
-  private JTextField W_ID_text,W_TITLE_text, W_LECTURER_text,W_PARTICIPANT_text,W_PLACE_text,
-  W_CATEGORY_text,W_DURATION_text,W_PRICE_text,W_DESCRIPTION_text, W_LITERATURE_text,W_DATE_text, gotoText,freeQueryText;
+  private JTextField W_ID_text,W_ID_text1,W_TITLE_text, W_LECTURER_text,W_PLACE_text,
+  W_CATEGORY_text,W_DURATION_text,W_PRICE_text,W_DESCRIPTION_text, W_LITERATURE_text,W_DATE_text, gotoText,freeQueryText
+  ,P_Number_text,P_Number_text1;
   
   private JTextArea errorText;
   private Connection connection;
   private Statement statement;
   private ResultSet resultSet;
+  
 // constructor method for checking the loading driver
   public Workshop() {
-	  super("Workshop Administrator");
+	  
+	 super("Workshop Administrator");   
     try {
       Class.forName("com.mysql.jdbc.Driver").newInstance();
     } 
@@ -52,7 +61,7 @@ public class Workshop extends JFrame {
   public void connectToDB() {
 	    try {
 	      connection = DriverManager
-	          .getConnection("jdbc:mysql://localhost/workshop_software_db?user=root&password=test");
+	          .getConnection("jdbc:mysql://localhost/workshop_software_db?user=root&password=riaydh");
 	      statement = connection.createStatement();
 
 	    } catch (SQLException connectException) {
@@ -64,7 +73,7 @@ public class Workshop extends JFrame {
 	  }
   
   // laod data from workshop_table table
-  private void loadParticipant() {
+  private void loadWorkshop() {
     Vector<Integer> v = new Vector<Integer>();
     try {
     	resultSet = statement.executeQuery("SELECT * FROM workshop_table");
@@ -77,17 +86,33 @@ public class Workshop extends JFrame {
     }
     listWorkshop.setListData(v);
   }
-
+  private void loadParticipant() {
+		Vector<Integer> v1 = new Vector<Integer>();
+		try {
+		resultSet = statement.executeQuery("SELECT * FROM participant_table");
+		while (resultSet.next()) {
+		v1.addElement(resultSet.getInt("P_ID"));
+		}
+		}
+		catch (SQLException e) {
+			displaySQLErrors(e);
+			}
+		listParticipant.setListData(v1);
+		}
+  
   // GUI building 
   @SuppressWarnings("deprecation")
 private void buildGUI() {
-	
-    Container c = getContentPane();
-    c.setLayout(new FlowLayout());
+	  
+	   Container c = getContentPane();
+	   c.setLayout(new GridBagLayout());
+	   JFrame f=new JFrame();
+	   
     listWorkshop = new JList();
-    loadParticipant();
+    loadWorkshop();
     listWorkshop.setVisibleRowCount(5);
     JScrollPane participantNumberListScrollPane = new JScrollPane(listWorkshop);
+   
   
     //Do Get Account Button
     getWorkshopButton = new JButton("Get Workshop");
@@ -101,7 +126,7 @@ private void buildGUI() {
           W_ID_text.setText(resultSet.getString("W_ID"));
           W_TITLE_text.setText(resultSet.getString("W_TITLE"));
           W_LECTURER_text.setText(resultSet.getString("W_LECTURER"));
-      	  W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
+      	 // W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
       	  W_PLACE_text.setText(resultSet.getString("W_PLACE"));
       	  W_CATEGORY_text.setText(resultSet.getString("W_CATEGORY"));
       	  W_DURATION_text.setText(resultSet.getString("W_DURATION"));
@@ -113,6 +138,7 @@ private void buildGUI() {
         } catch (SQLException selectException) {
           displaySQLErrors(selectException);
         }
+   
       }
     });
     
@@ -126,7 +152,7 @@ private void buildGUI() {
                   +W_ID_text.getText() + "','" 
                   +W_TITLE_text.getText() + "','"
                   +W_LECTURER_text.getText() + "','"
-                  +W_PARTICIPANT_text.getText() + "','"
+                //  +W_PARTICIPANT_text.getText() + "','"
                   +W_PLACE_text.getText() + "','"
                   +W_CATEGORY_text.getText() + "','" 
                   +W_DURATION_text.getText() + "','"
@@ -136,7 +162,7 @@ private void buildGUI() {
                   +W_DATE_text.getText()+ "')");
           errorText.append("Inserted " + i + " rows successfully");
           listWorkshop.removeAll();
-          loadParticipant();
+          loadWorkshop();
         } catch (SQLException insertException) {
           displaySQLErrors(insertException);
         }
@@ -152,7 +178,7 @@ private void buildGUI() {
           int i = statement.executeUpdate("DELETE FROM workshop_table WHERE W_ID = "+ listWorkshop.getSelectedValue());
           errorText.append("Deleted " + i + " rows successfully");
           listWorkshop.removeAll();
-          loadParticipant();
+          loadWorkshop();
         } catch (SQLException insertException) {
           displaySQLErrors(insertException);
         }
@@ -168,7 +194,7 @@ private void buildGUI() {
           int i = statement.executeUpdate("UPDATE workshop_table "
               + "SET W_TITLE='"+W_TITLE_text.getText()+"',"
               + "W_LECTURER='"+W_LECTURER_text.getText()+"',"
-              + "W_PARTICIPANT='"+W_PARTICIPANT_text.getText()+ "',"
+           //   + "W_PARTICIPANT='"+W_PARTICIPANT_text.getText()+ "',"
               + "W_PLACE='"+W_PLACE_text.getText()+"',"
               + "W_CATEGORY='"+W_CATEGORY_text.getText()+"',"
               + "W_DURATION='"+W_DURATION_text.getText()+"',"
@@ -180,7 +206,7 @@ private void buildGUI() {
           
           errorText.append("Updated " + i + " rows successfully");
           listWorkshop.removeAll();
-          loadParticipant();
+          loadWorkshop();
         } catch (SQLException insertException) {
           displaySQLErrors(insertException);
         }
@@ -198,7 +224,7 @@ private void buildGUI() {
         	  W_ID_text.setText(resultSet.getString("W_ID"));
         	  W_TITLE_text.setText(resultSet.getString("W_TITLE"));
         	  W_LECTURER_text.setText(resultSet.getString("W_LECTURER"));
-        	  W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
+        	//  W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
         	  W_PLACE_text.setText(resultSet.getString("W_PLACE"));
         	  W_CATEGORY_text.setText(resultSet.getString("W_CATEGORY"));
         	  W_DURATION_text.setText(resultSet.getString("W_DURATION"));
@@ -223,7 +249,7 @@ private void buildGUI() {
         	  W_ID_text.setText(resultSet.getString("W_ID"));
         	  W_TITLE_text.setText(resultSet.getString("W_TITLE"));
         	  W_LECTURER_text.setText(resultSet.getString("W_LECTURER"));
-        	  W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
+        	 // W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
         	  W_PLACE_text.setText(resultSet.getString("W_PLACE"));
         	  W_CATEGORY_text.setText(resultSet.getString("W_CATEGORY"));
         	  W_DURATION_text.setText(resultSet.getString("W_DURATION"));
@@ -248,7 +274,7 @@ private void buildGUI() {
           W_ID_text.setText(resultSet.getString("W_ID"));
       	  W_TITLE_text.setText(resultSet.getString("W_TITLE"));
       	  W_LECTURER_text.setText(resultSet.getString("W_LECTURER"));
-      	  W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
+      	 // W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
       	  W_PLACE_text.setText(resultSet.getString("W_PLACE"));
       	  W_CATEGORY_text.setText(resultSet.getString("W_CATEGORY"));
       	  W_DURATION_text.setText(resultSet.getString("W_DURATION"));
@@ -273,7 +299,7 @@ private void buildGUI() {
           W_ID_text.setText(resultSet.getString("W_ID"));
       	  W_TITLE_text.setText(resultSet.getString("W_TITLE"));
       	  W_LECTURER_text.setText(resultSet.getString("W_LECTURER"));
-      	  W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
+      	//  W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
       	  W_PLACE_text.setText(resultSet.getString("W_PLACE"));
       	  W_CATEGORY_text.setText(resultSet.getString("W_CATEGORY"));
       	  W_DURATION_text.setText(resultSet.getString("W_DURATION"));
@@ -298,7 +324,7 @@ private void buildGUI() {
           W_ID_text.setText(resultSet.getString("W_ID"));
       	  W_TITLE_text.setText(resultSet.getString("W_TITLE"));
       	  W_LECTURER_text.setText(resultSet.getString("W_LECTURER"));
-      	  W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
+      	 // W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
       	  W_PLACE_text.setText(resultSet.getString("W_PLACE"));
       	  W_CATEGORY_text.setText(resultSet.getString("W_CATEGORY"));
       	  W_DURATION_text.setText(resultSet.getString("W_DURATION"));
@@ -325,7 +351,7 @@ private void buildGUI() {
               W_ID_text.setText(resultSet.getString("W_ID"));
           	  W_TITLE_text.setText(resultSet.getString("W_TITLE"));
           	  W_LECTURER_text.setText(resultSet.getString("W_LECTURER"));
-          	  W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
+          	 // W_PARTICIPANT_text.setText(resultSet.getString("W_PARTICIPANT"));
           	  W_PLACE_text.setText(resultSet.getString("W_PLACE"));
           	  W_CATEGORY_text.setText(resultSet.getString("W_CATEGORY"));
           	  W_DURATION_text.setText(resultSet.getString("W_DURATION"));
@@ -338,98 +364,254 @@ private void buildGUI() {
           } else {
             int i = statement.executeUpdate(freeQueryText.getText());
             errorText.append("Rows affected = " + i);
-            loadParticipant();
+            loadWorkshop();
           }
         } catch (SQLException insertException) {
           displaySQLErrors(insertException);
         }
       }
     });
-
-    gotoText = new JTextField(3);
-    freeQueryText = new JTextField(40);
-    W_ID_text = new JTextField(15);
-    W_TITLE_text = new JTextField(15);
-    W_LECTURER_text = new JTextField(15);
-    W_PARTICIPANT_text= new JTextField(15);
-    W_PLACE_text= new JTextField(15);
-    W_CATEGORY_text= new JTextField(15);
-    W_DURATION_text = new JTextField(15);
-    W_PRICE_text = new JTextField(15);
-    W_DESCRIPTION_text= new JTextField(15);
-    W_LITERATURE_text = new JTextField(15);
-    W_DATE_text = new JTextField(15);
-    
-    errorText = new JTextArea(5, 15);
-   
-    
-    JPanel second = new JPanel(new GridLayout(11,1));
-    second.setLayout(new GridLayout(15,1));
-    second.add(W_ID_text);
-    second.add(W_TITLE_text);
-    second.add( W_LECTURER_text);
-    second.add(W_PARTICIPANT_text);
-    second.add(W_PLACE_text);
-    second.add(W_CATEGORY_text);
-    second.add(W_DURATION_text);
-    second.add(W_PRICE_text);
-    second.add(W_DESCRIPTION_text);
-    second.add(W_LITERATURE_text);
-    second.add(W_DATE_text);
-
-
-    JPanel third = new JPanel();
-    third.add(new JScrollPane(errorText));
-    errorText.setEditable(false);
-    
-    JPanel first= new JPanel(new GridLayout(5,1)); 
-    first.add(participantNumberListScrollPane);
-    first.add(getWorkshopButton);
-    first.add(insertWorkshopButton);
-    first.add(deleteWorkshopButton);
-    first.add(updateWorkshopButton);
+  
+  
+    getParticipantNumber1 = new JButton("Each Workshop Participants");
+    getParticipantNumber1.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        try{
+          Statement statement = connection.createStatement();
+          resultSet = statement.executeQuery(
+  				"SELECT count(P_ID)as number from participant_table WHERE W_ID ="+listWorkshop.getSelectedValue());
+            if(resultSet.next()) {
+            	P_Number_text1.setText(resultSet.getString("number"));
+            }
  
-    
-    JPanel fourth = new JPanel();
-    fourth.add(firstButton);
-    fourth.add(previousButton);
-    fourth.add(nextButton);
-    fourth.add(lastButton);
-    fourth.add(gotoText);
-    fourth.add(gotoButton);
-
-    JPanel fifth = new JPanel();
-    fifth.add(freeQueryText);
-
-    c.add(first);
-    c.add(second);
-    c.add(third);
-    c.add(fourth);
-    c.add(fifth);
-    c.add(freeQueryButton);
-    show();
-  }
-  private void displaySQLErrors(SQLException e) {
-    errorText.append("SQLException: " + e.getMessage() + "\n");
-    errorText.append("SQLState:     " + e.getSQLState() + "\n");
-    errorText.append("VendorError:  " + e.getErrorCode() + "\n");
-  }
-
-  private void init() {
-    connectToDB();
-  }
-
-  public static void main(String[] args) {
-	  Workshop workshop = new Workshop();
-
-	  workshop.addWindowListener(new WindowAdapter() {
-      public void windowClosing(WindowEvent e) {
-        System.exit(0);
+      } catch (SQLException selectException) {
+        displaySQLErrors(selectException);
       }
-    });
-	  workshop.setSize(600, 600);
-	  workshop.setResizable(false);
-	  workshop.init();
-	  workshop.buildGUI();
-  }
-}
+    }
+  });
+         
+    
+	    W_ID_text = new JTextField(15);
+	    W_TITLE_text = new JTextField(15);
+	    W_LECTURER_text = new JTextField(15);
+	   // W_PARTICIPANT_text= new JTextField(15);
+	    W_PLACE_text= new JTextField(15);
+	    W_CATEGORY_text= new JTextField(15);
+	    W_DURATION_text = new JTextField(15);
+	    W_PRICE_text = new JTextField(15);
+	    W_DESCRIPTION_text= new JTextField(15);
+	    W_LITERATURE_text = new JTextField(15);
+	    W_DATE_text = new JTextField(15);
+	    P_Number_text = new JTextField(15);
+	     
+	    W_ID_text1  = new JTextField(15);
+	    errorText = new JTextArea(5, 5);
+	    gotoText = new JTextField(15);
+	    freeQueryText = new JTextField(15);
+	  //  freeQueryText1 = new JTextField(20);
+	   P_Number_text1 = new JTextField(15);
+	    
+	    //all button
+	    JPanel panel_button= new JPanel(new GridBagLayout());
+	    GridBagConstraints c1= new GridBagConstraints();
+	    c1.fill=GridBagConstraints.HORIZONTAL;
+	    
+	    /// label info
+	    JLabel l_w_id= new JLabel("Workshop ID:");
+	    c1.gridx=0;
+	    c1.gridy=0; 
+	    c1.insets=new Insets(5,5,5,5);
+	    panel_button.add(l_w_id,c1);
+	    c1.gridx=1;
+	    c1.gridy=0; 
+	    panel_button.add(W_ID_text,c1);
+	    
+	    JLabel l_w_title= new JLabel("Workshop Title:");
+	    c1.gridx=2;
+	    c1.gridy=0;
+	    panel_button.add(l_w_title,c1);
+	    c1.gridx=3;
+	    c1.gridy=0;
+	    panel_button.add(W_TITLE_text,c1);
+	    
+	    JLabel l_w_lecturer= new JLabel("Workshop Lecturer:");
+	    c1.gridx=0;
+	    c1.gridy=1;
+	    panel_button.add(l_w_lecturer,c1);
+	    c1.gridx=1;
+	    c1.gridy=1;
+	    panel_button.add( W_LECTURER_text,c1);
+	 /*   
+	    JLabel l_w_participant= new JLabel("Workshop Participants:");
+	    c1.gridx=0;
+	    c1.gridy=3;
+	    panel_button.add(l_w_participant,c1);
+	    c1.gridx=1;
+	    c1.gridy=3;
+	    panel_button.add( W_PARTICIPANT_text,c1);
+	    */
+	    JLabel l_w_place= new JLabel("Workshop Place:");
+	    c1.gridx=2;
+	    c1.gridy=1;
+	    panel_button.add(l_w_place,c1);
+	    c1.gridx=3;
+	    c1.gridy=1;
+	    panel_button.add( W_PLACE_text,c1);
+	    
+	    JLabel l_w_category= new JLabel("Workshop Category:");
+	    c1.gridx=0;
+	    c1.gridy=2;
+	    panel_button.add(l_w_category,c1);
+	    c1.gridx=1;
+	    c1.gridy=2;
+	    panel_button.add( W_CATEGORY_text,c1);
+	    
+	    JLabel l_w_duration= new JLabel( "Workshop Duration [day]:");
+	    c1.gridx=2;
+	    c1.gridy=2;
+	    panel_button.add(l_w_duration,c1);
+	    c1.gridx=3;
+	    c1.gridy=2;
+	    panel_button.add(W_DURATION_text,c1);
+	    
+	    JLabel l_w_price= new JLabel( "Workshop Price [Euro]:");
+	    c1.gridx=0;
+	    c1.gridy=4;
+	    panel_button.add(l_w_price,c1);
+	    c1.gridx=1;
+	    c1.gridy=4;
+	    panel_button.add(W_PRICE_text,c1);
+	    
+	    
+	    JLabel l_w_description= new JLabel("Workshop Description:");
+	    c1.gridx=2;
+	    c1.gridy=4;
+	    panel_button.add(l_w_description,c1);
+	    c1.gridx=3;
+	    c1.gridy=4;
+	    panel_button.add(W_DESCRIPTION_text,c1);
+	    
+	    JLabel l_w_literature= new JLabel("Workshop Literature:");
+	    c1.gridx=0;
+	    c1.gridy=5;
+	    panel_button.add(l_w_literature,c1);
+	    c1.gridx=1;
+	    c1.gridy=5;
+	    panel_button.add(W_LITERATURE_text,c1);
+	    
+	    JLabel l_w_date= new JLabel("Workshop Date:");
+	    c1.gridx=2;
+	    c1.gridy=5;
+	    panel_button.add(l_w_date,c1);
+	    c1.gridx=3;
+	    c1.gridy=5;
+	    panel_button.add(W_DATE_text,c1);
+	    
+	    // button info
+	    c1.gridx=1;
+	    c1.gridy=6;
+	    panel_button.add(gotoText,c1);
+	    c1.gridx=0;
+	    c1.gridy=6;
+	    panel_button.add(gotoButton,c1);
+	    JLabel l_w_id1= new JLabel("Go to Workshop ID");
+	    c1.gridx=2;
+	    c1.gridy=6;
+	    panel_button.add(l_w_id1,c1);
+	    
+	    c1.gridx=0;
+	    c1.gridy=7;
+	    panel_button.add(getWorkshopButton,c1);
+	    c1.gridx=1;
+	    c1.gridy=7;
+	    panel_button.add(insertWorkshopButton,c1);
+	    c1.gridx=2;
+	    c1.gridy=7;
+	    panel_button.add(deleteWorkshopButton,c1);
+	    c1.gridx=3;
+	    c1.gridy=7;
+	    panel_button.add(updateWorkshopButton,c1);
+	    
+	    // all direction
+	    c1.gridx=0;
+	    c1.gridy=8;
+	    panel_button.add(firstButton,c1);
+	    c1.gridx=1;
+	    c1.gridy=8;
+	    panel_button.add(previousButton,c1);
+	    c1.gridx=2;
+	    c1.gridy=8;
+	    panel_button.add(nextButton,c1);
+	    c1.gridx=3;
+	    c1.gridy=8;
+	    panel_button.add(lastButton,c1);
+	
+	    c1.gridx=1;
+	    c1.gridy=9;
+	    panel_button.add(freeQueryText,c1);
+	    c1.gridx=0;
+	    c1.gridy=9;
+	    panel_button.add(freeQueryButton,c1);
+	    JLabel l_w_id5= new JLabel("Select Query W_ID");
+	    c1.gridx=2;
+	    c1.gridy=9;
+	    panel_button.add(l_w_id5,c1); 
+	    
+	    
+	    JLabel l_w_id3= new JLabel("Workshop ID:");
+	    c1.gridx=0;
+	    c1.gridy=10;
+	   panel_button.add(l_w_id3,c1); 
+	    c1.gridx=1;
+	    c1.gridy=10;
+	    panel_button.add(participantNumberListScrollPane, c1);
+	   
+	    c1.gridx=2;
+	    c1.gridy=10;
+	    panel_button.add(errorText,c1);
+	    JLabel l_w_id4= new JLabel("Query Message");
+	    c1.gridx=3;
+	    c1.gridy=10;
+	    panel_button.add(l_w_id4,c1); 
+	   
+	   
+	    
+	    c1.gridx=0;
+	    c1.gridy=11;
+	    panel_button.add(getParticipantNumber1,c1); 
+	    c1.gridx=1;
+	    c1.gridy=11;
+	    panel_button.add(P_Number_text1,c1);
+	    JLabel l_w_id6= new JLabel("Select the Workshop ID");
+	    c1.gridx=2;
+	    c1.gridy=11;
+	    panel_button.add(l_w_id6,c1); 
+	   
+	    f.add(panel_button,BorderLayout.WEST);
+	    c.add(panel_button);
+	    show();
+	  }
+	  private void displaySQLErrors(SQLException e) {
+	    errorText.append("SQLException: " + e.getMessage() + "\n");
+	    errorText.append("SQLState:     " + e.getSQLState() + "\n");
+	    errorText.append("VendorError:  " + e.getErrorCode() + "\n");
+	  }
+
+	  private void init() {
+	    connectToDB();
+	  }
+
+	  public static void main(String[] args) {
+		  Workshop workshop = new Workshop();
+
+		  workshop.addWindowListener(new WindowAdapter() {
+	      public void windowClosing(WindowEvent e) {
+	        System.exit(0);
+	      }
+	    });
+		  workshop.setSize(850, 500);
+		  workshop.setResizable(false);
+		  workshop.init();
+		  workshop.buildGUI();
+	  }
+	}
