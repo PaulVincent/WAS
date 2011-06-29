@@ -124,8 +124,8 @@ public class Create_Tables {
 		        "W_PRICE double," +
 		        "W_DESCRIPTION LONGTEXT," +
 		        "W_LITERATURE LONGTEXT," + 
-		        "W_DATE_START String," + 
-		        "W_DATE_END String," + 
+		        "W_DATE_START varchar(10)," + 
+		        "W_DATE_END varchar(10)," + 
 		        "W_SCHEDULE TEXT)";
 
 		try {
