@@ -44,11 +44,8 @@ public class PaticipantInfoImpl extends QDialog {
 		if (pDImpl.partID == -1) {
 			String participantStr = getParticipantFromPID();
 			pDImpl.partID = WorkshopController.newParticipant(participantStr, pDImpl.mDImpl.workShopID);
-			// get infos from dialog and add new participant to workshop
-			// with ID pDImpl.mDImpl.workShopID;
+			
 		} else {
-			// get infos from dialog and change participant infos of
-			// participant with ID pDImpl.partID;
 			pDImpl.mDImpl.NotImplYet();
 			System.out.println("Not implemented yet!");
 		}
@@ -162,8 +159,4 @@ public class PaticipantInfoImpl extends QDialog {
 		+ Integer.toString(date.day());
 	}
 
-//	public int numOfParticipants(int workShopID){
-//		int numOfParts = WorkshopController.getParticipantCount(workShopID);
-//		return numOfParts;
-//	}
 }

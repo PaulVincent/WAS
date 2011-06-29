@@ -75,7 +75,7 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="1" colspan="8">
+   <item row="0" column="1" colspan="7">
     <widget class="QLineEdit" name="lineEdit_Titel">
      <property name="minimumSize">
       <size>
@@ -88,7 +88,7 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="9" rowspan="12">
+   <item row="0" column="8" rowspan="12">
     <widget class="Line" name="line_Vertical">
      <property name="minimumSize">
       <size>
@@ -104,7 +104,7 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="10" rowspan="2">
+   <item row="0" column="9" rowspan="2">
     <widget class="QDialogButtonBox" name="buttonBox_OK_Cancel">
      <property name="minimumSize">
       <size>
@@ -141,7 +141,7 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="1" colspan="8">
+   <item row="1" column="1" colspan="7">
     <widget class="QLineEdit" name="lineEdit_Prof">
      <property name="minimumSize">
       <size>
@@ -191,7 +191,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="4">
+   <item row="2" column="3">
     <widget class="QPushButton" name="editshowPartButton">
      <property name="enabled">
       <bool>false</bool>
@@ -244,7 +244,7 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="4">
+   <item row="3" column="3">
     <widget class="QLabel" name="label_To">
      <property name="minimumSize">
       <size>
@@ -262,7 +262,7 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="5">
+   <item row="3" column="4">
     <widget class="QDateEdit" name="dateEdit_End">
      <property name="enabled">
       <bool>true</bool>
@@ -278,7 +278,7 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="7" colspan="2">
+   <item row="3" column="6" colspan="2">
     <widget class="QPushButton" name="detailsButton">
      <property name="enabled">
       <bool>false</bool>
@@ -294,7 +294,7 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="10">
+   <item row="3" column="9">
     <widget class="Line" name="lineHorizontal1">
      <property name="minimumSize">
       <size>
@@ -341,7 +341,7 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="3">
+   <item row="4" column="2">
     <widget class="QLabel" name="label_Hours">
      <property name="minimumSize">
       <size>
@@ -359,7 +359,7 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="10">
+   <item row="4" column="9">
     <widget class="QPushButton" name="deleteCourseButton">
      <property name="enabled">
       <bool>false</bool>
@@ -429,7 +429,29 @@
      </item>
     </widget>
    </item>
-   <item row="5" column="10">
+   <item row="5" column="3">
+    <widget class="QPushButton" name="addPlaceButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>101</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>135</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>add</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="9">
     <widget class="QPushButton" name="loadCourseButton">
      <property name="minimumSize">
       <size>
@@ -487,7 +509,7 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="4">
+   <item row="6" column="3">
     <widget class="QLabel" name="label_Price_2">
      <property name="minimumSize">
       <size>
@@ -508,7 +530,7 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="5">
+   <item row="6" column="4">
     <widget class="QLineEdit" name="lineEdit_Price">
      <property name="minimumSize">
       <size>
@@ -533,7 +555,7 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="6">
+   <item row="6" column="5">
     <widget class="QLabel" name="label_Currency">
      <property name="minimumSize">
       <size>
@@ -551,7 +573,7 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="7" colspan="2">
+   <item row="6" column="6" colspan="2">
     <widget class="QPushButton" name="editshowPriceButton">
      <property name="enabled">
       <bool>false</bool>
@@ -567,7 +589,7 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="10">
+   <item row="6" column="9">
     <widget class="Line" name="lineHorizontal2">
      <property name="orientation">
       <enum>com.trolltech.qt.core.Qt.Orientation.Horizontal</enum>
@@ -592,7 +614,7 @@
      </property>
     </widget>
    </item>
-   <item row="7" column="1" rowspan="2" colspan="8">
+   <item row="7" column="1" rowspan="2" colspan="7">
     <widget class="QTextEdit" name="textEdit_Description">
      <property name="minimumSize">
       <size>
@@ -609,7 +631,7 @@ p, li { white-space: pre-wrap; }
      </property>
     </widget>
    </item>
-   <item row="7" column="10">
+   <item row="7" column="9">
     <widget class="QPushButton" name="saveCourseButton">
      <property name="enabled">
       <bool>true</bool>
@@ -625,7 +647,7 @@ p, li { white-space: pre-wrap; }
      </property>
     </widget>
    </item>
-   <item row="8" column="10">
+   <item row="8" column="9">
     <widget class="QPushButton" name="clearCourseButton">
      <property name="enabled">
       <bool>true</bool>
@@ -668,7 +690,7 @@ p, li { white-space: pre-wrap; }
      </property>
     </widget>
    </item>
-   <item row="9" column="1" rowspan="3" colspan="7">
+   <item row="9" column="1" rowspan="3" colspan="6">
     <widget class="QListWidget" name="listWidget_Literature">
      <property name="minimumSize">
       <size>
@@ -689,7 +711,7 @@ p, li { white-space: pre-wrap; }
      </property>
     </widget>
    </item>
-   <item row="9" column="10">
+   <item row="9" column="9">
     <widget class="Line" name="line_Horizontal3">
      <property name="minimumSize">
       <size>
@@ -702,7 +724,7 @@ p, li { white-space: pre-wrap; }
      </property>
     </widget>
    </item>
-   <item row="10" column="8">
+   <item row="10" column="7">
     <widget class="QPushButton" name="addLiteratureButton">
      <property name="enabled">
       <bool>false</bool>
@@ -718,7 +740,7 @@ p, li { white-space: pre-wrap; }
      </property>
     </widget>
    </item>
-   <item row="10" column="10">
+   <item row="10" column="9">
     <widget class="QPushButton" name="generateHTMLButton">
      <property name="enabled">
       <bool>false</bool>
@@ -734,7 +756,7 @@ p, li { white-space: pre-wrap; }
      </property>
     </widget>
    </item>
-   <item row="11" column="8">
+   <item row="11" column="7">
     <widget class="QPushButton" name="deleteLiteratureButton">
      <property name="enabled">
       <bool>false</bool>
@@ -747,28 +769,6 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="text">
       <string>delete</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="4">
-    <widget class="QPushButton" name="addPlaceButton">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>101</width>
-       <height>25</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>135</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>add</string>
      </property>
     </widget>
    </item>

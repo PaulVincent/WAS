@@ -11,9 +11,14 @@ import Controller.WorkshopController;
 
 import com.trolltech.qt.core.QDate;
 import com.trolltech.qt.gui.QApplication;
+import com.trolltech.qt.gui.QBrush;
+import com.trolltech.qt.gui.QColor;
 import com.trolltech.qt.gui.QDialog;
 import com.trolltech.qt.gui.QFrame;
 import com.trolltech.qt.gui.QListWidgetItem;
+import com.trolltech.qt.gui.QPalette;
+import com.trolltech.qt.gui.QPalette.ColorGroup;
+import com.trolltech.qt.gui.QPalette.ColorRole;
 import com.trolltech.qt.gui.QPlastiqueStyle;
 import com.trolltech.qt.gui.QTreeWidgetItem;
 import com.trolltech.qt.gui.QWidget;
@@ -85,22 +90,39 @@ public class MainDialogImpl extends QDialog {
 	}
 
 	public void on_saveCourseButton_clicked() {
+
 		int id = 0;
+		if (!(ui.lineEdit_Titel.text().isEmpty() || ui.lineEdit_Prof.text()
+				.isEmpty())) {
+			ArrayList<String> workShopData = getWSFromMD();
+			if (workShopID == -1) {
+				id = WorkshopController.newWorkShop(workShopData);
 
-		if (workShopID == -1) {
-			String workShopStr = getWSFromMD();
-			id = WorkshopController.newWorkShop(workShopStr);
-
-		} else {
-			// get current WS ID that was set by loading an existing course
-			// overwrite course in database and reload data into main dialog
-			NotImplYet();
-			System.out.println("Not implemented yet!");
-			id = workShopID;
+			} else {
+				id = workShopID;
+				WorkshopController.updateWorkShop(id, workShopData);
+			}
+			workShopData = WorkshopController.loadWorkshop(id);
+			workShop2MainDialog(workShopData);
+			setToEditingWorkShop(id);
+		} else if (ui.lineEdit_Titel.text().isEmpty()
+				&& ui.lineEdit_Prof.text().isEmpty()) {
+			highligthWidget(ui.lineEdit_Titel, "red");
+			highligthWidget(ui.lineEdit_Prof, "red");
+		} else if (ui.lineEdit_Prof.text().isEmpty()) {
+			highligthWidget(ui.lineEdit_Prof, "red");
+		} else if (ui.lineEdit_Titel.text().isEmpty()) {
+			highligthWidget(ui.lineEdit_Prof, "red");
+			highligthWidget(ui.lineEdit_Titel, "red");
 		}
-		ArrayList<String> workshopData = WorkshopController.loadWorkshop(id);
-		workShop2MainDialog(workshopData);
-		setToEditingWorkShop(id);
+	}
+
+	public void highligthWidget(QWidget widget, String color) {
+		QPalette palette = widget.palette();
+		ColorRole role = QPalette.ColorRole.Base;
+		QColor newcolor = new QColor(color);
+		palette.setColor(role, newcolor);
+		widget.setPalette(palette);
 	}
 
 	public void on_clearCourseButton_clicked() {
@@ -167,6 +189,14 @@ public class MainDialogImpl extends QDialog {
 		QDate min = ui.dateEdit_Start.date();
 		ui.dateEdit_End.setMinimumDate(min);
 
+	}
+
+	public void on_lineEdit_Titel_textChanged() {
+		highligthWidget(ui.lineEdit_Titel, "white");
+	}
+
+	public void on_lineEdit_Prof_textChanged() {
+		highligthWidget(ui.lineEdit_Prof, "white");
 	}
 
 	public void resetUI() {
@@ -250,10 +280,11 @@ public class MainDialogImpl extends QDialog {
 		ui.lineEdit_Price.setText(wsData.get(4));
 		ui.textEdit_Description.setText(wsData.get(5));
 		literature2MainDialog(wsData.get(6));
-		
-		String startDate = wsData.get(7);		
-		ui.dateEdit_Start.setDate(WorkshopController.dateString2QDate(startDate));
-		
+
+		String startDate = wsData.get(7);
+		ui.dateEdit_Start.setDate(WorkshopController
+				.dateString2QDate(startDate));
+
 		String endDate = wsData.get(8);
 		ui.dateEdit_End.setDate(WorkshopController.dateString2QDate(endDate));
 		ui.lineEdit_Part.setText(wsData.get(9));
@@ -263,7 +294,7 @@ public class MainDialogImpl extends QDialog {
 		// mDImpl.ui.lineEdit_dateStart.setText(arg__1);
 	}
 
-	public String getWSFromMD() {
+	public ArrayList<String> getWSFromMD() {
 		Calendar cal = Calendar.getInstance();
 		DateFormat df = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
 				DateFormat.MEDIUM, Locale.PRC);
@@ -277,13 +308,20 @@ public class MainDialogImpl extends QDialog {
 		System.out.println(startString);
 		System.out.println(endString);
 
-		String workShopStr = "','" + ui.lineEdit_Titel.text() + "','"
-				+ ui.lineEdit_Prof.text() + "','" + "0" + "','" + "" + "','"
-				+ "" + "','" + "0" + "','" + "0" + "','"
-				+ ui.textEdit_Description.toPlainText() + "','" + "" + "','"
-				+ startString + "','" + endString;
+		ArrayList<String> workShopData = new ArrayList<String>();
+		workShopData.add(ui.lineEdit_Titel.text());
+		workShopData.add(ui.lineEdit_Prof.text());
+		workShopData.add(ui.textEdit_Description.toPlainText());
+		workShopData.add(startString);
+		workShopData.add(endString);
+		//
+		// String workShopStr = "','" + ui.lineEdit_Titel.text() + "','"
+		// + ui.lineEdit_Prof.text() + "','" + "0" + "','" + "" + "','"
+		// + "" + "','" + "0" + "','" + "0" + "','"
+		// + ui.textEdit_Description.toPlainText() + "','" + "" + "','"
+		// + startString + "','" + endString;
 
-		return workShopStr;
+		return workShopData;
 	}
 
 	public String getLitFromMD() {
@@ -298,7 +336,7 @@ public class MainDialogImpl extends QDialog {
 
 	}
 
-	public void setNumOfParts(int numOfParticipants){
+	public void setNumOfParts(int numOfParticipants) {
 		ui.lineEdit_Part.setText(Integer.toString(numOfParticipants));
 	}
 }

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import com.trolltech.qt.core.QDate;
 import com.trolltech.qt.gui.QApplication;
 import com.trolltech.qt.gui.QPlastiqueStyle;
@@ -22,20 +24,6 @@ public class Main
 		
 		QApplication.exec();
 		
-		
-//		QDate min = QDate.currentDate();
-//		System.out.println(min.month());
-//		System.out.println("test");
-//		QDate date = new QDate();
-//		date.setDate(2011, 6, 11);
-//		Date javaDate = new Date(0);
-//		date.setJavaOwnership();
-//		DateFormat df = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM, Locale.PRC);
-//		
-//		System.out.println(date.year()+"-"+date.month()+"-"+date.day());
-		
-		
-
 	}
 
 }

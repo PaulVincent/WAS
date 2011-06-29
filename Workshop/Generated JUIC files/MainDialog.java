@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'WorkshopDialog.jui'
 **
-** Created: Mi 29. Jun 20:24:22 2011
+** Created: Mi 29. Jun 23:57:11 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -34,6 +34,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
     public QPushButton deleteCourseButton;
     public QLabel label_Place;
     public QComboBox comboBox_Ort;
+    public QPushButton addPlaceButton;
     public QPushButton loadCourseButton;
     public QLabel label_Price;
     public QComboBox comboBox_Price;
@@ -52,7 +53,6 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
     public QPushButton addLiteratureButton;
     public QPushButton generateHTMLButton;
     public QPushButton deleteLiteratureButton;
-    public QPushButton addPlaceButton;
 
     public MainDialog() { super(); }
 
@@ -88,7 +88,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         lineEdit_Titel.setObjectName("lineEdit_Titel");
         lineEdit_Titel.setMinimumSize(new QSize(401, 25));
 
-        gridLayout.addWidget(lineEdit_Titel, 0, 1, 1, 8);
+        gridLayout.addWidget(lineEdit_Titel, 0, 1, 1, 7);
 
         line_Vertical = new QFrame(MainDialog);
         line_Vertical.setObjectName("line_Vertical");
@@ -97,7 +97,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         line_Vertical.setFrameShape(QFrame.Shape.HLine);
         line_Vertical.setFrameShadow(QFrame.Shadow.Sunken);
 
-        gridLayout.addWidget(line_Vertical, 0, 9, 12, 1);
+        gridLayout.addWidget(line_Vertical, 0, 8, 12, 1);
 
         buttonBox_OK_Cancel = new QDialogButtonBox(MainDialog);
         buttonBox_OK_Cancel.setObjectName("buttonBox_OK_Cancel");
@@ -105,7 +105,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         buttonBox_OK_Cancel.setOrientation(com.trolltech.qt.core.Qt.Orientation.Vertical);
         buttonBox_OK_Cancel.setStandardButtons(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.createQFlags(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel,com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok));
 
-        gridLayout.addWidget(buttonBox_OK_Cancel, 0, 10, 2, 1);
+        gridLayout.addWidget(buttonBox_OK_Cancel, 0, 9, 2, 1);
 
         label_Prof = new QLabel(MainDialog);
         label_Prof.setObjectName("label_Prof");
@@ -120,7 +120,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         lineEdit_Prof.setObjectName("lineEdit_Prof");
         lineEdit_Prof.setMinimumSize(new QSize(401, 25));
 
-        gridLayout.addWidget(lineEdit_Prof, 1, 1, 1, 8);
+        gridLayout.addWidget(lineEdit_Prof, 1, 1, 1, 7);
 
         label_Participants = new QLabel(MainDialog);
         label_Participants.setObjectName("label_Participants");
@@ -145,7 +145,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         editshowPartButton.setEnabled(false);
         editshowPartButton.setMinimumSize(new QSize(101, 25));
 
-        gridLayout.addWidget(editshowPartButton, 2, 4, 1, 1);
+        gridLayout.addWidget(editshowPartButton, 2, 3, 1, 1);
 
         label_From = new QLabel(MainDialog);
         label_From.setObjectName("label_From");
@@ -172,7 +172,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         font4.setPointSize(10);
         label_To.setFont(font4);
 
-        gridLayout.addWidget(label_To, 3, 4, 1, 1);
+        gridLayout.addWidget(label_To, 3, 3, 1, 1);
 
         dateEdit_End = new QDateEdit(MainDialog);
         dateEdit_End.setObjectName("dateEdit_End");
@@ -180,14 +180,14 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         dateEdit_End.setMinimumSize(new QSize(83, 25));
         dateEdit_End.setCalendarPopup(true);
 
-        gridLayout.addWidget(dateEdit_End, 3, 5, 1, 1);
+        gridLayout.addWidget(dateEdit_End, 3, 4, 1, 1);
 
         detailsButton = new QPushButton(MainDialog);
         detailsButton.setObjectName("detailsButton");
         detailsButton.setEnabled(false);
         detailsButton.setMinimumSize(new QSize(101, 25));
 
-        gridLayout.addWidget(detailsButton, 3, 7, 1, 2);
+        gridLayout.addWidget(detailsButton, 3, 6, 1, 2);
 
         lineHorizontal1 = new QFrame(MainDialog);
         lineHorizontal1.setObjectName("lineHorizontal1");
@@ -195,7 +195,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         lineHorizontal1.setFrameShape(QFrame.Shape.HLine);
         lineHorizontal1.setFrameShadow(QFrame.Shadow.Sunken);
 
-        gridLayout.addWidget(lineHorizontal1, 3, 10, 1, 1);
+        gridLayout.addWidget(lineHorizontal1, 3, 9, 1, 1);
 
         label_Duration = new QLabel(MainDialog);
         label_Duration.setObjectName("label_Duration");
@@ -221,14 +221,14 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         font6.setPointSize(10);
         label_Hours.setFont(font6);
 
-        gridLayout.addWidget(label_Hours, 4, 3, 1, 1);
+        gridLayout.addWidget(label_Hours, 4, 2, 1, 1);
 
         deleteCourseButton = new QPushButton(MainDialog);
         deleteCourseButton.setObjectName("deleteCourseButton");
         deleteCourseButton.setEnabled(false);
         deleteCourseButton.setMinimumSize(new QSize(101, 25));
 
-        gridLayout.addWidget(deleteCourseButton, 4, 10, 1, 1);
+        gridLayout.addWidget(deleteCourseButton, 4, 9, 1, 1);
 
         label_Place = new QLabel(MainDialog);
         label_Place.setObjectName("label_Place");
@@ -249,11 +249,19 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
 
         gridLayout.addWidget(comboBox_Ort, 5, 1, 1, 1);
 
+        addPlaceButton = new QPushButton(MainDialog);
+        addPlaceButton.setObjectName("addPlaceButton");
+        addPlaceButton.setEnabled(false);
+        addPlaceButton.setMinimumSize(new QSize(101, 25));
+        addPlaceButton.setMaximumSize(new QSize(135, 16777215));
+
+        gridLayout.addWidget(addPlaceButton, 5, 3, 1, 1);
+
         loadCourseButton = new QPushButton(MainDialog);
         loadCourseButton.setObjectName("loadCourseButton");
         loadCourseButton.setMinimumSize(new QSize(101, 25));
 
-        gridLayout.addWidget(loadCourseButton, 5, 10, 1, 1);
+        gridLayout.addWidget(loadCourseButton, 5, 9, 1, 1);
 
         label_Price = new QLabel(MainDialog);
         label_Price.setObjectName("label_Price");
@@ -284,7 +292,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         label_Price_2.setFont(font11);
         label_Price_2.setLayoutDirection(com.trolltech.qt.core.Qt.LayoutDirection.RightToLeft);
 
-        gridLayout.addWidget(label_Price_2, 6, 4, 1, 1);
+        gridLayout.addWidget(label_Price_2, 6, 3, 1, 1);
 
         lineEdit_Price = new QLineEdit(MainDialog);
         lineEdit_Price.setObjectName("lineEdit_Price");
@@ -293,7 +301,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         lineEdit_Price.setFrame(false);
         lineEdit_Price.setReadOnly(true);
 
-        gridLayout.addWidget(lineEdit_Price, 6, 5, 1, 1);
+        gridLayout.addWidget(lineEdit_Price, 6, 4, 1, 1);
 
         label_Currency = new QLabel(MainDialog);
         label_Currency.setObjectName("label_Currency");
@@ -302,21 +310,21 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         font12.setPointSize(10);
         label_Currency.setFont(font12);
 
-        gridLayout.addWidget(label_Currency, 6, 6, 1, 1);
+        gridLayout.addWidget(label_Currency, 6, 5, 1, 1);
 
         editshowPriceButton = new QPushButton(MainDialog);
         editshowPriceButton.setObjectName("editshowPriceButton");
         editshowPriceButton.setEnabled(false);
         editshowPriceButton.setMinimumSize(new QSize(101, 25));
 
-        gridLayout.addWidget(editshowPriceButton, 6, 7, 1, 2);
+        gridLayout.addWidget(editshowPriceButton, 6, 6, 1, 2);
 
         lineHorizontal2 = new QFrame(MainDialog);
         lineHorizontal2.setObjectName("lineHorizontal2");
         lineHorizontal2.setFrameShape(QFrame.Shape.HLine);
         lineHorizontal2.setFrameShadow(QFrame.Shadow.Sunken);
 
-        gridLayout.addWidget(lineHorizontal2, 6, 10, 1, 1);
+        gridLayout.addWidget(lineHorizontal2, 6, 9, 1, 1);
 
         label_Description = new QLabel(MainDialog);
         label_Description.setObjectName("label_Description");
@@ -331,14 +339,14 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         textEdit_Description.setObjectName("textEdit_Description");
         textEdit_Description.setMinimumSize(new QSize(401, 84));
 
-        gridLayout.addWidget(textEdit_Description, 7, 1, 2, 8);
+        gridLayout.addWidget(textEdit_Description, 7, 1, 2, 7);
 
         saveCourseButton = new QPushButton(MainDialog);
         saveCourseButton.setObjectName("saveCourseButton");
         saveCourseButton.setEnabled(true);
         saveCourseButton.setMinimumSize(new QSize(101, 25));
 
-        gridLayout.addWidget(saveCourseButton, 7, 10, 1, 1);
+        gridLayout.addWidget(saveCourseButton, 7, 9, 1, 1);
 
         clearCourseButton = new QPushButton(MainDialog);
         clearCourseButton.setObjectName("clearCourseButton");
@@ -346,7 +354,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         clearCourseButton.setMinimumSize(new QSize(101, 25));
         clearCourseButton.setSizeIncrement(new QSize(2, 2));
 
-        gridLayout.addWidget(clearCourseButton, 8, 10, 1, 1);
+        gridLayout.addWidget(clearCourseButton, 8, 9, 1, 1);
 
         label_Literature = new QLabel(MainDialog);
         label_Literature.setObjectName("label_Literature");
@@ -366,7 +374,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         listWidget_Literature.setEditTriggers(com.trolltech.qt.gui.QAbstractItemView.EditTrigger.createQFlags(com.trolltech.qt.gui.QAbstractItemView.EditTrigger.NoEditTriggers));
         listWidget_Literature.setSelectionMode(com.trolltech.qt.gui.QAbstractItemView.SelectionMode.SingleSelection);
 
-        gridLayout.addWidget(listWidget_Literature, 9, 1, 3, 7);
+        gridLayout.addWidget(listWidget_Literature, 9, 1, 3, 6);
 
         line_Horizontal3 = new QFrame(MainDialog);
         line_Horizontal3.setObjectName("line_Horizontal3");
@@ -374,36 +382,28 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         line_Horizontal3.setFrameShape(QFrame.Shape.HLine);
         line_Horizontal3.setFrameShadow(QFrame.Shadow.Sunken);
 
-        gridLayout.addWidget(line_Horizontal3, 9, 10, 1, 1);
+        gridLayout.addWidget(line_Horizontal3, 9, 9, 1, 1);
 
         addLiteratureButton = new QPushButton(MainDialog);
         addLiteratureButton.setObjectName("addLiteratureButton");
         addLiteratureButton.setEnabled(false);
         addLiteratureButton.setMinimumSize(new QSize(81, 25));
 
-        gridLayout.addWidget(addLiteratureButton, 10, 8, 1, 1);
+        gridLayout.addWidget(addLiteratureButton, 10, 7, 1, 1);
 
         generateHTMLButton = new QPushButton(MainDialog);
         generateHTMLButton.setObjectName("generateHTMLButton");
         generateHTMLButton.setEnabled(false);
         generateHTMLButton.setMinimumSize(new QSize(101, 25));
 
-        gridLayout.addWidget(generateHTMLButton, 10, 10, 1, 1);
+        gridLayout.addWidget(generateHTMLButton, 10, 9, 1, 1);
 
         deleteLiteratureButton = new QPushButton(MainDialog);
         deleteLiteratureButton.setObjectName("deleteLiteratureButton");
         deleteLiteratureButton.setEnabled(false);
         deleteLiteratureButton.setMinimumSize(new QSize(81, 25));
 
-        gridLayout.addWidget(deleteLiteratureButton, 11, 8, 1, 1);
-
-        addPlaceButton = new QPushButton(MainDialog);
-        addPlaceButton.setObjectName("addPlaceButton");
-        addPlaceButton.setEnabled(false);
-        addPlaceButton.setMinimumSize(new QSize(101, 25));
-        addPlaceButton.setMaximumSize(new QSize(135, 16777215));
-
-        gridLayout.addWidget(addPlaceButton, 5, 4, 1, 1);
+        gridLayout.addWidget(deleteLiteratureButton, 11, 7, 1, 1);
 
         label_Title.setBuddy(lineEdit_Titel);
         label_Prof.setBuddy(lineEdit_Prof);
@@ -436,6 +436,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         comboBox_Ort.addItem(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Jordan-H\u00f6rsaal", null));
         comboBox_Ort.addItem(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Sky-H\u00f6rsaal", null));
         comboBox_Ort.addItem(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Haid-H\u00f6rsaal", null));
+        addPlaceButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "add", null));
         loadCourseButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Load...", null));
         label_Price.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Category", null));
         label_Price_2.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Price", null));
@@ -454,7 +455,6 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         addLiteratureButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "add", null));
         generateHTMLButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "To HTML", null));
         deleteLiteratureButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "delete", null));
-        addPlaceButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "add", null));
     } // retranslateUi
 
 }

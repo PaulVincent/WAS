@@ -4,6 +4,7 @@ package Controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.trolltech.qt.core.QDate;
@@ -62,19 +63,23 @@ public class WorkshopController {
 		return items;
 	}
 
-	public static int newWorkShop(String workShopStr) {
+	public static int newWorkShop(ArrayList<String> workShopData) {
 		int id = 0;
-		String newWorkShopStr = "";
+		String workShopStr = "','" + workShopData.get(0) + "','"
+				+ workShopData.get(1) + "','" + "0" + "','" + "" + "','" + ""
+				+ "','" + "0" + "','" + "0" + "','" + workShopData.get(2)
+				+ "','" + "" + "','" + workShopData.get(3) + "','"
+				+ workShopData.get(4);
 		try {
 			ResultSet res = DBConnection.statement
 					.executeQuery("Select max(W_ID) from workshop.workshop_table");
 			while (res.next()) {
 				id = res.getInt("max(W_ID)") + 1;
-				newWorkShopStr = Integer.toString(id) + workShopStr;
+				workShopStr = Integer.toString(id) + workShopStr;
 			}
 			int i = DBConnection.statement
 					.executeUpdate("INSERT INTO workshop_table VALUES('"
-							+ newWorkShopStr + "')");
+							+ workShopStr + "')");
 			System.out.println("Inserted " + i + " rows successfully");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -187,6 +192,10 @@ public class WorkshopController {
 					.executeUpdate("DELETE FROM workshop_table WHERE W_ID = "
 							+ Integer.toString(id));
 			System.out.println("Deleted " + i + " rows successfully");
+			int j = DBConnection.statement
+					.executeUpdate("DELETE FROM participants_table WHERE W_ID = "
+							+ Integer.toString(id));
+			System.out.println("Deleted " + j + " rows successfully");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -201,6 +210,21 @@ public class WorkshopController {
 			System.out.println("Deleted " + i + " rows successfully");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public static void updateWorkShop(int id, ArrayList<String> dataList) {
+		try {
+			DBConnection.statement.executeUpdate("UPDATE workshop_table "
+					+ "SET W_TITLE='" + dataList.get(0) + "'," + "W_LECTURER='"
+					+ dataList.get(1) + "'," + "W_DESCRIPTION='"
+					+ dataList.get(2) + "'," + "W_DATE_START ='"
+					+ dataList.get(3) + "'," + "W_DATE_END ='"
+					+ dataList.get(4) + "'" + "WHERE W_ID = " + "'"
+					+ Integer.toString(id) + "'");
+
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -257,13 +281,14 @@ public class WorkshopController {
 		return newLits;
 	}
 
-	public static int getParticipantCount(int workShopID)	{
+	public static int getParticipantCount(int workShopID) {
 		int number = 0;
 		try {
 			ResultSet res = DBConnection.statement
-					.executeQuery("Select count(P_ID) as number from workshop.participants_table WHERE W_ID = " + Integer.toString(workShopID));
+					.executeQuery("Select count(P_ID) as number from workshop.participants_table WHERE W_ID = "
+							+ Integer.toString(workShopID));
 			while (res.next()) {
-				number = res.getInt("number");				
+				number = res.getInt("number");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -272,21 +297,19 @@ public class WorkshopController {
 		return number;
 	}
 
-	public static QDate dateString2QDate(String dateString)
-	{
+	public static QDate dateString2QDate(String dateString) {
 		String year = dateString.split("-")[0];
 		String month = dateString.split("-")[1];
 		String day = dateString.split("-")[2];
-		
-		return new QDate(Integer.parseInt(year),
-				Integer.parseInt(month), Integer.parseInt(day));
+
+		return new QDate(Integer.parseInt(year), Integer.parseInt(month),
+				Integer.parseInt(day));
 	}
 
-	public static String qDate2dateString(QDate date)
-	{
+	public static String qDate2dateString(QDate date) {
 		return Integer.toString(date.year()) + "-"
-		+ Integer.toString(date.month()) + "-"
-		+ Integer.toString(date.day());
+				+ Integer.toString(date.month()) + "-"
+				+ Integer.toString(date.day());
 	}
 
 }
