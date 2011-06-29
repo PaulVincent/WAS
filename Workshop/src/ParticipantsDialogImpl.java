@@ -2,7 +2,7 @@
 
 import java.util.ArrayList;
 
-import CONTROLLER.WorkshopController;
+import Controller.WorkshopController;
 
 import com.trolltech.qt.core.Qt.SortOrder;
 import com.trolltech.qt.gui.QApplication;

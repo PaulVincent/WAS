@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
-import CONTROLLER.WorkshopController;
+import Controller.WorkshopController;
 
 import com.trolltech.qt.core.QDate;
 import com.trolltech.qt.gui.QApplication;

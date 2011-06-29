@@ -1,4 +1,4 @@
-package CONTROLLER;
+package Controller;
 //package Controller;
 
 import java.sql.ResultSet;

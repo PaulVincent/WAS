@@ -6,8 +6,8 @@ import java.util.Locale;
 
 import javax.swing.JFrame;
 
-import CONTROLLER.DBConnection;
-import CONTROLLER.WorkshopController;
+import Controller.DBConnection;
+import Controller.WorkshopController;
 
 import com.trolltech.qt.gui.QApplication;
 import com.trolltech.qt.gui.QDialog;
