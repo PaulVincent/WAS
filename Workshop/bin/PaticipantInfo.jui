@@ -343,10 +343,17 @@
        <hour>0</hour>
        <minute>0</minute>
        <second>0</second>
-       <year>1983</year>
+       <year>2011</year>
        <month>5</month>
        <day>20</day>
       </datetime>
+     </property>
+     <property name="minimumDate">
+      <date>
+       <year>2011</year>
+       <month>5</month>
+       <day>20</day>
+      </date>
      </property>
      <property name="calendarPopup">
       <bool>true</bool>

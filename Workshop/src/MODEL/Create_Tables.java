@@ -45,7 +45,7 @@ public class Create_Tables {
 		if (choice == 1) {
 			createWorkshopTable();
 		}
-		if (choice == 2) {
+		if (choice == 2) {			
 			createParticipantTable();
 		}
 		if (choice == 3) {
@@ -62,7 +62,7 @@ public class Create_Tables {
 		BufferedInputStream stream;
 		try {
 			stream = new BufferedInputStream(new FileInputStream(
-					"lib/MySQL.properties"));
+					"conf/MySQL.properties"));
 			properties.load(stream);
 			stream.close();
 		} catch (FileNotFoundException e1) {
@@ -109,6 +109,7 @@ public class Create_Tables {
 	 */
 
 	// workshop table creation method
+	
 	public static void createWorkshopTable() {
 		Connection con = getConnection();
 		String createString;
@@ -178,8 +179,8 @@ public class Create_Tables {
 		String createString;
 		createString = "create table participants_table (" + "" +
                 "W_ID int(11), " +
-    	        "W_DATE DATE," +
-    	        "W_DATE_TimeSchedule TEXT," +
+//    	        "W_DATE DATE," +
+//    	        "W_DATE_TimeSchedule TEXT," +
 		        "P_ID int(11)PRIMARY KEY, " +
 				"P_FIRSTNAME varchar(30), " +
 				"P_LASTNAME varchar(30), " +
@@ -248,5 +249,37 @@ public class Create_Tables {
 		JOptionPane.showMessageDialog(null,"Time Schedule for Workshop Table Created");
 	}
 
+	public static void deleteWorkshopTable()
+	{
+		Connection con = getConnection();
+		String deleteString = "Drop TABLE workshop_table";
+		
+		try {
+			stmt = con.createStatement();
+			stmt.executeUpdate(deleteString);
+			stmt.close();
+			con.close();
+		} catch (SQLException ex) {
+			System.err.println("SQLException: " + ex.getMessage());
+		}
+		JOptionPane.showMessageDialog(null, "Workshop Administrator Table Deleted");
+		
+	}
 
+	public static void deleteParticipantTable()
+	{
+		Connection con = getConnection();
+		String deleteString = "Drop TABLE participants_table";
+		
+		try {
+			stmt = con.createStatement();
+			stmt.executeUpdate(deleteString);
+			stmt.close();
+			con.close();
+		} catch (SQLException ex) {
+			System.err.println("SQLException: " + ex.getMessage());
+		}
+		JOptionPane.showMessageDialog(null, "Participant Administrator Table Deleted");
+		
+	}
 }// End of class

@@ -1,3 +1,4 @@
+import com.trolltech.qt.core.QDate;
 import com.trolltech.qt.gui.QApplication;
 import com.trolltech.qt.gui.QPlastiqueStyle;
 import com.trolltech.qt.gui.QWindowsStyle;
@@ -21,6 +22,10 @@ public class Main
 		
 		QApplication.exec();
 		
+		
+//		QDate min = QDate.currentDate();
+//		System.out.println(min.month());
+//		System.out.println("test");
 //		QDate date = new QDate();
 //		date.setDate(2011, 6, 11);
 //		Date javaDate = new Date(0);

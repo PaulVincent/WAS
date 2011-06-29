@@ -36,14 +36,6 @@ public class WorkshopsImpl extends QDialog {
 
 		this.mDImpl = mDImpl;
 
-		int widthID = 45;
-		int widthTitle = 260;
-		ui.treeWidget.setColumnWidth(0, widthID);
-		ui.treeWidget.setColumnWidth(1, widthTitle);
-		ui.treeWidget.setColumnWidth(2, 160);
-		ui.treeWidget.setColumnWidth(3, 130);
-//		ui.treeWidget.setColumnWidth(4, 50);
-
 		init();
 	}
 
@@ -71,10 +63,17 @@ public class WorkshopsImpl extends QDialog {
 	}
 
 	public void init() {
-		SortOrder order = SortOrder.DescendingOrder;
-		ui.treeWidget.sortByColumn(0, order);
+		int widthID = 45;
+		int widthTitle = 260;
+		ui.treeWidget.setColumnWidth(0, widthID);
+		ui.treeWidget.setColumnWidth(1, widthTitle);
+		ui.treeWidget.setColumnWidth(2, 160);
+		ui.treeWidget.setColumnWidth(3, 70);
+		
 		ui.treeWidget.setCurrentItem(null);
 		ui.treeWidget.addTopLevelItems(WorkshopController.initWorkShops());
+		SortOrder order = SortOrder.AscendingOrder;
+		ui.treeWidget.sortByColumn(0, order);
 	}
 
 }

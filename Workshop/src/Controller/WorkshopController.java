@@ -1,11 +1,12 @@
 package Controller;
+
 //package Controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
+import com.trolltech.qt.core.QDate;
 import com.trolltech.qt.gui.QTreeWidgetItem;
 
 public class WorkshopController {
@@ -23,7 +24,10 @@ public class WorkshopController {
 				item.setData(0, 0, res.getString("W_ID"));
 				item.setData(1, 0, res.getString("W_TITLE"));
 				item.setData(2, 0, res.getString("W_LECTURER"));
-				item.setData(3, 0, res.getString("W_DATE").toString().split("\\.")[0]);
+				// item.setData(3, 0,
+				// res.getString("W_DATE").toString().split("\\.")[0]);
+				String dateString = res.getString("W_DATE_START");
+				item.setData(3, 0, res.getString("W_DATE_START"));
 				item.setData(4, 0, res.getString("W_PARTICIPANT"));
 				items.add(item);
 			}
@@ -32,14 +36,15 @@ public class WorkshopController {
 		}
 		return items;
 	}
-	
+
 	public static ArrayList<QTreeWidgetItem> initWSParticipants(int workShopID) {
 
 		ArrayList<QTreeWidgetItem> items = new ArrayList<QTreeWidgetItem>();
-//
+		//
 		try {
 			ResultSet res = DBConnection.statement
-					.executeQuery("SELECT * from workshop.participants_table");
+					.executeQuery("SELECT * from workshop.participants_table WHERE W_ID = "
+							+ Integer.toString(workShopID));
 
 			while (res.next()) {
 				QTreeWidgetItem item = new QTreeWidgetItem();
@@ -77,8 +82,8 @@ public class WorkshopController {
 		}
 		return id;
 	}
-	
-	public static int newParticipant(String participantStr) {
+
+	public static int newParticipant(String participantStr, int workShopID) {
 		int id = 0;
 		String newParticipantStr = "";
 		try {
@@ -86,7 +91,8 @@ public class WorkshopController {
 					.executeQuery("Select max(P_ID) from workshop.participants_table");
 			while (res.next()) {
 				id = res.getInt("max(P_ID)") + 1;
-				newParticipantStr = Integer.toString(id) + participantStr;
+				newParticipantStr = Integer.toString(workShopID) + "', '"
+						+ Integer.toString(id) + participantStr;
 			}
 			int i = DBConnection.statement
 					.executeUpdate("INSERT INTO participants_table VALUES('"
@@ -103,6 +109,7 @@ public class WorkshopController {
 		// TODO Auto-generated method stub
 		ArrayList<String> workshopData = new ArrayList<String>();
 		String idStr = Integer.toString(id);
+		int count = getParticipantCount(Integer.parseInt(idStr));
 		try {
 			ResultSet res = DBConnection.statement
 					.executeQuery("SELECT * FROM workshop.workshop_table WHERE W_ID = "
@@ -121,9 +128,12 @@ public class WorkshopController {
 				workshopData.add(res.getString("W_PRICE"));
 				workshopData.add(res.getString("W_DESCRIPTION"));
 				workshopData.add(res.getString("W_LITERATURE"));
+				workshopData.add(res.getString("W_DATE_START"));
+				workshopData.add(res.getString("W_DATE_END"));
+				workshopData.add(Integer.toString(count));
 				// // mDImpl.ui.listWidget_Literature.addItem(res
 				// // .getString("W_LITERATURE"));
-//				System.out.println(res.getString("W_DATE"));
+				// System.out.println(res.getString("W_DATE"));
 				// // mDImpl.ui.lineEdit_dateEnd.setText(arg__1);
 				// // mDImpl.ui.lineEdit_dateStart.setText(arg__1);
 
@@ -159,7 +169,7 @@ public class WorkshopController {
 				participantData.add(res.getString("P_PRICE"));
 				participantData.add(res.getString("P_REGISTRATION"));
 				participantData.add(res.getString("P_PAID"));
-				
+
 				id = Integer.parseInt(idStr);
 			}
 
@@ -182,7 +192,7 @@ public class WorkshopController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void deleteParticipant(int id) {
 		try {
 			int i = DBConnection.statement
@@ -246,4 +256,37 @@ public class WorkshopController {
 
 		return newLits;
 	}
+
+	public static int getParticipantCount(int workShopID)	{
+		int number = 0;
+		try {
+			ResultSet res = DBConnection.statement
+					.executeQuery("Select count(P_ID) as number from workshop.participants_table WHERE W_ID = " + Integer.toString(workShopID));
+			while (res.next()) {
+				number = res.getInt("number");				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return number;
+	}
+
+	public static QDate dateString2QDate(String dateString)
+	{
+		String year = dateString.split("-")[0];
+		String month = dateString.split("-")[1];
+		String day = dateString.split("-")[2];
+		
+		return new QDate(Integer.parseInt(year),
+				Integer.parseInt(month), Integer.parseInt(day));
+	}
+
+	public static String qDate2dateString(QDate date)
+	{
+		return Integer.toString(date.year()) + "-"
+		+ Integer.toString(date.month()) + "-"
+		+ Integer.toString(date.day());
+	}
+
 }

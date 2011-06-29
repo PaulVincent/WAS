@@ -43,7 +43,7 @@ public class PaticipantInfoImpl extends QDialog {
 		
 		if (pDImpl.partID == -1) {
 			String participantStr = getParticipantFromPID();
-			pDImpl.partID = WorkshopController.newParticipant(participantStr);
+			pDImpl.partID = WorkshopController.newParticipant(participantStr, pDImpl.mDImpl.workShopID);
 			// get infos from dialog and add new participant to workshop
 			// with ID pDImpl.mDImpl.workShopID;
 		} else {
@@ -55,7 +55,8 @@ public class PaticipantInfoImpl extends QDialog {
 
 		pDImpl.ui.treeWidget.clear();
 		pDImpl.init();
-
+		int numOfParticipants = WorkshopController.getParticipantCount(pDImpl.mDImpl.workShopID);
+		pDImpl.mDImpl.setNumOfParts(numOfParticipants);
 	}
 
 	public void on_clearPartButton_clicked() {
@@ -78,14 +79,17 @@ public class PaticipantInfoImpl extends QDialog {
 		Calendar cal = Calendar.getInstance();
 		DateFormat dtf = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
 				DateFormat.MEDIUM, Locale.PRC);
-		String checkState = "";
+		String checkState = "";		
+		
 		if (ui.checkBox_Paid.checkState().toString() == "Checked")
 		{
 			checkState = "Ja";
 		}
 		else{
 			checkState = "Nein";
-		}	
+		}
+		
+		String dateString = qDate2dateString(ui.dateEdit.date());
 		
 		String participantStr = "', '" + ui.lineEdit_FirstName.text() + "', '"
 				+ ui.lineEdit_SurName.text() + "', '"
@@ -96,7 +100,7 @@ public class PaticipantInfoImpl extends QDialog {
 				+ ui.lineEdit_PhoneNumber.text() + "', '"
 				+ ui.lineEdit_eMail.text() + "', '"
 				+ ui.comboBox_PriceCategory.currentText() + "', '"
-				+ ui.lineEdit_Price.text() + "', '" + ui.dateEdit.date().toString()
+				+ ui.lineEdit_Price.text() + "', '" + dateString
 				+ "', '" + checkState + "', '"
 				+ dtf.format(cal.getTime());
 		
@@ -140,4 +144,26 @@ public class PaticipantInfoImpl extends QDialog {
 		this.close();
 		pDImpl.partID = -1;
 	}
+
+	public QDate dateString2QDate(String dateString)
+	{
+		String year = dateString.split("-")[0];
+		String month = dateString.split("-")[1];
+		String day = dateString.split("-")[2];
+		
+		return new QDate(Integer.parseInt(year),
+				Integer.parseInt(month), Integer.parseInt(day));
+	}
+
+	public String qDate2dateString(QDate date)
+	{
+		return Integer.toString(date.year()) + "-"
+		+ Integer.toString(date.month()) + "-"
+		+ Integer.toString(date.day());
+	}
+
+//	public int numOfParticipants(int workShopID){
+//		int numOfParts = WorkshopController.getParticipantCount(workShopID);
+//		return numOfParts;
+//	}
 }

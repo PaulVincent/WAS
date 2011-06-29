@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'WorkshopDialog.jui'
 **
-** Created: Di 28. Jun 22:27:23 2011
+** Created: Mi 29. Jun 20:24:22 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -23,9 +23,9 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
     public QLineEdit lineEdit_Part;
     public QPushButton editshowPartButton;
     public QLabel label_From;
-    public QLineEdit lineEdit_dateStart;
+    public QDateEdit dateEdit_Start;
     public QLabel label_To;
-    public QLineEdit lineEdit_dateEnd;
+    public QDateEdit dateEdit_End;
     public QPushButton detailsButton;
     public QFrame lineHorizontal1;
     public QLabel label_Duration;
@@ -34,7 +34,6 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
     public QPushButton deleteCourseButton;
     public QLabel label_Place;
     public QComboBox comboBox_Ort;
-    public QPushButton addPlaceButton;
     public QPushButton loadCourseButton;
     public QLabel label_Price;
     public QComboBox comboBox_Price;
@@ -53,6 +52,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
     public QPushButton addLiteratureButton;
     public QPushButton generateHTMLButton;
     public QPushButton deleteLiteratureButton;
+    public QPushButton addPlaceButton;
 
     public MainDialog() { super(); }
 
@@ -61,13 +61,13 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         MainDialog.setObjectName("MainDialog");
         MainDialog.setWindowModality(com.trolltech.qt.core.Qt.WindowModality.NonModal);
         MainDialog.setEnabled(true);
-        MainDialog.resize(new QSize(689, 490).expandedTo(MainDialog.minimumSizeHint()));
+        MainDialog.resize(new QSize(717, 490).expandedTo(MainDialog.minimumSizeHint()));
         QSizePolicy sizePolicy = new QSizePolicy(com.trolltech.qt.gui.QSizePolicy.Policy.Expanding, com.trolltech.qt.gui.QSizePolicy.Policy.Expanding);
         sizePolicy.setHorizontalStretch((byte)30);
         sizePolicy.setVerticalStretch((byte)30);
         sizePolicy.setHeightForWidth(MainDialog.sizePolicy().hasHeightForWidth());
         MainDialog.setSizePolicy(sizePolicy);
-        MainDialog.setMinimumSize(new QSize(689, 490));
+        MainDialog.setMinimumSize(new QSize(717, 490));
         MainDialog.setMaximumSize(new QSize(1024, 815));
         MainDialog.setSizeIncrement(new QSize(5, 5));
         MainDialog.setWindowIcon(new QIcon(new QPixmap("logo_gik.png")));
@@ -145,7 +145,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         editshowPartButton.setEnabled(false);
         editshowPartButton.setMinimumSize(new QSize(101, 25));
 
-        gridLayout.addWidget(editshowPartButton, 2, 2, 1, 3);
+        gridLayout.addWidget(editshowPartButton, 2, 4, 1, 1);
 
         label_From = new QLabel(MainDialog);
         label_From.setObjectName("label_From");
@@ -156,13 +156,14 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
 
         gridLayout.addWidget(label_From, 3, 0, 1, 1);
 
-        lineEdit_dateStart = new QLineEdit(MainDialog);
-        lineEdit_dateStart.setObjectName("lineEdit_dateStart");
-        lineEdit_dateStart.setMinimumSize(new QSize(129, 25));
-        lineEdit_dateStart.setFrame(false);
-        lineEdit_dateStart.setReadOnly(true);
+        dateEdit_Start = new QDateEdit(MainDialog);
+        dateEdit_Start.setObjectName("dateEdit_Start");
+        dateEdit_Start.setEnabled(true);
+        dateEdit_Start.setMinimumSize(new QSize(83, 25));
+        dateEdit_Start.setReadOnly(false);
+        dateEdit_Start.setCalendarPopup(true);
 
-        gridLayout.addWidget(lineEdit_dateStart, 3, 1, 1, 2);
+        gridLayout.addWidget(dateEdit_Start, 3, 1, 1, 1);
 
         label_To = new QLabel(MainDialog);
         label_To.setObjectName("label_To");
@@ -173,13 +174,13 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
 
         gridLayout.addWidget(label_To, 3, 4, 1, 1);
 
-        lineEdit_dateEnd = new QLineEdit(MainDialog);
-        lineEdit_dateEnd.setObjectName("lineEdit_dateEnd");
-        lineEdit_dateEnd.setMinimumSize(new QSize(130, 25));
-        lineEdit_dateEnd.setFrame(false);
-        lineEdit_dateEnd.setReadOnly(true);
+        dateEdit_End = new QDateEdit(MainDialog);
+        dateEdit_End.setObjectName("dateEdit_End");
+        dateEdit_End.setEnabled(true);
+        dateEdit_End.setMinimumSize(new QSize(83, 25));
+        dateEdit_End.setCalendarPopup(true);
 
-        gridLayout.addWidget(lineEdit_dateEnd, 3, 5, 1, 2);
+        gridLayout.addWidget(dateEdit_End, 3, 5, 1, 1);
 
         detailsButton = new QPushButton(MainDialog);
         detailsButton.setObjectName("detailsButton");
@@ -211,7 +212,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         lineEdit_Duration.setFrame(false);
         lineEdit_Duration.setReadOnly(true);
 
-        gridLayout.addWidget(lineEdit_Duration, 4, 1, 1, 2);
+        gridLayout.addWidget(lineEdit_Duration, 4, 1, 1, 1);
 
         label_Hours = new QLabel(MainDialog);
         label_Hours.setObjectName("label_Hours");
@@ -246,15 +247,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         comboBox_Ort.setFont(font8);
         comboBox_Ort.setEditable(false);
 
-        gridLayout.addWidget(comboBox_Ort, 5, 1, 1, 2);
-
-        addPlaceButton = new QPushButton(MainDialog);
-        addPlaceButton.setObjectName("addPlaceButton");
-        addPlaceButton.setEnabled(false);
-        addPlaceButton.setMinimumSize(new QSize(101, 25));
-        addPlaceButton.setMaximumSize(new QSize(135, 16777215));
-
-        gridLayout.addWidget(addPlaceButton, 5, 4, 1, 2);
+        gridLayout.addWidget(comboBox_Ort, 5, 1, 1, 1);
 
         loadCourseButton = new QPushButton(MainDialog);
         loadCourseButton.setObjectName("loadCourseButton");
@@ -281,7 +274,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         comboBox_Price.setEditable(false);
         comboBox_Price.setFrame(true);
 
-        gridLayout.addWidget(comboBox_Price, 6, 1, 1, 2);
+        gridLayout.addWidget(comboBox_Price, 6, 1, 1, 1);
 
         label_Price_2 = new QLabel(MainDialog);
         label_Price_2.setObjectName("label_Price_2");
@@ -289,13 +282,14 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         QFont font11 = new QFont();
         font11.setPointSize(10);
         label_Price_2.setFont(font11);
-        label_Price_2.setLayoutDirection(com.trolltech.qt.core.Qt.LayoutDirection.LeftToRight);
+        label_Price_2.setLayoutDirection(com.trolltech.qt.core.Qt.LayoutDirection.RightToLeft);
 
         gridLayout.addWidget(label_Price_2, 6, 4, 1, 1);
 
         lineEdit_Price = new QLineEdit(MainDialog);
         lineEdit_Price.setObjectName("lineEdit_Price");
         lineEdit_Price.setMinimumSize(new QSize(51, 25));
+        lineEdit_Price.setMaximumSize(new QSize(81, 25));
         lineEdit_Price.setFrame(false);
         lineEdit_Price.setReadOnly(true);
 
@@ -403,6 +397,14 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
 
         gridLayout.addWidget(deleteLiteratureButton, 11, 8, 1, 1);
 
+        addPlaceButton = new QPushButton(MainDialog);
+        addPlaceButton.setObjectName("addPlaceButton");
+        addPlaceButton.setEnabled(false);
+        addPlaceButton.setMinimumSize(new QSize(101, 25));
+        addPlaceButton.setMaximumSize(new QSize(135, 16777215));
+
+        gridLayout.addWidget(addPlaceButton, 5, 4, 1, 1);
+
         label_Title.setBuddy(lineEdit_Titel);
         label_Prof.setBuddy(lineEdit_Prof);
         label_Place.setBuddy(comboBox_Ort);
@@ -434,7 +436,6 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         comboBox_Ort.addItem(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Jordan-H\u00f6rsaal", null));
         comboBox_Ort.addItem(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Sky-H\u00f6rsaal", null));
         comboBox_Ort.addItem(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Haid-H\u00f6rsaal", null));
-        addPlaceButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "add", null));
         loadCourseButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Load...", null));
         label_Price.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Category", null));
         label_Price_2.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Price", null));
@@ -453,6 +454,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         addLiteratureButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "add", null));
         generateHTMLButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "To HTML", null));
         deleteLiteratureButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "delete", null));
+        addPlaceButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "add", null));
     } // retranslateUi
 
 }

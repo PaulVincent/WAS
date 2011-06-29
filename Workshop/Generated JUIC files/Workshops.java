@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'Workshops.jui'
 **
-** Created: Di 28. Jun 21:47:12 2011
+** Created: Mi 29. Jun 20:23:30 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -22,14 +22,15 @@ public class Workshops implements com.trolltech.qt.QUiForm<QDialog>
     public void setupUi(QDialog Workshops)
     {
         Workshops.setObjectName("Workshops");
-        Workshops.resize(new QSize(723, 248).expandedTo(Workshops.minimumSizeHint()));
+        Workshops.resize(new QSize(676, 248).expandedTo(Workshops.minimumSizeHint()));
+        Workshops.setMinimumSize(new QSize(676, 248));
         Workshops.setWindowIcon(new QIcon(new QPixmap("logo_gik.png")));
         Workshops.setModal(true);
         gridLayout = new QGridLayout(Workshops);
         gridLayout.setObjectName("gridLayout");
         treeWidget = new QTreeWidget(Workshops);
         treeWidget.setObjectName("treeWidget");
-        treeWidget.setMinimumSize(new QSize(701, 192));
+        treeWidget.setMinimumSize(new QSize(651, 192));
         treeWidget.setEditTriggers(com.trolltech.qt.gui.QAbstractItemView.EditTrigger.createQFlags(com.trolltech.qt.gui.QAbstractItemView.EditTrigger.DoubleClicked));
         treeWidget.setSelectionBehavior(com.trolltech.qt.gui.QAbstractItemView.SelectionBehavior.SelectRows);
         treeWidget.setIndentation(5);

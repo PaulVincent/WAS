@@ -54,62 +54,6 @@
      <string>Price</string>
     </property>
    </column>
-   <item>
-    <property name="text">
-     <string>zrarz</string>
-    </property>
-    <property name="text">
-     <string>arszsraz</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>wartarwt</string>
-    </property>
-    <property name="text">
-     <string>wartzwar</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>srazsraz</string>
-    </property>
-    <property name="text">
-     <string>rzszasr</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>rtwat</string>
-    </property>
-    <property name="text">
-     <string>wrtawt</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>rtat</string>
-    </property>
-    <property name="text">
-     <string>wratw</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>reduced</string>
-    </property>
-    <property name="text">
-     <string>40</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>normal</string>
-    </property>
-    <property name="text">
-     <string>50</string>
-    </property>
-   </item>
   </widget>
   <widget class="QPushButton" name="addCategoryButton">
    <property name="geometry">

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'PaticipantInfo.jui'
 **
-** Created: Di 28. Jun 22:05:44 2011
+** Created: Mi 29. Jun 22:25:10 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -191,7 +191,8 @@ public class PaticipantInfo implements com.trolltech.qt.QUiForm<QDialog>
         dateEdit.setButtonSymbols(com.trolltech.qt.gui.QAbstractSpinBox.ButtonSymbols.NoButtons);
         dateEdit.setDateTime(new QDateTime(new QDate(2011, 5, 20), new QTime(0, 0, 0)));
         dateEdit.setMaximumDateTime(new QDateTime(new QDate(2050, 12, 31), new QTime(23, 59, 59)));
-        dateEdit.setMinimumDateTime(new QDateTime(new QDate(1983, 5, 20), new QTime(0, 0, 0)));
+        dateEdit.setMinimumDateTime(new QDateTime(new QDate(2011, 5, 20), new QTime(0, 0, 0)));
+        dateEdit.setMinimumDate(new QDate(2011, 5, 20));
         dateEdit.setCalendarPopup(true);
         dateEdit.setDate(new QDate(2011, 5, 20));
 
