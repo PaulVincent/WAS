@@ -1,5 +1,7 @@
 package MODEL;
 
+
+
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -31,15 +33,15 @@ public class Workshop_Time_Schedule_Info extends JFrame {
 	  updateTimeScheduleButton, nextButton, previousButton, lastButton,
 	  firstButton, gotoButton, freeQueryButton;
 
-private JList listParticipant, listWorkshop;
+private JList listWorkshop;
 
-private JTextField P_ID_text,W_ID_text, W_DATE_text, W_DATE_TimeSchedule_text, gotoText,freeQueryText;
+private JTextField W_ID_text, W_DATE_text, W_SCHEDULE_text, gotoText,freeQueryText;
 
 
 private JTextArea errorText;
 private Connection connection;
 private Statement statement;
-private ResultSet resultSet, resultSet1;
+private ResultSet resultSet;
 
 //constructor method for checking the loading driver
 public Workshop_Time_Schedule_Info() {
@@ -67,26 +69,10 @@ System.exit(1);
 }
 }
 
-// laod data from participants_table table from workshop_software_db database
-private void loadParticipant() {
-Vector<Integer> v = new Vector<Integer>();
-try {
-resultSet = statement.executeQuery("SELECT * FROM Time_Schedule_table_1");
-while (resultSet.next()) {
-v.addElement(resultSet.getInt("P_ID"));
-}
-}
-catch (SQLException e) {
-	displaySQLErrors(e);
-	}
-listParticipant.setListData(v);
-
-}
-
 private void loadWorkshop() {
 	Vector<Integer> v1 = new Vector<Integer>();
 	try {
-	resultSet = statement.executeQuery("SELECT * FROM Time_Schedule_table_1");
+	resultSet = statement.executeQuery("SELECT * FROM Time_Schedule_table");
 	while (resultSet.next()) {
 	v1.addElement(resultSet.getInt("W_ID"));
 	}
@@ -102,29 +88,24 @@ private void loadWorkshop() {
 	private void buildGUI() {
 		Container c = getContentPane();
 		c.setLayout(new FlowLayout());
-		listParticipant = new JList();
-		loadParticipant();
-		listParticipant.setVisibleRowCount(5);
-		JScrollPane participantNumberListScrollPane = new JScrollPane(listParticipant);
 	
 		listWorkshop = new JList();
 		loadWorkshop();
 		listWorkshop.setVisibleRowCount(5);
 		JScrollPane workshopNumberListScrollPane = new JScrollPane(listWorkshop);
 
-// Do Get Account Button
+// Do Get workshop schedule Button
 		getTimeScheduleButton = new JButton("Get Workshop Detail");
 		getTimeScheduleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Statement statement = connection.createStatement();
 					resultSet = statement.executeQuery(
-					"SELECT * FROM Time_Schedule_table_1 WHERE P_ID ="+listParticipant.getSelectedValue());
+					"SELECT * FROM Time_Schedule_table WHERE W_ID ="+listWorkshop.getSelectedValue());
 					if (resultSet.next()) {
 						W_ID_text.setText(resultSet.getString("W_ID"));
-						P_ID_text.setText(resultSet.getString("P_ID"));
 						W_DATE_text.setText(resultSet.getString("W_DATE"));
-						W_DATE_TimeSchedule_text.setText(resultSet.getString("W_DATE_TimeSchedule"));	
+						W_SCHEDULE_text.setText(resultSet.getString("W_SCHEDULE"));	
 					}
 				} catch (SQLException selectException) {
 					displaySQLErrors(selectException);
@@ -132,36 +113,36 @@ private void loadWorkshop() {
 			}
 		});
 
-// Do Insert Participant Button
+// Do Insert workshop schedule  Button
 		insertTimeScheduleButton = new JButton("Insert Workshop Detail");
 		insertTimeScheduleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Statement statement = connection.createStatement();
 					//()
-					int i = statement.executeUpdate("INSERT INTO Time_Schedule_table_1 VALUES('" 
+					int i = statement.executeUpdate("INSERT INTO Time_Schedule_table VALUES('" 
 					+W_ID_text.getText()+ "','"  
-					+ P_ID_text.getText()+ "','"+ W_DATE_text.getText() +"','"
-					+ W_DATE_TimeSchedule_text.getText()+ "')");			
+					+ W_DATE_text.getText() +"','"
+					+ W_SCHEDULE_text.getText()+ "')");			
 					errorText.append("Inserted " + i + " rows successfully");
-					listParticipant.removeAll();
-					loadParticipant();
+					listWorkshop.removeAll();
+				
 				} catch (SQLException insertException) {
 					displaySQLErrors(insertException);
 				}
 			}
 		});
 		
-	//Do Delete Participant Button
+	//Do Delete workshop schedule Button
 	    deleteTimeScheduleButton = new JButton("Delete Workshop Detail");
 	    deleteTimeScheduleButton.addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent e) {
 	        try {
 	          Statement statement = connection.createStatement();
-	          int i = statement.executeUpdate("DELETE FROM Time_Schedule_table_1 WHERE P_ID =" + listParticipant.getSelectedValue());
+	          int i = statement.executeUpdate("DELETE FROM Time_Schedule_table WHERE W_ID =" + listWorkshop.getSelectedValue());
 	          errorText.append("Deleted " + i + " rows successfully");
-	          listParticipant.removeAll();
-	          loadParticipant();
+	          listWorkshop.removeAll();
+	     
 	        } catch (SQLException insertException) {
 	          displaySQLErrors(insertException);
 	        }
@@ -169,22 +150,20 @@ private void loadWorkshop() {
 	    });
 
 	
-	    //Do Update Participant Button
+	    //Do Update workshop schedule  Button
 	    updateTimeScheduleButton = new JButton("Update Workshop Detail");
 	    updateTimeScheduleButton.addActionListener(new ActionListener() {
 	      public void actionPerformed(ActionEvent e) {
 	        try {
 	          Statement statement = connection.createStatement();
-	          int i = statement.executeUpdate("UPDATE Time_Schedule_table_1 "	  
+	          int i = statement.executeUpdate("UPDATE Time_Schedule_table "	  
 	              + "SET W_ID='"+W_ID_text.getText()+"',"
-	              + "P_ID='"+P_ID_text.getText()+"',"
-	              + "W_DATE =now()" + "',"
-	              + "W_DATE_TimeSchedule='"+W_DATE_TimeSchedule_text.getText()+"',"
-	              + "WHERE P_ID= "+listParticipant.getSelectedValue());
+	              + "W_DATE ='"+W_DATE_text.getText()+ "',"
+	              + "W_SCHEDULE='"+W_SCHEDULE_text.getText()+"',"
+	              + "WHERE W_ID= "+listWorkshop.getSelectedValue());
 	        
 	          errorText.append("Updated " + i + " rows successfully");
-	          listParticipant.removeAll();
-	          loadParticipant();
+	          
 	        } catch (SQLException insertException) {
 	          displaySQLErrors(insertException);
 	        }
@@ -199,9 +178,8 @@ private void loadWorkshop() {
 	          if (!resultSet.isLast()) {
 	        	  resultSet.next();
 	        	  W_ID_text.setText(resultSet.getString("W_ID"));
-	        	  P_ID_text.setText(resultSet.getString("P_ID"));
 	        	  W_DATE_text.setText(resultSet.getString("W_DATE")); 
-	        	  W_DATE_TimeSchedule_text.setText(resultSet.getString("W_DATE_TimeSchedule"));
+	        	  W_SCHEDULE_text.setText(resultSet.getString("W_SCHEDULE"));
 	        	  
 	          }
 	        } catch (SQLException insertException) {
@@ -218,9 +196,8 @@ private void loadWorkshop() {
 	          if (!resultSet.isFirst()) {
 	        	  resultSet.previous();
 	        	  W_ID_text.setText(resultSet.getString("W_ID"));
-	        	  P_ID_text.setText(resultSet.getString("P_ID"));
 	        	  W_DATE_text.setText(resultSet.getString("W_DATE")); 
-	        	  W_DATE_TimeSchedule_text.setText(resultSet.getString("W_DATE_TimeSchedule"));
+	        	  W_SCHEDULE_text.setText(resultSet.getString("W_SCHEDULE"));
 	          }
 	        } catch (SQLException insertException) {
 	          displaySQLErrors(insertException);
@@ -234,11 +211,9 @@ private void loadWorkshop() {
 	      public void actionPerformed(ActionEvent e) {
 	        try {
 	        	resultSet.last();
-	        	
 	        	  W_ID_text.setText(resultSet.getString("W_ID"));
-	        	  P_ID_text.setText(resultSet.getString("P_ID"));
 	        	  W_DATE_text.setText(resultSet.getString("W_DATE")); 
-	        	  W_DATE_TimeSchedule_text.setText(resultSet.getString("W_DATE_TimeSchedule"));
+	        	  W_SCHEDULE_text.setText(resultSet.getString("W_SCHEDULE"));
 	        	  
 	          
 	        } catch (SQLException insertException) {
@@ -254,9 +229,8 @@ private void loadWorkshop() {
 	        try {
 	        	resultSet.first();
 	        	  W_ID_text.setText(resultSet.getString("W_ID"));
-	        	  P_ID_text.setText(resultSet.getString("P_ID"));
 	        	  W_DATE_text.setText(resultSet.getString("W_DATE")); 
-	        	  W_DATE_TimeSchedule_text.setText(resultSet.getString("W_DATE_TimeSchedule"));
+	        	  W_SCHEDULE_text.setText(resultSet.getString("W_SCHEDULE"));
 	        	  
 	        } catch (SQLException insertException) {
 	          displaySQLErrors(insertException);
@@ -271,9 +245,8 @@ private void loadWorkshop() {
 	        try {
 	        	resultSet.absolute(Integer.parseInt(gotoText.getText()));
 	        	  W_ID_text.setText(resultSet.getString("W_ID"));
-	        	  P_ID_text.setText(resultSet.getString("P_ID"));
 	        	  W_DATE_text.setText(resultSet.getString("W_DATE")); 
-	        	  W_DATE_TimeSchedule_text.setText(resultSet.getString("W_DATE_TimeSchedule"));
+	        	  W_SCHEDULE_text.setText(resultSet.getString("W_SCHEDULE"));
 	        } catch (SQLException insertException) {
 	          displaySQLErrors(insertException);
 	        }
@@ -289,14 +262,13 @@ private void loadWorkshop() {
 	        	  resultSet = statement.executeQuery(freeQueryText.getText());
 	            if (resultSet.next()) {
 	            	  W_ID_text.setText(resultSet.getString("W_ID"));
-		        	  P_ID_text.setText(resultSet.getString("P_ID"));
 		        	  W_DATE_text.setText(resultSet.getString("W_DATE")); 
-		        	  W_DATE_TimeSchedule_text.setText(resultSet.getString("W_DATE_TimeSchedule"));  
+		        	  W_SCHEDULE_text.setText(resultSet.getString("W_SCHEDULE"));
 	            }
 	          } else {
 	            int i = statement.executeUpdate(freeQueryText.getText());
 	            errorText.append("Rows affected = " + i);
-	            loadParticipant();
+	            loadWorkshop();
 	          }
 	        } catch (SQLException insertException) {
 	          displaySQLErrors(insertException);
@@ -305,10 +277,10 @@ private void loadWorkshop() {
 	    });
 	    
 	   
-	    P_ID_text = new JTextField(15);
+	    
 	    W_ID_text = new JTextField(15);
 	    W_DATE_text= new JTextField(15);
-	    W_DATE_TimeSchedule_text = new JTextField(50);
+	    W_SCHEDULE_text = new JTextField(50);
 	    
 	    gotoText = new JTextField(3);
 	    errorText = new JTextArea(5, 5);
@@ -331,14 +303,6 @@ private void loadWorkshop() {
 	    c1.gridy=0; 
 	    panel_button.add(W_ID_text,c1);
 	    
-	    JLabel l_p_id= new JLabel("Participant ID:");
-	    c1.gridx=0;
-	    c1.gridy=1;
-	    panel_button.add(l_p_id,c1);
-	    c1.gridx=1;
-	    c1.gridy=1;
-	    panel_button.add(P_ID_text,c1);
-	    
 	    JLabel l_w_date= new JLabel("Workshop Date:");
 	    c1.gridx=0;
 	    c1.gridy=2;
@@ -353,7 +317,7 @@ private void loadWorkshop() {
 	    panel_button.add(l_W_DATE_TimeSchedule_text,c1);
 	    c1.gridx=1;
 	    c1.gridy=3;
-	    panel_button.add(W_DATE_TimeSchedule_text,c1);
+	    panel_button.add(W_SCHEDULE_text,c1);
 	   	    
 	    
 	    // button info
@@ -364,7 +328,7 @@ private void loadWorkshop() {
 	    c1.gridx=0;
 	    c1.gridy=4;
 	    panel_button.add(gotoButton,c1);
-	    JLabel l_w_id1= new JLabel(" Go to Participant ID");
+	    JLabel l_w_id1= new JLabel("Go to Workshop ID");
 	    c1.gridx=2;
 	    c1.gridy=4;
 	    panel_button.add(l_w_id1,c1);
@@ -404,7 +368,7 @@ private void loadWorkshop() {
 	    c1.gridx=0;
 	    c1.gridy=7;
 	    panel_button.add(freeQueryButton,c1);
-	    JLabel l_w_id5= new JLabel("Select Query Acccording to the P_ID");
+	    JLabel l_w_id5= new JLabel("Select Query Acccording to the W_ID");
 	    c1.gridx=2;
 	    c1.gridy=7;
 	    panel_button.add(l_w_id5,c1); 
@@ -416,19 +380,12 @@ private void loadWorkshop() {
 	    c1.gridx=0;
 	    c1.gridy=9;
 	   panel_button.add(workshopNumberListScrollPane, c1);
-	   
-	   JLabel l_w_id3= new JLabel("Participant ID:");
 	    c1.gridx=1;
-	    c1.gridy=8;
-	   panel_button.add(l_w_id3,c1); 
-	    c1.gridx=1;
-	    c1.gridy=9;
-	    panel_button.add(participantNumberListScrollPane, c1);
-	    c1.gridx=2;
 	    c1.gridy=9;
 	    panel_button.add(errorText,c1);
+	   
 	    JLabel l_w_id4= new JLabel("Query Message");
-	    c1.gridx=3;
+	    c1.gridx=2;
 	    c1.gridy=9;
 	   panel_button.add(l_w_id4,c1); 
 	   
@@ -461,3 +418,4 @@ private void loadWorkshop() {
 		  workshop_Time_Schedule_Info.buildGUI();
 	  }
 	}
+

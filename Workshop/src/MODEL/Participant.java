@@ -113,7 +113,7 @@ private void loadWorkshop() {
 		listWorkshop.setVisibleRowCount(5);
 		JScrollPane workshopNumberListScrollPane = new JScrollPane(listWorkshop);
 
-// Do Get Account Button
+// Do Get participant Button
 		getParticipantButton = new JButton("Get Participant");
 		getParticipantButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
