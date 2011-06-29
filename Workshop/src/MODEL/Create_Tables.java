@@ -124,22 +124,10 @@ public class Create_Tables {
 		        "W_PRICE double," +
 		        "W_DESCRIPTION LONGTEXT," +
 		        "W_LITERATURE LONGTEXT," + 
-		        "W_DATE timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
-//=======
-//		createString = "create table workshop_table_1 ("
-//				+ ""
-//				+ "W_ID int(11)PRIMARY KEY, "
-//				+ "W_TITLE varchar(30),"
-//				+ "W_LECTURER varchar(30),"
-//				+ "W_PARTICIPANT int(4),"
-//				+ "W_PLACE varchar(30),"
-//				+ "W_CATEGORY varchar(60),"
-//				+ "W_DURATION double,"
-//				+ "W_PRICE double,"
-//				+ "W_DESCRIPTION text,"
-//				+ "W_LITERATURE text,"
-//				+ "W_DATE timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
-//>>>>>>> 3cacf254d4a457f89799996e855c454c5127ce80
+		        "W_DATE_START String," + 
+		        "W_DATE_END String," + 
+		        "W_SCHEDULE TEXT)";
+
 		try {
 			stmt = con.createStatement();
 			stmt.executeUpdate(createString);
@@ -153,7 +141,7 @@ public class Create_Tables {
 
 /* sql syntex for creating the participants_table:
    CREATE TABLE participants_table(
-   W_ID int(9),
+   W_ID int(11),
    W_DATE DATE,
    W_DATE_TimeSchedule TEXT
    P_ID int(11)  NOT NULL AUTO_INCREMENT,
