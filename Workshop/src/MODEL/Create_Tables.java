@@ -125,8 +125,7 @@ public class Create_Tables {
 		        "W_DESCRIPTION LONGTEXT," +
 		        "W_LITERATURE LONGTEXT," + 
 		        "W_DATE_START varchar(10)," + 
-		        "W_DATE_END varchar(10)," + 
-		        "W_SCHEDULE TEXT)";
+		        "W_DATE_END varchar(10))";
 
 		try {
 			stmt = con.createStatement();
@@ -227,19 +226,17 @@ public class Create_Tables {
 	/* sql syntex for creating the Time_Schedule_table:
 	   CREATE TABLE Time_Schedule_table(
 	    W_ID int(9),
-	    P_ID int(9),
 	    W_DATE DATE,
-	    W_DATE_TimeSchedule TEXT);
+	    W_SCHEDULE TEXT);
 	*/
 	// Time_Schedule_table table creation method	
 	public static void createScheduleTable(){
 		Connection con = getConnection();
 		String createString;
 		createString = "create table Time_Schedule_table (" + "" +
-		        "W_ID int(9)," +
-				"P_ID int(9) PRIMARY KEY, " +
-				"W_DATE DATE," +
-				"W_DATE_TimeSchedule TEXT)";
+				"W_ID int(11), " +
+				"W_DATE varchar(10)," +
+				"W_SCHEDULE TEXT)";
 		try {
 			stmt = con.createStatement();
 			stmt.executeUpdate(createString);
