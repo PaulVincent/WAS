@@ -288,6 +288,7 @@ public class MainDialogImpl extends QDialog {
 		String endDate = wsData.get(8);
 		ui.dateEdit_End.setDate(WorkshopController.dateString2QDate(endDate));
 		ui.lineEdit_Part.setText(wsData.get(9));
+		ui.lineEdit_Duration.setText(wsData.get(10));
 		// mDImpl.ui.listWidget_Literature.addItem(res
 		// .getString("W_LITERATURE"));
 		// mDImpl.ui.lineEdit_dateEnd.setText(arg__1);
@@ -295,9 +296,9 @@ public class MainDialogImpl extends QDialog {
 	}
 
 	public ArrayList<String> getWSFromMD() {
-		Calendar cal = Calendar.getInstance();
-		DateFormat df = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
-				DateFormat.MEDIUM, Locale.PRC);
+//		Calendar cal = Calendar.getInstance();
+//		DateFormat df = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
+//				DateFormat.MEDIUM, Locale.PRC);
 		// System.out.println(df.format(cal.getTime()));
 
 		QDate start = ui.dateEdit_Start.date();
@@ -305,8 +306,8 @@ public class MainDialogImpl extends QDialog {
 		String startString = WorkshopController.qDate2dateString(start);
 		String endString = WorkshopController.qDate2dateString(end);
 
-		System.out.println(startString);
-		System.out.println(endString);
+//		System.out.println(startString);
+//		System.out.println(endString);
 
 		ArrayList<String> workShopData = new ArrayList<String>();
 		workShopData.add(ui.lineEdit_Titel.text());
@@ -338,5 +339,9 @@ public class MainDialogImpl extends QDialog {
 
 	public void setNumOfParts(int numOfParticipants) {
 		ui.lineEdit_Part.setText(Integer.toString(numOfParticipants));
+	}
+	
+	public void setDuration(int hours){
+		ui.lineEdit_Duration.setText(Integer.toString(hours));
 	}
 }

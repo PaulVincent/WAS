@@ -36,7 +36,7 @@
     <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel|com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
    </property>
   </widget>
-  <widget class="QDateEdit" name="dateEdit_Start">
+  <widget class="QDateEdit" name="dateEdit">
    <property name="geometry">
     <rect>
      <x>5</x>
@@ -59,7 +59,7 @@
     </date>
    </property>
   </widget>
-  <widget class="QTimeEdit" name="timeEdit">
+  <widget class="QTimeEdit" name="timeEdit_Start">
    <property name="geometry">
     <rect>
      <x>95</x>
@@ -78,7 +78,7 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QTimeEdit" name="timeEdit_2">
+  <widget class="QTimeEdit" name="timeEdit_End">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -146,10 +146,10 @@
     <string>End</string>
    </property>
   </widget>
-  <zorder>dateEdit_Start</zorder>
+  <zorder>dateEdit</zorder>
   <zorder>buttonBox_OK_Cancel</zorder>
-  <zorder>timeEdit</zorder>
-  <zorder>timeEdit_2</zorder>
+  <zorder>timeEdit_Start</zorder>
+  <zorder>timeEdit_End</zorder>
   <zorder>saveTimeIntervalButton</zorder>
   <zorder>label_Date</zorder>
   <zorder>label_StartTime</zorder>

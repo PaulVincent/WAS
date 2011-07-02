@@ -4,7 +4,6 @@ package Controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.trolltech.qt.core.QDate;
@@ -26,8 +25,8 @@ public class WorkshopController {
 				item.setData(1, 0, res.getString("W_TITLE"));
 				item.setData(2, 0, res.getString("W_LECTURER"));
 				// item.setData(3, 0,
-				// res.getString("W_DATE").toString().split("\\.")[0]);
-				String dateString = res.getString("W_DATE_START");
+				// // res.getString("W_DATE").toString().split("\\.")[0]);
+				// String dateString = res.getString("W_DATE_START");
 				item.setData(3, 0, res.getString("W_DATE_START"));
 				item.setData(4, 0, res.getString("W_PARTICIPANT"));
 				items.add(item);
@@ -55,6 +54,30 @@ public class WorkshopController {
 				item.setData(3, 0, res.getString("P_REGISTRATION"));
 				item.setData(4, 0, res.getString("P_PRICE"));
 				item.setData(5, 0, res.getString("P_PAID"));
+				items.add(item);
+			}
+		} catch (SQLException selectException) {
+			// displaySQLErrors(selectException);
+		}
+		return items;
+	}
+
+	public static ArrayList<QTreeWidgetItem> initSchedule(int workShopID) {
+		ArrayList<QTreeWidgetItem> items = new ArrayList<QTreeWidgetItem>();
+
+		try {
+			ResultSet res = DBConnection.statement
+					.executeQuery("SELECT * from Time_Schedule_table WHERE W_ID = "
+							+ Integer.toString(workShopID));
+
+			while (res.next()) {
+				QTreeWidgetItem item = new QTreeWidgetItem();
+				item.setData(0, 0, res.getString("W_Date"));
+				String timeString = res.getString("W_SCHEDULE");
+				String start = timeString.split("-")[0];
+				String end = timeString.split("-")[1];
+				item.setData(1, 0, start);
+				item.setData(2, 0, end);
 				items.add(item);
 			}
 		} catch (SQLException selectException) {
@@ -110,11 +133,27 @@ public class WorkshopController {
 		return id;
 	}
 
+	public static void newTimeIntervall(String timeStr, int workShopID) {
+		// int timeID = 0;
+		// String newTimeStr = "";
+		try {
+			int i = DBConnection.statement
+					.executeUpdate("INSERT INTO Time_Schedule_table VALUES('"
+							+ timeStr + "')");
+			System.out.println("Inserted " + i + " rows successfully");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// return timeID;
+	}
+
 	public static ArrayList<String> loadWorkshop(int id) {
 		// TODO Auto-generated method stub
 		ArrayList<String> workshopData = new ArrayList<String>();
 		String idStr = Integer.toString(id);
 		int count = getParticipantCount(Integer.parseInt(idStr));
+		int hours = getDuration(id);
 		try {
 			ResultSet res = DBConnection.statement
 					.executeQuery("SELECT * FROM workshop.workshop_table WHERE W_ID = "
@@ -136,6 +175,8 @@ public class WorkshopController {
 				workshopData.add(res.getString("W_DATE_START"));
 				workshopData.add(res.getString("W_DATE_END"));
 				workshopData.add(Integer.toString(count));
+				workshopData.add(Integer.toString(hours));
+
 				// // mDImpl.ui.listWidget_Literature.addItem(res
 				// // .getString("W_LITERATURE"));
 				// System.out.println(res.getString("W_DATE"));
@@ -207,6 +248,21 @@ public class WorkshopController {
 			int i = DBConnection.statement
 					.executeUpdate("DELETE FROM participants_table WHERE P_ID = "
 							+ Integer.toString(id));
+			System.out.println("Deleted " + i + " rows successfully");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public static void deleteTimeIntervall(ArrayList<String> timeIntervall, int id)
+	{
+		try {
+			int i = DBConnection.statement
+					.executeUpdate("DELETE FROM Time_Schedule_table WHERE W_ID = "
+							+ Integer.toString(id) + " AND W_DATE = '" + timeIntervall.get(0)
+							+ "' AND W_SCHEDULE = '" + timeIntervall.get(1) + "'");
+							
 			System.out.println("Deleted " + i + " rows successfully");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -297,6 +353,26 @@ public class WorkshopController {
 		return number;
 	}
 
+	public static int getDuration(int id) {
+		int hours = 0;
+		try {
+			ResultSet res = DBConnection.statement
+					.executeQuery("Select W_SCHEDULE from Time_Schedule_table WHERE W_ID = "
+							+ Integer.toString(id));
+			while (res.next()) {
+				String start = res.getString("W_SCHEDULE").split("-")[0];
+				String end = res.getString("W_SCHEDULE").split("-")[1];
+				int startHour = Integer.parseInt(start.split(":")[0]);
+				int endHour = Integer.parseInt(end.split(":")[0]);
+				hours = hours + (endHour - startHour);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return hours;
+	}
+
 	public static QDate dateString2QDate(String dateString) {
 		String year = dateString.split("-")[0];
 		String month = dateString.split("-")[1];
@@ -311,5 +387,4 @@ public class WorkshopController {
 				+ Integer.toString(date.month()) + "-"
 				+ Integer.toString(date.day());
 	}
-
 }

@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>332</width>
-    <height>248</height>
+    <width>384</width>
+    <height>256</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>332</width>
-    <height>248</height>
+    <width>384</width>
+    <height>256</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>332</width>
-    <height>248</height>
+    <width>384</width>
+    <height>256</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -37,9 +37,21 @@
     <rect>
      <x>10</x>
      <y>220</y>
-     <width>121</width>
-     <height>20</height>
+     <width>161</width>
+     <height>25</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>161</width>
+     <height>25</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>161</width>
+     <height>25</height>
+    </size>
    </property>
    <property name="focusPolicy">
     <enum>com.trolltech.qt.core.Qt.FocusPolicy.TabFocus</enum>
@@ -53,9 +65,21 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>311</width>
+     <width>361</width>
      <height>192</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>361</width>
+     <height>192</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>361</width>
+     <height>192</height>
+    </size>
    </property>
    <property name="editTriggers">
     <set>com.trolltech.qt.gui.QAbstractItemView.EditTrigger.NoEditTriggers</set>
@@ -84,48 +108,27 @@
      <string>End</string>
     </property>
    </column>
-   <item>
-    <property name="text">
-     <string>01.12.2011</string>
-    </property>
-    <property name="text">
-     <string>8:00</string>
-    </property>
-    <property name="text">
-     <string>11:00</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>01.12.2011</string>
-    </property>
-    <property name="text">
-     <string>13:00</string>
-    </property>
-    <property name="text">
-     <string>16:00</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>02.12.2011</string>
-    </property>
-    <property name="text">
-     <string>9:00</string>
-    </property>
-    <property name="text">
-     <string>12:00</string>
-    </property>
-   </item>
   </widget>
   <widget class="QPushButton" name="addTimeIntervalButton">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>270</x>
      <y>220</y>
      <width>101</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>101</width>
+     <height>25</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>101</width>
+     <height>25</height>
+    </size>
    </property>
    <property name="text">
     <string>add time interval</string>
@@ -134,11 +137,23 @@
   <widget class="QPushButton" name="deleteTimeIntervalButton">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>190</x>
      <y>220</y>
      <width>75</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>75</width>
+     <height>25</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>75</width>
+     <height>25</height>
+    </size>
    </property>
    <property name="text">
     <string>delete</string>

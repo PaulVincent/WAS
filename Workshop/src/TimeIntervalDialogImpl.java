@@ -1,6 +1,11 @@
 
 
-import com.trolltech.qt.gui.*;
+import Controller.WorkshopController;
+
+import com.trolltech.qt.core.QTime;
+import com.trolltech.qt.gui.QApplication;
+import com.trolltech.qt.gui.QDialog;
+import com.trolltech.qt.gui.QWidget;
 
 public class TimeIntervalDialogImpl extends QDialog {
 
@@ -28,28 +33,41 @@ public class TimeIntervalDialogImpl extends QDialog {
     public TimeIntervalDialogImpl(ScheduleImpl sImpl) {
         ui.setupUi(this);
         this.sImpl = sImpl;
+        
+        init();
     }
     
     public void on_saveTimeIntervalButton_clicked()
+    {    
+    	String timeStr = getTimeFromTID();
+		WorkshopController.newTimeIntervall(timeStr, sImpl.mDImpl.workShopID);
+			
+		sImpl.ui.treeWidget.clear();
+		sImpl.init();
+		
+		int hours = WorkshopController.getDuration(sImpl.mDImpl.workShopID);
+		sImpl.mDImpl.setDuration(hours);
+    }
+
+	public String getTimeFromTID()
+	{
+		String dateString = WorkshopController.qDate2dateString(ui.dateEdit.date());
+		
+		String timeIntervall = Integer.toString(sImpl.mDImpl.workShopID) + "', '"
+		+ dateString + "', '"
+		+ ui.timeEdit_Start.text() + "-" +ui.timeEdit_End.text();
+		
+		return timeIntervall;
+	}
+    
+    public void on_timeEdit_Start_timeChanged() {
+		QTime min = ui.timeEdit_Start.time();
+		ui.timeEdit_End.setMinimumTime(min);
+	}
+    
+    public void init()
     {
-    	if (sImpl.ui.treeWidget.currentItem() == null)
-    	{
-//    		add new time interval to database if possible
-//        	reload schedule from database and write into Schedule GUI
-    		sImpl.ui.treeWidget.clear();
-    		System.out.println("null");
-    	}
-    	else
-    	{
-    		QTreeWidgetItem item = sImpl.ui.treeWidget.currentItem();
-        	String str_ID = (String) item.data(0, 0);
-//        	int ID = Integer.parseInt(str_ID);
-        	System.out.println(str_ID);
-//        	update current timeinterval in database
-        	sImpl.ui.treeWidget.clear();
-//        	reload schedule from database and write into Schedule GUI
-        	System.out.println("not null");
-    	}
-    	System.out.println(sImpl.mDImpl.workShopID);
+    	ui.dateEdit.setMinimumDate(sImpl.mDImpl.ui.dateEdit_Start.date());
+    	ui.dateEdit.setMaximumDate(sImpl.mDImpl.ui.dateEdit_End.date());
     }
 }

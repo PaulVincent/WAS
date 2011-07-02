@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'Schedule.jui'
 **
-** Created: So 26. Jun 11:37:17 2011
+** Created: Sa 2. Jul 16:40:08 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -22,29 +22,37 @@ public class Schedule implements com.trolltech.qt.QUiForm<QDialog>
     public void setupUi(QDialog Schedule)
     {
         Schedule.setObjectName("Schedule");
-        Schedule.resize(new QSize(332, 248).expandedTo(Schedule.minimumSizeHint()));
-        Schedule.setMinimumSize(new QSize(332, 248));
-        Schedule.setMaximumSize(new QSize(332, 248));
+        Schedule.resize(new QSize(384, 256).expandedTo(Schedule.minimumSizeHint()));
+        Schedule.setMinimumSize(new QSize(384, 256));
+        Schedule.setMaximumSize(new QSize(384, 256));
         Schedule.setWindowIcon(new QIcon(new QPixmap("logo_gik.png")));
         Schedule.setModal(true);
         buttonBox = new QDialogButtonBox(Schedule);
         buttonBox.setObjectName("buttonBox");
-        buttonBox.setGeometry(new QRect(10, 220, 121, 20));
+        buttonBox.setGeometry(new QRect(10, 220, 161, 25));
+        buttonBox.setMinimumSize(new QSize(161, 25));
+        buttonBox.setMaximumSize(new QSize(161, 25));
         buttonBox.setFocusPolicy(com.trolltech.qt.core.Qt.FocusPolicy.TabFocus);
         buttonBox.setStandardButtons(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.createQFlags(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel,com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok));
         treeWidget = new QTreeWidget(Schedule);
         treeWidget.setObjectName("treeWidget");
-        treeWidget.setGeometry(new QRect(10, 10, 311, 192));
+        treeWidget.setGeometry(new QRect(10, 10, 361, 192));
+        treeWidget.setMinimumSize(new QSize(361, 192));
+        treeWidget.setMaximumSize(new QSize(361, 192));
         treeWidget.setEditTriggers(com.trolltech.qt.gui.QAbstractItemView.EditTrigger.createQFlags(com.trolltech.qt.gui.QAbstractItemView.EditTrigger.NoEditTriggers));
         treeWidget.setSelectionMode(com.trolltech.qt.gui.QAbstractItemView.SelectionMode.SingleSelection);
         treeWidget.setIndentation(10);
         treeWidget.setItemsExpandable(false);
         addTimeIntervalButton = new QPushButton(Schedule);
         addTimeIntervalButton.setObjectName("addTimeIntervalButton");
-        addTimeIntervalButton.setGeometry(new QRect(220, 220, 101, 20));
+        addTimeIntervalButton.setGeometry(new QRect(270, 220, 101, 25));
+        addTimeIntervalButton.setMinimumSize(new QSize(101, 25));
+        addTimeIntervalButton.setMaximumSize(new QSize(101, 25));
         deleteTimeIntervalButton = new QPushButton(Schedule);
         deleteTimeIntervalButton.setObjectName("deleteTimeIntervalButton");
-        deleteTimeIntervalButton.setGeometry(new QRect(140, 220, 75, 20));
+        deleteTimeIntervalButton.setGeometry(new QRect(190, 220, 75, 25));
+        deleteTimeIntervalButton.setMinimumSize(new QSize(75, 25));
+        deleteTimeIntervalButton.setMaximumSize(new QSize(75, 25));
         retranslateUi(Schedule);
         buttonBox.clicked.connect(Schedule, "close()");
 
@@ -57,22 +65,6 @@ public class Schedule implements com.trolltech.qt.QUiForm<QDialog>
         treeWidget.headerItem().setText(0, com.trolltech.qt.core.QCoreApplication.translate("Schedule", "Date", null));
         treeWidget.headerItem().setText(1, com.trolltech.qt.core.QCoreApplication.translate("Schedule", "Start", null));
         treeWidget.headerItem().setText(2, com.trolltech.qt.core.QCoreApplication.translate("Schedule", "End", null));
-        treeWidget.clear();
-
-        QTreeWidgetItem __item = new QTreeWidgetItem(treeWidget);
-        __item.setText(0, com.trolltech.qt.core.QCoreApplication.translate("Schedule", "01.12.2011", null));
-        __item.setText(1, com.trolltech.qt.core.QCoreApplication.translate("Schedule", "8:00", null));
-        __item.setText(2, com.trolltech.qt.core.QCoreApplication.translate("Schedule", "11:00", null));
-
-        QTreeWidgetItem __item1 = new QTreeWidgetItem(treeWidget);
-        __item1.setText(0, com.trolltech.qt.core.QCoreApplication.translate("Schedule", "01.12.2011", null));
-        __item1.setText(1, com.trolltech.qt.core.QCoreApplication.translate("Schedule", "13:00", null));
-        __item1.setText(2, com.trolltech.qt.core.QCoreApplication.translate("Schedule", "16:00", null));
-
-        QTreeWidgetItem __item2 = new QTreeWidgetItem(treeWidget);
-        __item2.setText(0, com.trolltech.qt.core.QCoreApplication.translate("Schedule", "02.12.2011", null));
-        __item2.setText(1, com.trolltech.qt.core.QCoreApplication.translate("Schedule", "9:00", null));
-        __item2.setText(2, com.trolltech.qt.core.QCoreApplication.translate("Schedule", "12:00", null));
         addTimeIntervalButton.setText(com.trolltech.qt.core.QCoreApplication.translate("Schedule", "add time interval", null));
         deleteTimeIntervalButton.setText(com.trolltech.qt.core.QCoreApplication.translate("Schedule", "delete", null));
     } // retranslateUi
