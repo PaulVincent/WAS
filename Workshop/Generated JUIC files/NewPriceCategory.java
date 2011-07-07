@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'NewPriceCategory.jui'
 **
-** Created: Di 28. Jun 22:37:07 2011
+** Created: Do 7. Jul 20:01:10 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -40,7 +40,7 @@ public class NewPriceCategory implements com.trolltech.qt.QUiForm<QDialog>
         label_Price.setGeometry(new QRect(175, 6, 23, 25));
         label_Category = new QLabel(NewPriceCategory);
         label_Category.setObjectName("label_Category");
-        label_Category.setGeometry(new QRect(10, 6, 43, 25));
+        label_Category.setGeometry(new QRect(10, 6, 61, 25));
         lineEdit_Category = new QLineEdit(NewPriceCategory);
         lineEdit_Category.setObjectName("lineEdit_Category");
         lineEdit_Category.setGeometry(new QRect(10, 31, 151, 25));

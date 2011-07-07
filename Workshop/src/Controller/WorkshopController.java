@@ -86,6 +86,27 @@ public class WorkshopController {
 		return items;
 	}
 
+	public static ArrayList<QTreeWidgetItem> initPriceCategories(int workShopID){
+		ArrayList<QTreeWidgetItem> items = new ArrayList<QTreeWidgetItem>();
+
+		try {
+			ResultSet res = DBConnection.statement
+					.executeQuery("SELECT * from PriceCategory_table WHERE W_ID = "
+							+ Integer.toString(workShopID));
+
+			while (res.next()) {
+				QTreeWidgetItem item = new QTreeWidgetItem();
+				item.setData(0, 0, res.getString("C_CATEGORY"));
+				item.setData(1, 0, res.getString("C_PRICE"));
+				
+				items.add(item);
+			}
+		} catch (SQLException selectException) {
+			// displaySQLErrors(selectException);
+		}
+		return items;
+	}
+	
 	public static int newWorkShop(ArrayList<String> workShopData) {
 		int id = 0;
 		String workShopStr = "','" + workShopData.get(0) + "','"
@@ -133,7 +154,7 @@ public class WorkshopController {
 		return id;
 	}
 
-	public static void newTimeIntervall(String timeStr, int workShopID) {
+	public static void newTimeIntervall(String timeStr) {
 		// int timeID = 0;
 		// String newTimeStr = "";
 		try {
@@ -148,12 +169,28 @@ public class WorkshopController {
 		// return timeID;
 	}
 
+	public static void newPriceCategory(String priceCategoryStr) {
+		// int timeID = 0;
+		// String newTimeStr = "";
+		try {
+			int i = DBConnection.statement
+					.executeUpdate("INSERT INTO PriceCategory_table VALUES('"
+							+ priceCategoryStr + "')");
+			System.out.println("Inserted " + i + " rows successfully");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// return timeID;
+	}
+	
 	public static ArrayList<String> loadWorkshop(int id) {
 		// TODO Auto-generated method stub
 		ArrayList<String> workshopData = new ArrayList<String>();
 		String idStr = Integer.toString(id);
 		int count = getParticipantCount(Integer.parseInt(idStr));
 		int hours = getDuration(id);
+//		String place = getPlace(id);
 		try {
 			ResultSet res = DBConnection.statement
 					.executeQuery("SELECT * FROM workshop.workshop_table WHERE W_ID = "
@@ -176,7 +213,7 @@ public class WorkshopController {
 				workshopData.add(res.getString("W_DATE_END"));
 				workshopData.add(Integer.toString(count));
 				workshopData.add(Integer.toString(hours));
-
+				
 				// // mDImpl.ui.listWidget_Literature.addItem(res
 				// // .getString("W_LITERATURE"));
 				// System.out.println(res.getString("W_DATE"));
@@ -227,6 +264,22 @@ public class WorkshopController {
 		// mDImpl.setToEditingWorkShop(id);
 	}
 
+	public static ArrayList<String> loadAllPlaces(){
+		ArrayList<String> places = new ArrayList<String>();
+		
+		try {
+			ResultSet res = DBConnection.statement
+					.executeQuery("SELECT Pl_NAME from Places_table");
+
+			while (res.next()) {
+				places.add(res.getString("PL_NAME"));				
+			}
+		} catch (SQLException selectException) {
+			// displaySQLErrors(selectException);
+		}
+		return places;
+	}
+	
 	public static void deleteWorkShop(int id) {
 		try {
 			int i = DBConnection.statement
@@ -285,6 +338,21 @@ public class WorkshopController {
 		}
 	}
 
+//	public static void updateParticipant(String participantStr, int workShopID){
+//		try {
+//			DBConnection.statement.executeUpdate("UPDATE workshop_table "
+//					+ "SET W_TITLE='" + dataList.get(0) + "'," + "W_LECTURER='"
+//					+ dataList.get(1) + "'," + "W_DESCRIPTION='"
+//					+ dataList.get(2) + "'," + "W_DATE_START ='"
+//					+ dataList.get(3) + "'," + "W_DATE_END ='"
+//					+ dataList.get(4) + "'" + "WHERE W_ID = " + "'"
+//					+ Integer.toString(id) + "'");
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
+	
 	public static String newLiterature(String lit, int id) {
 		String newLits = editLiterature(id, lit, "add");
 		return newLits;

@@ -2,6 +2,7 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 import javax.swing.JFrame;
@@ -130,19 +131,20 @@ public class MainDialogImpl extends QDialog {
 	}
 
 	public void on_comboBox_Price_currentStringChanged() {
-		// String str = ui.comboBox_Price.currentText();
+		String str = ui.comboBox_Price.currentText();
 
 		// get price texts from database and related prices
 
-		// if (str.equals("reduced"))
-		// {
-		// ui.lineEdit_Price.setText("30");
-		// }
-		//
-		// else if (str.equals("normal"))
-		// {
-		// ui.lineEdit_Price.setText("40");
-		// }
+		updatePrice(str);
+//		 if (str.equals("reduced"))
+//		 {
+//			 ui.lineEdit_Price.setText("30");
+//		 }
+//		
+//		 else if (str.equals("normal"))
+//		 {
+//			 ui.lineEdit_Price.setText("40");
+//		 }
 	}
 
 	public void on_generateHTMLButton_clicked() {
@@ -253,6 +255,15 @@ public class MainDialogImpl extends QDialog {
 		ui.dateEdit_Start.setMinimumDate(min);
 		ui.dateEdit_End.setMinimumDate(min);
 		DBConnection.connectToDB();
+		
+		ui.comboBox_Ort.addItems(WorkshopController.loadAllPlaces());
+		ArrayList<String> priceCategories = new ArrayList<String>();
+		priceCategories.add("normal");
+		priceCategories.add("reduced");
+		ui.comboBox_Price.addItems(priceCategories);
+		String str = ui.comboBox_Price.currentText();
+		updatePrice(str);
+//		ui.lineEdit_Price.setText("0");
 	}
 
 	public void literature2MainDialog(String lit) {
@@ -343,5 +354,17 @@ public class MainDialogImpl extends QDialog {
 	
 	public void setDuration(int hours){
 		ui.lineEdit_Duration.setText(Integer.toString(hours));
+	}
+
+	public void updatePrice(String category){
+		if (category.equals("reduced"))
+		 {
+			 ui.lineEdit_Price.setText("30");
+		 }
+		
+		 else if (category.equals("normal"))
+		 {
+			 ui.lineEdit_Price.setText("40");
+		 }
 	}
 }

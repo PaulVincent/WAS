@@ -40,7 +40,7 @@ public class TimeIntervalDialogImpl extends QDialog {
     public void on_saveTimeIntervalButton_clicked()
     {    
     	String timeStr = getTimeFromTID();
-		WorkshopController.newTimeIntervall(timeStr, sImpl.mDImpl.workShopID);
+		WorkshopController.newTimeIntervall(timeStr);
 			
 		sImpl.ui.treeWidget.clear();
 		sImpl.init();

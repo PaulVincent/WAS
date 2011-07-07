@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'WorkshopDialog.jui'
 **
-** Created: Mi 29. Jun 23:57:11 2011
+** Created: Do 7. Jul 19:24:55 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -432,10 +432,6 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         label_Hours.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "hours", null));
         deleteCourseButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Delete Course", null));
         label_Place.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Place", null));
-        comboBox_Ort.clear();
-        comboBox_Ort.addItem(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Jordan-H\u00f6rsaal", null));
-        comboBox_Ort.addItem(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Sky-H\u00f6rsaal", null));
-        comboBox_Ort.addItem(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Haid-H\u00f6rsaal", null));
         addPlaceButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "add", null));
         loadCourseButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Load...", null));
         label_Price.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Category", null));

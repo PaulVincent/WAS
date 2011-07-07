@@ -46,6 +46,8 @@ public class PaticipantInfoImpl extends QDialog {
 			pDImpl.partID = WorkshopController.newParticipant(participantStr, pDImpl.mDImpl.workShopID);
 			
 		} else {
+//			String participantStr = getParticipantFromPID();
+//			WorkshopController.updateParticipant(participantStr, pDImpl.mDImpl.workShopID);
 			pDImpl.mDImpl.NotImplYet();
 			System.out.println("Not implemented yet!");
 		}
@@ -142,21 +144,5 @@ public class PaticipantInfoImpl extends QDialog {
 		pDImpl.partID = -1;
 	}
 
-//	public QDate dateString2QDate(String dateString)
-//	{
-//		String year = dateString.split("-")[0];
-//		String month = dateString.split("-")[1];
-//		String day = dateString.split("-")[2];
-//		
-//		return new QDate(Integer.parseInt(year),
-//				Integer.parseInt(month), Integer.parseInt(day));
-//	}
-//
-//	public String qDate2dateString(QDate date)
-//	{
-//		return Integer.toString(date.year()) + "-"
-//		+ Integer.toString(date.month()) + "-"
-//		+ Integer.toString(date.day());
-//	}
 
 }

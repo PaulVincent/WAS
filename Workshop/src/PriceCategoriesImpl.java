@@ -1,12 +1,15 @@
 
+import java.util.ArrayList;
 
+import Controller.WorkshopController;
 
-
+import com.trolltech.qt.core.Qt.SortOrder;
 import com.trolltech.qt.gui.*;
 
 public class PriceCategoriesImpl extends QDialog {
 
     PriceCategories ui = new PriceCategories();
+    int priceCatID = -1;
     MainDialogImpl mDImpl = null;
 
     public static void main(String[] args) {
@@ -44,5 +47,30 @@ public class PriceCategoriesImpl extends QDialog {
     	ui.treeWidget.setCurrentItem(null);
     	NewPriceCategoryImpl nPCImpl = new NewPriceCategoryImpl(this);
     	nPCImpl.show();
+    }
+    
+//    public void on_treeWidget_itemDoubleClicked()
+//    {
+//    	QTreeWidgetItem item = ui.treeWidget.currentItem();
+//		String ID = (String) item.data(0, 0);
+//		priceCatID = Integer.parseInt(ID);
+//
+//		ArrayList<String> participantData = WorkshopController
+//				.loadParticipant(partID);
+//
+//		PaticipantInfoImpl testParticipantsInfoImpl = new PaticipantInfoImpl(
+//				this);
+//		testParticipantsInfoImpl.part2PID(participantData);
+//		testParticipantsInfoImpl.show();
+//    	
+//    	NewPriceCategoryImpl nPCImpl = new NewPriceCategoryImpl(this);
+//    	nPCImpl.show();
+//    }
+    
+    public void init(){
+    	ui.treeWidget.setCurrentItem(null);
+		ui.treeWidget.addTopLevelItems(WorkshopController.initPriceCategories(mDImpl.workShopID));
+		SortOrder order = SortOrder.AscendingOrder;
+		ui.treeWidget.sortByColumn(0, order);
     }
 }

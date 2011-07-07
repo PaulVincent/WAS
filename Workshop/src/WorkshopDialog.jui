@@ -412,21 +412,6 @@
      <property name="editable">
       <bool>false</bool>
      </property>
-     <item>
-      <property name="text">
-       <string>Jordan-Hörsaal</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Sky-Hörsaal</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Haid-Hörsaal</string>
-      </property>
-     </item>
     </widget>
    </item>
    <item row="5" column="3">
