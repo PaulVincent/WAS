@@ -46,10 +46,10 @@ public class PaticipantInfoImpl extends QDialog {
 			pDImpl.partID = WorkshopController.newParticipant(participantStr, pDImpl.mDImpl.workShopID);
 			
 		} else {
-//			String participantStr = getParticipantFromPID();
-//			WorkshopController.updateParticipant(participantStr, pDImpl.mDImpl.workShopID);
-			pDImpl.mDImpl.NotImplYet();
-			System.out.println("Not implemented yet!");
+			ArrayList<String> partData = getPartFromPID();
+			WorkshopController.updateParticipant(partData, pDImpl.mDImpl.workShopID, pDImpl.partID);
+//			pDImpl.mDImpl.NotImplYet();
+//			System.out.println("Not implemented yet!");
 		}
 
 		pDImpl.ui.treeWidget.clear();
@@ -105,6 +105,40 @@ public class PaticipantInfoImpl extends QDialog {
 		
 		return participantStr;
 	}
+	
+	public ArrayList<String> getPartFromPID() {
+		Calendar cal = Calendar.getInstance();
+		DateFormat dtf = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
+				DateFormat.MEDIUM, Locale.PRC);
+		String checkState = "";		
+		
+		if (ui.checkBox_Paid.checkState().toString() == "Checked"){
+			checkState = "Ja";
+		}
+		else{
+			checkState = "Nein";
+		}
+		
+		String dateString = WorkshopController.qDate2dateString(ui.dateEdit.date());
+		
+		ArrayList<String> partData = new ArrayList<String>();
+		
+		partData.add(ui.lineEdit_FirstName.text());
+		partData.add(ui.lineEdit_SurName.text());
+		partData.add(ui.lineEdit_Street.text());	
+		partData.add(ui.lineEdit_HouseNr.text());
+		partData.add(ui.lineEdit_Place.text());
+		partData.add(ui.lineEdit_ZIPCode.text());
+		partData.add(ui.lineEdit_PhoneNumber.text());
+		partData.add(ui.lineEdit_eMail.text());
+		partData.add(ui.comboBox_PriceCategory.currentText());
+		partData.add(ui.lineEdit_Price.text());
+		partData.add(dateString);
+		partData.add(checkState);
+		partData.add(dtf.format(cal.getTime()));
+		
+		return partData;
+	}
 
 	public void part2PID(ArrayList<String> participantData)
 	{
@@ -143,6 +177,4 @@ public class PaticipantInfoImpl extends QDialog {
 		this.close();
 		pDImpl.partID = -1;
 	}
-
-
 }

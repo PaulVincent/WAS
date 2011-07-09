@@ -330,28 +330,37 @@ public class WorkshopController {
 					+ dataList.get(1) + "'," + "W_DESCRIPTION='"
 					+ dataList.get(2) + "'," + "W_DATE_START ='"
 					+ dataList.get(3) + "'," + "W_DATE_END ='"
-					+ dataList.get(4) + "'" + "WHERE W_ID = " + "'"
-					+ Integer.toString(id) + "'");
+					+ dataList.get(4) + "'" + "WHERE W_ID = "
+					+ Integer.toString(id));
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-//	public static void updateParticipant(String participantStr, int workShopID){
-//		try {
-//			DBConnection.statement.executeUpdate("UPDATE workshop_table "
-//					+ "SET W_TITLE='" + dataList.get(0) + "'," + "W_LECTURER='"
-//					+ dataList.get(1) + "'," + "W_DESCRIPTION='"
-//					+ dataList.get(2) + "'," + "W_DATE_START ='"
-//					+ dataList.get(3) + "'," + "W_DATE_END ='"
-//					+ dataList.get(4) + "'" + "WHERE W_ID = " + "'"
-//					+ Integer.toString(id) + "'");
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
+	public static void updateParticipant(ArrayList<String> partData, int workShopID, int partID){
+		try {
+			DBConnection.statement.executeUpdate("UPDATE workshop.participants_table "
+					+ "SET P_FIRSTNAME='" + partData.get(0) + "',"
+					+ "P_LASTNAME='"+ partData.get(1) + "',"
+					+ "P_STREETNAME='" + partData.get(2) + "'," 
+					+ "P_HOUSE ='" + partData.get(3) + "'," 
+					+ "P_PLACE ='" + partData.get(4) + "'," 
+					+ "P_ZIPCODE ='" + partData.get(5) + "'," 
+					+ "P_PHONE ='" + partData.get(6) + "'," 
+					+ "P_EMAIL ='" + partData.get(7) + "'," 
+					+ "P_CATEGORY ='" + partData.get(8) + "'," 
+					+ "P_PRICE ='" + partData.get(9) + "'," 
+					+ "P_REGISTRATION ='" + partData.get(10) + "'," 
+					+ "P_PAID ='" + partData.get(11) + "',"
+					+ "P_DATE ='" + partData.get(12) + "'"  
+					+ "WHERE W_ID = " + Integer.toString(workShopID) 
+					+ " AND P_ID = " + Integer.toString(partID));
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static String newLiterature(String lit, int id) {
 		String newLits = editLiterature(id, lit, "add");
