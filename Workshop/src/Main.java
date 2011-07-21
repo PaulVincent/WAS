@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 import com.trolltech.qt.core.QDate;
+import com.trolltech.qt.core.QTime;
 import com.trolltech.qt.gui.QApplication;
 import com.trolltech.qt.gui.QPlastiqueStyle;
 import com.trolltech.qt.gui.QWindowsStyle;
@@ -23,6 +24,7 @@ public class Main
 		mainDialog.show();
 		
 		QApplication.exec();
+		
 		
 	}
 

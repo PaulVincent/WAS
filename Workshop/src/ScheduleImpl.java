@@ -69,8 +69,18 @@ public class ScheduleImpl extends QDialog {
     
     public void on_treeWidget_itemDoubleClicked()
     {
-//    	setze timeIntervalID auf ID des geklickten timeintervals
+    	timeID = 0;
+    	QTreeWidgetItem item = ui.treeWidget.currentItem();
+    	ArrayList<String> timeIntervall = new ArrayList<String>();
+		timeIntervall.add((String) item.data(0, 0));
+		timeIntervall.add((String) item.data(1, 0) + "-" + (String) item.data(2, 0));
+		
+		ArrayList<String> timeIntervallData = WorkshopController
+				.loadTimeIntervall(mDImpl.workShopID, timeIntervall);
+
+		//    	setze timeIntervalID auf ID des geklickten timeintervals
     	TimeIntervalDialogImpl tIDImpl = new TimeIntervalDialogImpl(this);
+    	tIDImpl.timeInt2TID(timeIntervallData);
     	tIDImpl.show();
     	
 //    	get id of current time interval and load data from database

@@ -287,7 +287,7 @@ public class MainDialogImpl extends QDialog {
 
 		// mDImpl.ui.comboBox_Price.setItemText(index, text)
 		// W_CATEGORY_text.setText(resultSet.getString("W_CATEGORY"));
-		ui.lineEdit_Duration.setText(wsData.get(3));
+//		ui.lineEdit_Duration.setText(wsData.get(3));
 		ui.lineEdit_Price.setText(wsData.get(4));
 		ui.textEdit_Description.setText(wsData.get(5));
 		literature2MainDialog(wsData.get(6));
@@ -299,7 +299,7 @@ public class MainDialogImpl extends QDialog {
 		String endDate = wsData.get(8);
 		ui.dateEdit_End.setDate(WorkshopController.dateString2QDate(endDate));
 		ui.lineEdit_Part.setText(wsData.get(9));
-		ui.lineEdit_Duration.setText(wsData.get(10));
+//		ui.lineEdit_Duration.setText(wsData.get(10));
 		// mDImpl.ui.listWidget_Literature.addItem(res
 		// .getString("W_LITERATURE"));
 		// mDImpl.ui.lineEdit_dateEnd.setText(arg__1);

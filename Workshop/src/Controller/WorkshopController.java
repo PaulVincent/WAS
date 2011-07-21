@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.trolltech.qt.core.QDate;
+import com.trolltech.qt.core.QTime;
 import com.trolltech.qt.gui.QTreeWidgetItem;
 
 public class WorkshopController {
@@ -154,13 +155,15 @@ public class WorkshopController {
 		return id;
 	}
 
-	public static void newTimeIntervall(String timeStr) {
+	public static void newTimeIntervall(ArrayList<String> timeIntervallData) {
 		// int timeID = 0;
 		// String newTimeStr = "";
 		try {
 			int i = DBConnection.statement
 					.executeUpdate("INSERT INTO Time_Schedule_table VALUES('"
-							+ timeStr + "')");
+							+ timeIntervallData.get(0) + "', '"
+							+ timeIntervallData.get(1) + "', '"
+							+ timeIntervallData.get(2) + "')");
 			System.out.println("Inserted " + i + " rows successfully");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -169,13 +172,13 @@ public class WorkshopController {
 		// return timeID;
 	}
 
-	public static void newPriceCategory(String priceCategoryStr) {
+	public static void newPriceCategory(ArrayList<String> priceCategoryData) {
 		// int timeID = 0;
 		// String newTimeStr = "";
 		try {
 			int i = DBConnection.statement
 					.executeUpdate("INSERT INTO PriceCategory_table VALUES('"
-							+ priceCategoryStr + "')");
+							+ priceCategoryData + "')");
 			System.out.println("Inserted " + i + " rows successfully");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -189,7 +192,7 @@ public class WorkshopController {
 		ArrayList<String> workshopData = new ArrayList<String>();
 		String idStr = Integer.toString(id);
 		int count = getParticipantCount(Integer.parseInt(idStr));
-		int hours = getDuration(id);
+//		int hours = getDuration(id);
 //		String place = getPlace(id);
 		try {
 			ResultSet res = DBConnection.statement
@@ -212,7 +215,7 @@ public class WorkshopController {
 				workshopData.add(res.getString("W_DATE_START"));
 				workshopData.add(res.getString("W_DATE_END"));
 				workshopData.add(Integer.toString(count));
-				workshopData.add(Integer.toString(hours));
+//				workshopData.add(Integer.toString(hours));
 				
 				// // mDImpl.ui.listWidget_Literature.addItem(res
 				// // .getString("W_LITERATURE"));
@@ -278,6 +281,31 @@ public class WorkshopController {
 			// displaySQLErrors(selectException);
 		}
 		return places;
+	}
+	
+	public static ArrayList<String> loadTimeIntervall(int id, ArrayList<String> timeIntervall){
+		ArrayList<String> timeIntervallData = new ArrayList<String>();
+		String idStr = Integer.toString(id);
+		try {
+			ResultSet res = DBConnection.statement
+					.executeQuery("SELECT * FROM Time_Schedule_table WHERE W_ID = "
+							+ idStr + " AND W_DATE = '" + timeIntervall.get(0)
+							+ "' AND W_SCHEDULE = '" + timeIntervall.get(1) + "'");
+			while (res.next()) {
+				timeIntervallData.add(res.getString("W_Date"));
+				String timeString = res.getString("W_SCHEDULE");
+				String start = timeString.split("-")[0];
+				String end = timeString.split("-")[1];
+				timeIntervallData.add(start);
+				timeIntervallData.add(end);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return timeIntervallData;
+		// mDImpl.setToEditingWorkShop(id);
 	}
 	
 	public static void deleteWorkShop(int id) {
@@ -362,7 +390,21 @@ public class WorkshopController {
 		}
 	}
 	
-	public static String newLiterature(String lit, int id) {
+/*	public static void updateTimeIntervall(ArrayList<String> timeIntervallData) {
+//		try {
+//			DBConnection.statement.executeUpdate("UPDATE Time_Schedule_table "
+//					+ "SET W_ID='" + timeIntervallData.get(0) + "',"
+//					+ "W_DATE='"+ timeIntervallData.get(1) + "',"
+//					+ "W_SCHEDULE='" + timeIntervallData.get(2) + "'," 
+//					+ "WHERE W_ID = " + Integer.toString(workShopID) 
+//					+ " AND P_ID = " + Integer.toString(partID));
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+	}*/
+	
+ 	public static String newLiterature(String lit, int id) {
 		String newLits = editLiterature(id, lit, "add");
 		return newLits;
 
@@ -463,5 +505,17 @@ public class WorkshopController {
 		return Integer.toString(date.year()) + "-"
 				+ Integer.toString(date.month()) + "-"
 				+ Integer.toString(date.day());
+	}
+	
+	public static String qDate2timeString(QTime time){
+		return Integer.toString(time.hour()) + ":"
+		+ Integer.toString(time.minute());
+	}
+	
+	public static QTime timeString2QTime(String timeString){		
+		String hours = timeString.split(":")[0];
+		String minutes = timeString.split(":")[1];
+		
+		return new QTime(Integer.parseInt(hours), Integer.parseInt(minutes));
 	}
 }

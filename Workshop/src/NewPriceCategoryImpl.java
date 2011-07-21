@@ -1,6 +1,5 @@
 
-
-
+import java.util.ArrayList;
 
 import Controller.WorkshopController;
 
@@ -35,21 +34,26 @@ public class NewPriceCategoryImpl extends QDialog {
     }
     
     public void on_saveButton_clicked(){
-    	String timeStr = getPriceCatFromNPCD();
-    	WorkshopController.newTimeIntervall(timeStr);
-    		
-    	pCImpl.ui.treeWidget.clear();
-    	pCImpl.init();    	
+    	pCImpl.mDImpl.NotImplYet();
+//    	ArrayList<String> priceCategoryData = getPriceCatFromNPCD();
+//    	WorkshopController.newPriceCategory(priceCategoryData);
+//    		
+//    	pCImpl.ui.treeWidget.clear();
+//    	pCImpl.init();    	
     }
     
-    public String getPriceCatFromNPCD(){
+    public ArrayList<String> getPriceCatFromNPCD(){
+    	ArrayList<String> priceCategoryData = new ArrayList<String>();
     	
-		String priceCategory = Integer.toString(pCImpl.mDImpl.workShopID) + "', '"
-		+ ui.lineEdit_Category.text() + "', '"
-		+ ui.lineEdit_Price.text();
+    	priceCategoryData.add(Integer.toString(pCImpl.mDImpl.workShopID));
+    	priceCategoryData.add(ui.lineEdit_Category.text());
+    	priceCategoryData.add(ui.lineEdit_Price.text());
+    	
+//		String priceCategory = Integer.toString(pCImpl.mDImpl.workShopID) + "', '"
+//		+ ui.lineEdit_Category.text() + "', '"
+//		+ ui.lineEdit_Price.text();
 		
-		return priceCategory;
+		return priceCategoryData;
     }
-    
-    
+        
 }
