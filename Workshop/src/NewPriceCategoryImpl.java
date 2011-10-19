@@ -42,6 +42,10 @@ public class NewPriceCategoryImpl extends QDialog {
 //    	pCImpl.init();    	
     }
     
+    public void on_cancelButton_clicked(){
+    	this.close();
+    }
+    
     public ArrayList<String> getPriceCatFromNPCD(){
     	ArrayList<String> priceCategoryData = new ArrayList<String>();
     	

@@ -48,14 +48,13 @@ public class PaticipantInfoImpl extends QDialog {
 		} else {
 			ArrayList<String> partData = getPartFromPID();
 			WorkshopController.updateParticipant(partData, pDImpl.mDImpl.workShopID, pDImpl.partID);
-//			pDImpl.mDImpl.NotImplYet();
-//			System.out.println("Not implemented yet!");
 		}
 
 		pDImpl.ui.treeWidget.clear();
 		pDImpl.init();
 		int numOfParticipants = WorkshopController.getParticipantCount(pDImpl.mDImpl.workShopID);
 		pDImpl.mDImpl.setNumOfParts(numOfParticipants);
+		this.close();
 	}
 
 	public void on_clearPartButton_clicked() {
@@ -166,11 +165,11 @@ public class PaticipantInfoImpl extends QDialog {
 		}		
 	}
 
-	public void on_OKButton_clicked()
-	{
-		this.close();
-		pDImpl.partID = -1;
-	}
+//	public void on_OKButton_clicked()
+//	{
+//		this.close();
+//		pDImpl.partID = -1;
+//	}
 	
 	public void on_CancelButton_clicked()
 	{

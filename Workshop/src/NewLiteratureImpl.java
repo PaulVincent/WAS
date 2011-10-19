@@ -49,5 +49,9 @@ public class NewLiteratureImpl extends QDialog {
 		}
 
 	}
+	
+	public void on_cancelButton_clicked() {
+		this.close();
+	}
 
 }

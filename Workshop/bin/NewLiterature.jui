@@ -116,25 +116,22 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0" colspan="2">
-    <widget class="QDialogButtonBox" name="buttonBox">
+   <item row="3" column="1">
+    <widget class="QPushButton" name="cancelButton">
      <property name="minimumSize">
       <size>
-       <width>155</width>
-       <height>25</height>
+       <width>81</width>
+       <height>0</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>155</width>
-       <height>25</height>
+       <width>81</width>
+       <height>16777215</height>
       </size>
      </property>
-     <property name="focusPolicy">
-      <enum>com.trolltech.qt.core.Qt.FocusPolicy.TabFocus</enum>
-     </property>
-     <property name="standardButtons">
-      <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel|com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
+     <property name="text">
+      <string>Cancel</string>
      </property>
     </widget>
    </item>
@@ -160,22 +157,5 @@
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>clicked&lt;com.trolltech.qt.gui.QAbstractButton&gt;</signal>
-   <receiver>NewLiterature</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>107</x>
-     <y>97</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>154</x>
-     <y>59</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'TimeIntervalDialog.jui'
 **
-** Created: Sa 2. Jul 17:11:28 2011
+** Created: Mo 17. Okt 17:45:43 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -12,7 +12,6 @@ import com.trolltech.qt.gui.*;
 
 public class TimeIntervalDialog implements com.trolltech.qt.QUiForm<QDialog>
 {
-    public QDialogButtonBox buttonBox_OK_Cancel;
     public QDateEdit dateEdit;
     public QTimeEdit timeEdit_Start;
     public QTimeEdit timeEdit_End;
@@ -20,6 +19,7 @@ public class TimeIntervalDialog implements com.trolltech.qt.QUiForm<QDialog>
     public QLabel label_Date;
     public QLabel label_StartTime;
     public QLabel label_EndTime;
+    public QPushButton cancelButton;
 
     public TimeIntervalDialog() { super(); }
 
@@ -29,11 +29,6 @@ public class TimeIntervalDialog implements com.trolltech.qt.QUiForm<QDialog>
         TimeIntervalDialog.resize(new QSize(225, 76).expandedTo(TimeIntervalDialog.minimumSizeHint()));
         TimeIntervalDialog.setWindowIcon(new QIcon(new QPixmap("logo_gik.png")));
         TimeIntervalDialog.setModal(true);
-        buttonBox_OK_Cancel = new QDialogButtonBox(TimeIntervalDialog);
-        buttonBox_OK_Cancel.setObjectName("buttonBox_OK_Cancel");
-        buttonBox_OK_Cancel.setGeometry(new QRect(10, 50, 126, 20));
-        buttonBox_OK_Cancel.setFocusPolicy(com.trolltech.qt.core.Qt.FocusPolicy.TabFocus);
-        buttonBox_OK_Cancel.setStandardButtons(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.createQFlags(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel,com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok));
         dateEdit = new QDateEdit(TimeIntervalDialog);
         dateEdit.setObjectName("dateEdit");
         dateEdit.setGeometry(new QRect(5, 20, 81, 20));
@@ -61,8 +56,10 @@ public class TimeIntervalDialog implements com.trolltech.qt.QUiForm<QDialog>
         label_EndTime = new QLabel(TimeIntervalDialog);
         label_EndTime.setObjectName("label_EndTime");
         label_EndTime.setGeometry(new QRect(160, 0, 21, 20));
+        cancelButton = new QPushButton(TimeIntervalDialog);
+        cancelButton.setObjectName("cancelButton");
+        cancelButton.setGeometry(new QRect(5, 50, 72, 20));
         retranslateUi(TimeIntervalDialog);
-        buttonBox_OK_Cancel.clicked.connect(TimeIntervalDialog, "close()");
 
         TimeIntervalDialog.connectSlotsByName();
     } // setupUi
@@ -76,6 +73,7 @@ public class TimeIntervalDialog implements com.trolltech.qt.QUiForm<QDialog>
         label_Date.setText(com.trolltech.qt.core.QCoreApplication.translate("TimeIntervalDialog", "Date", null));
         label_StartTime.setText(com.trolltech.qt.core.QCoreApplication.translate("TimeIntervalDialog", "Start", null));
         label_EndTime.setText(com.trolltech.qt.core.QCoreApplication.translate("TimeIntervalDialog", "End", null));
+        cancelButton.setText(com.trolltech.qt.core.QCoreApplication.translate("TimeIntervalDialog", "Cancel", null));
     } // retranslateUi
 
 }

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'PaticipantInfo.jui'
 **
-** Created: Mi 29. Jun 22:25:10 2011
+** Created: Mo 17. Okt 17:25:50 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -37,7 +37,6 @@ public class PaticipantInfo implements com.trolltech.qt.QUiForm<QDialog>
     public QDateEdit dateEdit;
     public QLabel label_Paid;
     public QCheckBox checkBox_Paid;
-    public QPushButton OKButton;
     public QPushButton CancelButton;
     public QPushButton savePartButton;
     public QPushButton clearPartButton;
@@ -210,13 +209,6 @@ public class PaticipantInfo implements com.trolltech.qt.QUiForm<QDialog>
 
         gridLayout.addWidget(checkBox_Paid, 5, 3, 1, 1);
 
-        OKButton = new QPushButton(PaticipantInfo);
-        OKButton.setObjectName("OKButton");
-        OKButton.setMinimumSize(new QSize(81, 25));
-        OKButton.setMaximumSize(new QSize(81, 25));
-
-        gridLayout.addWidget(OKButton, 6, 0, 1, 1);
-
         CancelButton = new QPushButton(PaticipantInfo);
         CancelButton.setObjectName("CancelButton");
         CancelButton.setMinimumSize(new QSize(81, 25));
@@ -239,7 +231,6 @@ public class PaticipantInfo implements com.trolltech.qt.QUiForm<QDialog>
         gridLayout.addWidget(clearPartButton, 6, 3, 1, 1);
 
         retranslateUi(PaticipantInfo);
-        savePartButton.clicked.connect(PaticipantInfo, "close()");
 
         PaticipantInfo.connectSlotsByName();
     } // setupUi
@@ -264,7 +255,6 @@ public class PaticipantInfo implements com.trolltech.qt.QUiForm<QDialog>
         label_Registration.setText(com.trolltech.qt.core.QCoreApplication.translate("PaticipantInfo", "Registration", null));
         label_Paid.setText(com.trolltech.qt.core.QCoreApplication.translate("PaticipantInfo", "Paid", null));
         checkBox_Paid.setText("");
-        OKButton.setText(com.trolltech.qt.core.QCoreApplication.translate("PaticipantInfo", "OK", null));
         CancelButton.setText(com.trolltech.qt.core.QCoreApplication.translate("PaticipantInfo", "Cancel", null));
         savePartButton.setText(com.trolltech.qt.core.QCoreApplication.translate("PaticipantInfo", "save", null));
         clearPartButton.setText(com.trolltech.qt.core.QCoreApplication.translate("PaticipantInfo", "clear", null));

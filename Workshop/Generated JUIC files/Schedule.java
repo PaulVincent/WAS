@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'Schedule.jui'
 **
-** Created: Sa 2. Jul 16:40:08 2011
+** Created: Mo 17. Okt 17:38:16 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -43,6 +43,7 @@ public class Schedule implements com.trolltech.qt.QUiForm<QDialog>
         treeWidget.setSelectionMode(com.trolltech.qt.gui.QAbstractItemView.SelectionMode.SingleSelection);
         treeWidget.setIndentation(10);
         treeWidget.setItemsExpandable(false);
+        treeWidget.setSortingEnabled(false);
         addTimeIntervalButton = new QPushButton(Schedule);
         addTimeIntervalButton.setObjectName("addTimeIntervalButton");
         addTimeIntervalButton.setGeometry(new QRect(270, 220, 101, 25));

@@ -50,6 +50,12 @@ public class TimeIntervalDialogImpl extends QDialog {
 		
 		int hours = WorkshopController.getDuration(sImpl.mDImpl.workShopID);
 		sImpl.mDImpl.setDuration(hours);
+		this.close();
+    }
+    
+    public void on_cancelButton_clicked()
+    {
+    	this.close();
     }
 
 	public ArrayList<String> getTimeFromTID()

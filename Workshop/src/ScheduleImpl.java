@@ -101,6 +101,6 @@ public class ScheduleImpl extends QDialog {
     	ui.treeWidget.setCurrentItem(null);
     	ui.treeWidget.addTopLevelItems(WorkshopController.initSchedule(mDImpl.workShopID));
     	SortOrder order = SortOrder.AscendingOrder;
-		ui.treeWidget.sortByColumn(0, order);
+		ui.treeWidget.sortItems(0, order);
     }
 }

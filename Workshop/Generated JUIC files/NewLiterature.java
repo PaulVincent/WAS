@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'NewLiterature.jui'
 **
-** Created: Di 28. Jun 22:09:06 2011
+** Created: Mo 17. Okt 17:51:15 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -19,7 +19,7 @@ public class NewLiterature implements com.trolltech.qt.QUiForm<QDialog>
     public QLineEdit lineEdit_Author;
     public QLabel label_Year;
     public QLineEdit lineEdit_Year;
-    public QDialogButtonBox buttonBox;
+    public QPushButton cancelButton;
     public QPushButton saveLiteratureButton;
 
     public NewLiterature() { super(); }
@@ -72,14 +72,12 @@ public class NewLiterature implements com.trolltech.qt.QUiForm<QDialog>
 
         gridLayout.addWidget(lineEdit_Year, 2, 1, 1, 1);
 
-        buttonBox = new QDialogButtonBox(NewLiterature);
-        buttonBox.setObjectName("buttonBox");
-        buttonBox.setMinimumSize(new QSize(155, 25));
-        buttonBox.setMaximumSize(new QSize(155, 25));
-        buttonBox.setFocusPolicy(com.trolltech.qt.core.Qt.FocusPolicy.TabFocus);
-        buttonBox.setStandardButtons(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.createQFlags(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel,com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok));
+        cancelButton = new QPushButton(NewLiterature);
+        cancelButton.setObjectName("cancelButton");
+        cancelButton.setMinimumSize(new QSize(81, 0));
+        cancelButton.setMaximumSize(new QSize(81, 16777215));
 
-        gridLayout.addWidget(buttonBox, 3, 0, 1, 2);
+        gridLayout.addWidget(cancelButton, 3, 1, 1, 1);
 
         saveLiteratureButton = new QPushButton(NewLiterature);
         saveLiteratureButton.setObjectName("saveLiteratureButton");
@@ -89,7 +87,6 @@ public class NewLiterature implements com.trolltech.qt.QUiForm<QDialog>
         gridLayout.addWidget(saveLiteratureButton, 3, 2, 1, 1);
 
         retranslateUi(NewLiterature);
-        buttonBox.clicked.connect(NewLiterature, "close()");
 
         NewLiterature.connectSlotsByName();
     } // setupUi
@@ -100,6 +97,7 @@ public class NewLiterature implements com.trolltech.qt.QUiForm<QDialog>
         label_Title.setText(com.trolltech.qt.core.QCoreApplication.translate("NewLiterature", "Title", null));
         label_Author.setText(com.trolltech.qt.core.QCoreApplication.translate("NewLiterature", "Author", null));
         label_Year.setText(com.trolltech.qt.core.QCoreApplication.translate("NewLiterature", "Year", null));
+        cancelButton.setText(com.trolltech.qt.core.QCoreApplication.translate("NewLiterature", "Cancel", null));
         saveLiteratureButton.setText(com.trolltech.qt.core.QCoreApplication.translate("NewLiterature", "save", null));
     } // retranslateUi
 

@@ -5,6 +5,7 @@ package Controller;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.trolltech.qt.core.QDate;
 import com.trolltech.qt.core.QTime;
@@ -14,6 +15,21 @@ public class WorkshopController {
 
 	public static ArrayList<QTreeWidgetItem> initWorkShops() {
 
+		ArrayList<Integer> allIDs = new ArrayList<Integer>();
+		try {
+			ResultSet res = DBConnection.statement.executeQuery("Select W_ID from workshop_table");
+			while (res.next()) {
+				allIDs.add(Integer.parseInt(res.getString("W_ID")));
+			}			
+		} catch (SQLException selectException) {
+			// displaySQLErrors(selectException);
+		}
+		
+		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+		for (int ID : allIDs) {
+			hm.put(ID, getParticipantCount(ID));
+		}
+							
 		ArrayList<QTreeWidgetItem> items = new ArrayList<QTreeWidgetItem>();
 
 		try {
@@ -22,14 +38,12 @@ public class WorkshopController {
 
 			while (res.next()) {
 				QTreeWidgetItem item = new QTreeWidgetItem();
+				int count = hm.get(Integer.parseInt(res.getString("W_ID")));
 				item.setData(0, 0, res.getString("W_ID"));
 				item.setData(1, 0, res.getString("W_TITLE"));
 				item.setData(2, 0, res.getString("W_LECTURER"));
-				// item.setData(3, 0,
-				// // res.getString("W_DATE").toString().split("\\.")[0]);
-				// String dateString = res.getString("W_DATE_START");
 				item.setData(3, 0, res.getString("W_DATE_START"));
-				item.setData(4, 0, res.getString("W_PARTICIPANT"));
+				item.setData(4, 0, count);
 				items.add(item);
 			}
 		} catch (SQLException selectException) {
@@ -191,8 +205,8 @@ public class WorkshopController {
 		// TODO Auto-generated method stub
 		ArrayList<String> workshopData = new ArrayList<String>();
 		String idStr = Integer.toString(id);
-		int count = getParticipantCount(Integer.parseInt(idStr));
-//		int hours = getDuration(id);
+		int count = getParticipantCount(id);
+		int hours = getDuration(id);
 //		String place = getPlace(id);
 		try {
 			ResultSet res = DBConnection.statement
@@ -202,7 +216,8 @@ public class WorkshopController {
 				workshopData.add(res.getString("W_TITLE"));
 				// mDImpl.ui.lineEdit_Titel.setText(res.getString("W_TITLE"));
 				workshopData.add(res.getString("W_LECTURER"));
-				workshopData.add(res.getString("W_PARTICIPANT"));
+//				workshopData.add(res.getString("W_PARTICIPANT"));
+//				System.out.println(res.getString("W_PARTICIPANT"));
 				// // mDImpl.ui.comboBox_Ort.setCurrentIndex(index)
 				//
 				// // mDImpl.ui.comboBox_Price.setItemText(index, text)
@@ -215,7 +230,7 @@ public class WorkshopController {
 				workshopData.add(res.getString("W_DATE_START"));
 				workshopData.add(res.getString("W_DATE_END"));
 				workshopData.add(Integer.toString(count));
-//				workshopData.add(Integer.toString(hours));
+				workshopData.add(Integer.toString(hours));
 				
 				// // mDImpl.ui.listWidget_Literature.addItem(res
 				// // .getString("W_LITERATURE"));

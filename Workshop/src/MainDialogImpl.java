@@ -26,7 +26,6 @@ import com.trolltech.qt.gui.QWidget;
 
 public class MainDialogImpl extends QDialog {
 
-	//TEST!!!
 	MainDialog ui = new MainDialog();
 	int workShopID = -1;
 
@@ -178,8 +177,12 @@ public class MainDialogImpl extends QDialog {
 			literature2MainDialog(literature);
 		}
 	}
+	
+	public void on_cancelButton_clicked() {
+		this.close();
+	}
 
-	public void on_listWidget_itemDoubleClicked() {
+	public void on_listWidget_Literature_itemDoubleClicked() {
 		NewLiteratureImpl nLImpl = new NewLiteratureImpl(this);
 		nLImpl.show();
 	}
@@ -258,12 +261,12 @@ public class MainDialogImpl extends QDialog {
 		DBConnection.connectToDB();
 		
 		ui.comboBox_Ort.addItems(WorkshopController.loadAllPlaces());
-		ArrayList<String> priceCategories = new ArrayList<String>();
-		priceCategories.add("normal");
-		priceCategories.add("reduced");
-		ui.comboBox_Price.addItems(priceCategories);
-		String str = ui.comboBox_Price.currentText();
-		updatePrice(str);
+//		ArrayList<String> priceCategories = new ArrayList<String>();
+//		priceCategories.add("normal");
+//		priceCategories.add("reduced");
+//		ui.comboBox_Price.addItems(priceCategories);
+//		String str = ui.comboBox_Price.currentText();
+//		updatePrice(str);
 //		ui.lineEdit_Price.setText("0");
 	}
 
@@ -283,23 +286,25 @@ public class MainDialogImpl extends QDialog {
 	public void workShop2MainDialog(ArrayList<String> wsData) {
 		ui.lineEdit_Titel.setText(wsData.get(0));
 		ui.lineEdit_Prof.setText(wsData.get(1));
-		ui.lineEdit_Part.setText(wsData.get(2));
+//		ui.lineEdit_Part.setText(wsData.get(2));
 		// mDImpl.ui.comboBox_Ort.setCurrentIndex(index)
 
 		// mDImpl.ui.comboBox_Price.setItemText(index, text)
 		// W_CATEGORY_text.setText(resultSet.getString("W_CATEGORY"));
-//		ui.lineEdit_Duration.setText(wsData.get(3));
-		ui.lineEdit_Price.setText(wsData.get(4));
-		ui.textEdit_Description.setText(wsData.get(5));
-		literature2MainDialog(wsData.get(6));
+//		ui.lineEdit_Duration.setText(wsData.get(2));
+		ui.lineEdit_Price.setText(wsData.get(3));
+		ui.textEdit_Description.setText(wsData.get(4));
+		literature2MainDialog(wsData.get(5));
 
-		String startDate = wsData.get(7);
+		String startDate = wsData.get(6);
 		ui.dateEdit_Start.setDate(WorkshopController
 				.dateString2QDate(startDate));
 
-		String endDate = wsData.get(8);
+		String endDate = wsData.get(7);
 		ui.dateEdit_End.setDate(WorkshopController.dateString2QDate(endDate));
-		ui.lineEdit_Part.setText(wsData.get(9));
+		ui.lineEdit_Part.setText(wsData.get(8));
+		ui.lineEdit_Duration.setText(wsData.get(9));
+		
 //		ui.lineEdit_Duration.setText(wsData.get(10));
 		// mDImpl.ui.listWidget_Literature.addItem(res
 		// .getString("W_LITERATURE"));

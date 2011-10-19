@@ -104,22 +104,6 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="9" rowspan="2">
-    <widget class="QDialogButtonBox" name="buttonBox_OK_Cancel">
-     <property name="minimumSize">
-      <size>
-       <width>101</width>
-       <height>55</height>
-      </size>
-     </property>
-     <property name="orientation">
-      <enum>com.trolltech.qt.core.Qt.Orientation.Vertical</enum>
-     </property>
-     <property name="standardButtons">
-      <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel|com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_Prof">
      <property name="minimumSize">
@@ -757,25 +741,15 @@ p, li { white-space: pre-wrap; }
      </property>
     </widget>
    </item>
+   <item row="1" column="9">
+    <widget class="QPushButton" name="cancelButton">
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox_OK_Cancel</sender>
-   <signal>clicked&lt;com.trolltech.qt.gui.QAbstractButton&gt;</signal>
-   <receiver>MainDialog</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>684</x>
-     <y>53</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>452</x>
-     <y>99</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

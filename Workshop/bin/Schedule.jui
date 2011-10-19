@@ -93,6 +93,9 @@
    <property name="itemsExpandable">
     <bool>false</bool>
    </property>
+   <property name="sortingEnabled">
+    <bool>false</bool>
+   </property>
    <column>
     <property name="text">
      <string>Date</string>

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'WorkshopDialog.jui'
 **
-** Created: Do 7. Jul 19:24:55 2011
+** Created: Mo 17. Okt 18:04:22 2011
 **      by: Qt User Interface Compiler version 4.5.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -16,7 +16,6 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
     public QLabel label_Title;
     public QLineEdit lineEdit_Titel;
     public QFrame line_Vertical;
-    public QDialogButtonBox buttonBox_OK_Cancel;
     public QLabel label_Prof;
     public QLineEdit lineEdit_Prof;
     public QLabel label_Participants;
@@ -53,6 +52,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
     public QPushButton addLiteratureButton;
     public QPushButton generateHTMLButton;
     public QPushButton deleteLiteratureButton;
+    public QPushButton cancelButton;
 
     public MainDialog() { super(); }
 
@@ -98,14 +98,6 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         line_Vertical.setFrameShadow(QFrame.Shadow.Sunken);
 
         gridLayout.addWidget(line_Vertical, 0, 8, 12, 1);
-
-        buttonBox_OK_Cancel = new QDialogButtonBox(MainDialog);
-        buttonBox_OK_Cancel.setObjectName("buttonBox_OK_Cancel");
-        buttonBox_OK_Cancel.setMinimumSize(new QSize(101, 55));
-        buttonBox_OK_Cancel.setOrientation(com.trolltech.qt.core.Qt.Orientation.Vertical);
-        buttonBox_OK_Cancel.setStandardButtons(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.createQFlags(com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel,com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok));
-
-        gridLayout.addWidget(buttonBox_OK_Cancel, 0, 9, 2, 1);
 
         label_Prof = new QLabel(MainDialog);
         label_Prof.setObjectName("label_Prof");
@@ -405,13 +397,17 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
 
         gridLayout.addWidget(deleteLiteratureButton, 11, 7, 1, 1);
 
+        cancelButton = new QPushButton(MainDialog);
+        cancelButton.setObjectName("cancelButton");
+
+        gridLayout.addWidget(cancelButton, 1, 9, 1, 1);
+
         label_Title.setBuddy(lineEdit_Titel);
         label_Prof.setBuddy(lineEdit_Prof);
         label_Place.setBuddy(comboBox_Ort);
         label_Price.setBuddy(comboBox_Price);
         label_Literature.setBuddy(listWidget_Literature);
         retranslateUi(MainDialog);
-        buttonBox_OK_Cancel.clicked.connect(MainDialog, "close()");
 
         MainDialog.connectSlotsByName();
     } // setupUi
@@ -451,6 +447,7 @@ public class MainDialog implements com.trolltech.qt.QUiForm<QDialog>
         addLiteratureButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "add", null));
         generateHTMLButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "To HTML", null));
         deleteLiteratureButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "delete", null));
+        cancelButton.setText(com.trolltech.qt.core.QCoreApplication.translate("MainDialog", "Cancel", null));
     } // retranslateUi
 
 }

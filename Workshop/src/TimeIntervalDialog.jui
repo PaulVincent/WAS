@@ -20,22 +20,6 @@
   <property name="modal">
    <bool>true</bool>
   </property>
-  <widget class="QDialogButtonBox" name="buttonBox_OK_Cancel">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>50</y>
-     <width>126</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="focusPolicy">
-    <enum>com.trolltech.qt.core.Qt.FocusPolicy.TabFocus</enum>
-   </property>
-   <property name="standardButtons">
-    <set>com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Cancel|com.trolltech.qt.gui.QDialogButtonBox.StandardButton.Ok</set>
-   </property>
-  </widget>
   <widget class="QDateEdit" name="dateEdit">
    <property name="geometry">
     <rect>
@@ -146,32 +130,20 @@
     <string>End</string>
    </property>
   </widget>
-  <zorder>dateEdit</zorder>
-  <zorder>buttonBox_OK_Cancel</zorder>
-  <zorder>timeEdit_Start</zorder>
-  <zorder>timeEdit_End</zorder>
-  <zorder>saveTimeIntervalButton</zorder>
-  <zorder>label_Date</zorder>
-  <zorder>label_StartTime</zorder>
-  <zorder>label_EndTime</zorder>
+  <widget class="QPushButton" name="cancelButton">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>50</y>
+     <width>72</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox_OK_Cancel</sender>
-   <signal>clicked&lt;com.trolltech.qt.gui.QAbstractButton&gt;</signal>
-   <receiver>TimeIntervalDialog</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>116</x>
-     <y>98</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>99</x>
-     <y>11</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
