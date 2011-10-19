@@ -26,6 +26,7 @@ import com.trolltech.qt.gui.QWidget;
 
 public class MainDialogImpl extends QDialog {
 
+	//TEST!!!
 	MainDialog ui = new MainDialog();
 	int workShopID = -1;
 
